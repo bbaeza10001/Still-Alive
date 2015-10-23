@@ -26,17 +26,25 @@ namespace spacey{
 			//Horizontal turn
 			if (m_window->isKeyPressed(GLFW_KEY_A)){
 				orientation = 1;
+				bY = 0;
+				bX = 0;
 			}
 			else if (m_window->isKeyPressed(GLFW_KEY_D)){
 				orientation = 2;
+				bY = 0;
+				bX = 0;
 			}
 
 			//Vertical Turn
 			if (m_window->isKeyPressed(GLFW_KEY_W)){
 				orientation = 3;
+				bX = 0;
+				bY = 0;
 			}
 			else if (m_window->isKeyPressed(GLFW_KEY_S)){
 				orientation = 4;
+				bX = 0;
+				bY = 0;
 			}
 		}
 

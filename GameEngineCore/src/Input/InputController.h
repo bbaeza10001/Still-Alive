@@ -8,7 +8,7 @@ namespace spacey{ namespace input{
 
 	class Input{
 	public:
-		void checkForInput(Window* window, Motion* motionObject);
+		void checkForInput(Window* window, Motion* motionController);
 	};
 
 } }

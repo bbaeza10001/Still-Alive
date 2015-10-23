@@ -8,26 +8,25 @@ namespace spacey{ namespace motion{
 
 	class Motion{
 	public:
+		//For Translations
+		float xacceleration = 0;
+		float yacceleration = 0;
+		
 		void dirRight();
 		void dirLeft();
 		void dirUp();
 		void dirDown();
 
-		void rotateLeft();
-		void rotateRight();
+		//For Rotations
+		void rotateLeft(int amount);
+		void rotateRight(int amount);
+		float angleIncriment = 0.1f;
 
+		//Movement Application
 		void applySpeed();
 		void applyRotation();
-		
-		//For Translations
-		float xacceleration = 0;
-		float yacceleration = 0;
-		
-		//For Rotations
-		float angleIncriment = 0.0f;
 
 	private:
-		
 		//For Translations
 		float xspeed = 0;
 		float yspeed = 0;

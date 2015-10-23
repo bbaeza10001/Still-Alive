@@ -1,67 +1,24 @@
-﻿Build started 10/22/2015 9:16:55 PM.
-     1>Project "C:\Users\Baeza\Documents\GitHub\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
+﻿Build started 10/23/2015 1:13:12 PM.
+     1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\graphics\LoadLevel.cpp src\graphics\Texture.cpp src\graphics\TextureManager.cpp src\graphics\Window.cpp src\Input\Button.cpp src\Input\InputController.cpp src\motion\MotionController.cpp src\motion\Orbits.cpp src\objects\Bullet.cpp src\objects\CircleObject.cpp src\objects\PlayerObject.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\objects\PlayerObject.cpp
          PlayerObject.cpp
-         CircleObject.cpp
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\objects\circleobject.cpp(31): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-         Bullet.cpp
-         Orbits.cpp
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(13): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(14): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(15): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(15): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(20): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(23): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(26): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(28): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(30): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\orbits.cpp(31): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-         MotionController.cpp
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\motioncontroller.cpp(7): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\motioncontroller.cpp(13): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\motioncontroller.cpp(18): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\motion\motioncontroller.cpp(23): warning C4305: '-=' : truncation from 'double' to 'float'
-         InputController.cpp
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\inputcontroller.cpp(18): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\inputcontroller.cpp(21): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\inputcontroller.cpp(37): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\inputcontroller.cpp(40): warning C4305: '+=' : truncation from 'double' to 'float'
-         Button.cpp
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\button.cpp(24): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\button.cpp(42): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\button.cpp(45): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\button.cpp(48): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\input\button.cpp(51): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-         Window.cpp
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\graphics\window.cpp(69): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-         TextureManager.cpp
-         Texture.cpp
-         LoadLevel.cpp
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\graphics\loadlevel.cpp(26): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Main.cpp
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\main.cpp(113): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
-         Generating Code...
-     1>c:\users\baeza\documents\github\still-alive\gameenginecore\src\graphics\window.cpp(72): warning C4715: 'spacey::graphics::Window::closed' : not all control paths return a value
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\LoadLevel.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\Texture.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\TextureManager.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\Window.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\Button.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\InputController.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\MotionController.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\Orbits.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
-         "C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
-         GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\GitHub\Still-Alive\$Bin\Debug\GameEngineCore.exe
-     1>Done Building Project "C:\Users\Baeza\Documents\GitHub\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\LoadLevel.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Texture.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\TextureManager.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Window.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Button.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\InputController.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\MotionController.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Orbits.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
+         GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe
+     1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:37.60
+Time Elapsed 00:00:04.09

@@ -5,10 +5,10 @@
 using namespace spacey;
 using namespace graphics;
 using namespace objects;
-using namespace motion;
-using namespace input;
 using namespace std;
 using namespace level;
+//using namespace motion;
+using namespace input;
 
 /*
 	TO DO:
@@ -19,7 +19,7 @@ using namespace level;
 
 	** Begin a sound engine
 
-	** Change player rotation to directional movement
+	** Change player rotation to directional
 
 	** Add param to text doc to set object images
 
@@ -73,8 +73,8 @@ int main(){
 		static Window window("Still Alive", width, height);
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-		Motion motion;
-		Input input; //see if changing to a library type file is possible/better
+		Input inputController;
+		Motion motionController;
 		Level load;  //And this
 
 		// opengl setup
@@ -94,11 +94,11 @@ int main(){
 		while (!window.closed()){
 			window.clear();
 
-			input.checkForInput(&window, &motion);
+			inputController.checkForInput(&window, &motionController);
 
 			// Update Background
 			glPushMatrix();
-			motion.applySpeed();
+			motionController.applySpeed();
 			for (unsigned int i = 0; i < test.size(); i++){
 				test[i].Draw();
 			}

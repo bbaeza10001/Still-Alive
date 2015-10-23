@@ -31,4 +31,12 @@ namespace spacey{ namespace motion{
 		glTranslatef(xspeed, yspeed, 0);
 	}
 
+	void Motion::rotateLeft(int amount){
+
+	}
+
+	void Motion::rotateRight(int amount){
+
+	}
+
 } }

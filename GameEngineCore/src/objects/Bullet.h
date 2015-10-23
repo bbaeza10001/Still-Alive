@@ -9,10 +9,12 @@ namespace spacey{ namespace objects{
 	public:
 		void Fire();
 		void reset();
-	private:
-		void Move();
+
 		float bX = x_coord;
 		float bY = y_coord;
+	private:
+		void Move();
+		int counter;
 	};
 
 } }
