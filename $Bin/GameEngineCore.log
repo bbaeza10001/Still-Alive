@@ -1,0 +1,21 @@
+﻿Build started 5/23/2015 12:43:14 PM.
+     1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(363,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\graphics\Window.cpp
+         Window.cpp
+         Main.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\Configuration\GameEngineCore.exe" /INCREMENTAL /NOLOGO glfw3.lib opengl32.lib glew32s.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\Configuration\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\Configuration\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\Main.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\Window.obj"
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\Configuration\vc120.pdb'; linking object as if no debug info
+         GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\$Bin\Configuration\GameEngineCore.exe
+     1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\GameEngineCore\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.61

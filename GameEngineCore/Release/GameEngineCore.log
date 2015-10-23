@@ -1,0 +1,29 @@
+﻿Build started 10/9/2015 11:23:39 AM.
+     1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Interstellar Explorer\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\graphics\LoadLevel.cpp src\graphics\TextureManager.cpp src\graphics\Window.cpp src\Input\Button.cpp src\Input\InputController.cpp src\motion\MotionController.cpp src\motion\Orbits.cpp src\objects\CircleObject.cpp src\objects\PlayerObject.cpp
+         Main.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\graphics\../objects/CircleObject.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+         LoadLevel.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\graphics\../objects/CircleObject.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+         TextureManager.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\graphics\TextureManager.h(14): fatal error C1083: Cannot open include file: 'FreeImage.h': No such file or directory
+         Window.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\graphics\Window.h(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         Button.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\input\../graphics/Window.h(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         InputController.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\input\../graphics/Window.h(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         MotionController.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\motion\MotionController.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+         Orbits.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\motion\../objects/CircleObject.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+         CircleObject.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\objects\CircleObject.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+         PlayerObject.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\interstellar explorer\gameenginecore\src\objects\PlayerObject.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+     1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Interstellar Explorer\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:08.93
