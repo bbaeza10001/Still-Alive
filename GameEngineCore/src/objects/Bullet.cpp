@@ -18,10 +18,10 @@ namespace spacey{ 	namespace objects{
 
 	void Bullet::reset(){
 
-		if ((bX - 40) > x_coord || (bX + 40) < x_coord){
+		if ((bX - 100) > x_coord || (bX + 100) < x_coord){
 			bX = 0;
 		}
-		if ((bY - 40) > y_coord || (bY + 40) < y_coord){
+		if ((bY - 100) > y_coord || (bY + 100) < y_coord){
 			bY = 0;
 		}
 	}

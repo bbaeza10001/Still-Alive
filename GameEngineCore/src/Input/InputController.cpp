@@ -13,6 +13,9 @@ namespace spacey{ namespace input{
 			motionController->dirLeft();
 
 		}
+		else{
+			motionController->xacceleration = 0;
+		}
 
 		//Vertical Movement
 		if (window->isKeyPressed(GLFW_KEY_W)){
@@ -22,6 +25,9 @@ namespace spacey{ namespace input{
 		else if (window->isKeyPressed(GLFW_KEY_S)){
 			motionController->dirDown();
 
+		}
+		else{
+			motionController->yacceleration = 0;
 		}
 
 		//Turning

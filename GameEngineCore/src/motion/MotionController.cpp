@@ -4,23 +4,23 @@ namespace spacey{ namespace motion{
 
 	void Motion::dirRight(){
 		if (xacceleration < accelMax)
-			xacceleration += 0.001;
+			xacceleration = 0.3;
 
 	}
 
 	void Motion::dirLeft(){
 		if (xacceleration > -accelMax)
-			xacceleration -= 0.001;
+			xacceleration = -0.3;
 	}
 
 	void Motion::dirUp(){
 		if (yacceleration < accelMax)
-			yacceleration += 0.001;
+			yacceleration = 0.3;
 	}
 
 	void Motion::dirDown(){
 		if (yacceleration > -accelMax)
-			yacceleration -= 0.001;
+			yacceleration = -0.3;
 	}
 
 	void Motion::applySpeed(){

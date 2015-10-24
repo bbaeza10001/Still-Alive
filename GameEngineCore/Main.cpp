@@ -7,27 +7,32 @@ using namespace graphics;
 using namespace objects;
 using namespace std;
 using namespace level;
-//using namespace motion;
 using namespace input;
 
 /*
 	TO DO:
 
-	** Figure out if turning some classes into structs rather is more efficient
+	** Add collision detection:
+		-Check if player and backgorund are on the same matrix
+		-If they are, track x & y of objects and stop movement if they reach player
+		-If they are not, 
+			EITHER: Define point on the objects matrix that they cannot move into
+			OR: Move player to the same matrix and then act on the first if
+	
+	** Shooting System: 
+		-Adjust to allow shooting while moving
+		-Adjust to allow bullets to continue firing when click is released
+		-Adjust to allow diagonal shooting
 
-	** Add background photos
+	** Find a way to use functions in other .h files without having to create class objects
 
 	** Begin a sound engine
 
-	** Change player rotation to directional
+	** Fix the image loader
 
 	** Add param to text doc to set object images
-
-	** Add collision detection
-
-	** Fix the image loader
 	
-	** Beautify the shooting system
+	** Add background photos
 
 */
 
