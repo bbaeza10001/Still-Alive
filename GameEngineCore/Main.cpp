@@ -22,9 +22,8 @@ using namespace input;
 	** Shooting System: 
 		-Adjust to allow shooting while moving
 		-Adjust to allow bullets to continue firing when click is released
+		-Adjust to allow bullets to move independantly of the player after they're fired
 		-Adjust to allow diagonal shooting
-
-	** Find a way to use functions in other .h files without having to create class objects
 
 	** Begin a sound engine
 
@@ -78,9 +77,7 @@ int main(){
 		static Window window("Still Alive", width, height);
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-		Input inputController;
 		Motion motionController;
-		Level load;  //And this
 
 		// opengl setup
 		glMatrixMode(GL_PROJECTION);
@@ -92,14 +89,14 @@ int main(){
 		
 		// Construction
 		PlayerObject player(&window);
-		vector<CircleObject> test = load.loadPlanets(test, "level.txt");
+		vector<CircleObject> test = loadPlanets(test, "level.txt");
 		Bullet bullet(player);
 
 
 		while (!window.closed()){
 			window.clear();
 
-			inputController.checkForInput(&window, &motionController);
+			checkForInput(&window, &motionController);
 
 			// Update Background
 			glPushMatrix();

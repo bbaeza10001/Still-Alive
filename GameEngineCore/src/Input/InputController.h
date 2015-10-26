@@ -6,9 +6,6 @@ namespace spacey{ namespace input{
 	using namespace graphics;
 	using namespace motion;
 
-	class Input{
-	public:
-		void checkForInput(Window* window, Motion* motionController);
-	};
+	void checkForInput(Window* window, Motion* motionController);
 
 } }

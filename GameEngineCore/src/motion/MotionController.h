@@ -18,9 +18,7 @@ namespace spacey{ namespace motion{
 		void dirDown();
 
 		//For Rotations
-		void rotateLeft(int amount);
-		void rotateRight(int amount);
-		float angleIncriment = 0.1f;
+		void rotate(const char* direction);
 
 		//Movement Application
 		void applySpeed();
@@ -34,8 +32,6 @@ namespace spacey{ namespace motion{
 		//For Rotations
 		float angle = 0;
 
-		//Max Value
-		float const accelMax = 10;
 	};
 
 } }

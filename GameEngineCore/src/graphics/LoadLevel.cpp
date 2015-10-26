@@ -2,7 +2,7 @@
 
 namespace spacey{ namespace level{
 
-	vector<CircleObject> Level::loadPlanets(vector<CircleObject> systemVector, string fileName){
+	vector<CircleObject> level::loadPlanets(vector<CircleObject> systemVector, string fileName){
 		ifstream file;
 
 		file.open(fileName);

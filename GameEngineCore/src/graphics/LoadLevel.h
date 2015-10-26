@@ -10,12 +10,7 @@ namespace spacey{ namespace level{
 	using namespace objects;
 	using namespace std;
 
-	class Level{
-
-	public:
-		vector<CircleObject> loadPlanets(vector<CircleObject> systemVector, string fileName);
-	private:
-
-	};
+	vector<CircleObject> loadPlanets(vector<CircleObject> systemVector, string fileName);
+	
 
 } }

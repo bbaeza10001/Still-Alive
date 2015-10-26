@@ -3,23 +3,19 @@
 namespace spacey{ namespace motion{
 
 	void Motion::dirRight(){
-		if (xacceleration < accelMax)
 			xacceleration = 0.3;
 
 	}
 
 	void Motion::dirLeft(){
-		if (xacceleration > -accelMax)
 			xacceleration = -0.3;
 	}
 
 	void Motion::dirUp(){
-		if (yacceleration < accelMax)
 			yacceleration = 0.3;
 	}
 
 	void Motion::dirDown(){
-		if (yacceleration > -accelMax)
 			yacceleration = -0.3;
 	}
 
@@ -31,12 +27,19 @@ namespace spacey{ namespace motion{
 		glTranslatef(xspeed, yspeed, 0);
 	}
 
-	void Motion::rotateLeft(int amount){
+	void Motion::rotate(const char* direction){
+		if (direction == "UP"){
 
-	}
+		}
+		if (direction == "DOWN"){
 
-	void Motion::rotateRight(int amount){
+		}
+		if (direction == "LEFT"){
 
+		}
+		if (direction == "RIGHT"){
+
+		}
 	}
 
 } }

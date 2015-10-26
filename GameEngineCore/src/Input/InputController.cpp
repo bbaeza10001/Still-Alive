@@ -2,7 +2,7 @@
 
 namespace spacey{ namespace input{
 
-	void Input::checkForInput(Window* window, Motion* motionController){
+	void input::checkForInput(Window* window, Motion* motionController){
 
 		//Horizontal Movement
 		if (window->isKeyPressed(GLFW_KEY_D)){
