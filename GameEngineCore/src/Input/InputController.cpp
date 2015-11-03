@@ -2,46 +2,22 @@
 
 namespace spacey{ namespace input{
 
-	void input::checkForInput(Window* window, Motion* motionController){
+	int input::checkForInput(Window* window){
 
 		//Horizontal Movement
 		if (window->isKeyPressed(GLFW_KEY_D)){
-			motionController->dirRight();
-
+			return 2;
 		}
 		else if (window->isKeyPressed(GLFW_KEY_A)){
-			motionController->dirLeft();
-
-		}
-		else{
-			motionController->xacceleration = 0;
+			return 1;
 		}
 
 		//Vertical Movement
 		if (window->isKeyPressed(GLFW_KEY_W)){
-			motionController->dirUp();
-
+			return 3;
 		} 
 		else if (window->isKeyPressed(GLFW_KEY_S)){
-			motionController->dirDown();
-
-		}
-		else{
-			motionController->yacceleration = 0;
-		}
-
-		//Turning
-		if (window->isKeyPressed(GLFW_KEY_W)){
-			
-		}
-		else if (window->isKeyPressed(GLFW_KEY_S)){
-			
-		}
-		else if (window->isKeyPressed(GLFW_KEY_A)){
-
-		}
-		else if (window->isKeyPressed(GLFW_KEY_D)){
-
+			return 4;
 		}
 
 	}

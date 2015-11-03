@@ -1,6 +1,7 @@
 #include "src\include\Includes.h"
 #include "src\graphics\Texture.h"
 #include "src\objects\Bullet.h"
+#include "src\motion\CollisionDetection.h"
 
 using namespace spacey;
 using namespace graphics;
@@ -8,16 +9,10 @@ using namespace objects;
 using namespace std;
 using namespace level;
 using namespace input;
+using namespace motion;
 
 /*
 	TO DO:
-
-	** Add collision detection:
-		-Check if player and backgorund are on the same matrix
-		-If they are, track x & y of objects and stop movement if they reach player
-		-If they are not, 
-			EITHER: Define point on the objects matrix that they cannot move into
-			OR: Move player to the same matrix and then act on the first if
 	
 	** Shooting System: 
 		-Adjust to allow shooting while moving
@@ -33,8 +28,12 @@ using namespace input;
 	
 	** Add background photos
 
-*/
+	ISSUES:
 
+	--COLLISION DETECTIONS--
+		**Player collides with terrain, but because it has collided, it cannot move off of the object
+
+*/
 int main(){
 	int width = 800;
 	int height = 600;
@@ -77,8 +76,6 @@ int main(){
 		static Window window("Still Alive", width, height);
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-		Motion motionController;
-
 		// opengl setup
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
@@ -96,13 +93,14 @@ int main(){
 		while (!window.closed()){
 			window.clear();
 
-			checkForInput(&window, &motionController);
+			if (checkCollision(test)){
+				cout << "Collision!\n";
+			}
 
 			// Update Background
 			glPushMatrix();
-			motionController.applySpeed();
 			for (unsigned int i = 0; i < test.size(); i++){
-				test[i].Draw();
+				test[i].Draw(checkForInput(&window));
 			}
 			glPopMatrix();
 
@@ -110,7 +108,7 @@ int main(){
 			glPushMatrix();
 			player.Draw(); // Bullet movements offsetting
 			glPopMatrix();
-
+		
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs
 		}
@@ -118,4 +116,3 @@ int main(){
 	}
 	return 0;
 }
-

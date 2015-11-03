@@ -14,7 +14,7 @@ namespace spacey{
 			radius = radius_in;
 		}
 
-		void CircleObject::Draw(){
+		void CircleObject::Draw(int inputValue){
 			const float full_angle = 2.0f*3.141592654f;
 			float xN = 0.0f;
 			float yN = 0.0f;
@@ -34,6 +34,25 @@ namespace spacey{
 			glEnd();
 			
 			glPopMatrix();
+
+			move(inputValue);
+		}
+
+		void CircleObject::move(int inputValue){
+			switch (inputValue){
+			case 1:
+				x_coord++;
+				break;
+			case 2:
+				x_coord--;
+				break;
+			case 3:
+				y_coord--;
+				break;
+			case 4:
+				y_coord++;
+				break;
+			}
 		}
 	}
 }

@@ -87,7 +87,7 @@
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\Input\Button.cpp" />
     <ClCompile Include="src\Input\InputController.cpp" />
-    <ClCompile Include="src\motion\MotionController.cpp" />
+    <ClCompile Include="src\motion\CollisionDetection.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\Bullet.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
@@ -101,7 +101,7 @@
     <ClInclude Include="src\include\Includes.h" />
     <ClInclude Include="src\Input\Button.h" />
     <ClInclude Include="src\Input\InputController.h" />
-    <ClInclude Include="src\motion\MotionController.h" />
+    <ClInclude Include="src\motion\CollisionDetection.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\motion\Orbits.h" />
     <ClInclude Include="src\objects\BaseObject.h" />
