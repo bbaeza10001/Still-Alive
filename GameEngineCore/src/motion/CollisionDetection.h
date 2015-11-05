@@ -10,6 +10,6 @@ namespace spacey{ namespace motion{
 	using namespace objects;
 	using namespace std;
 
-	bool checkCollision(vector<CircleObject> &terrain);
+	int checkCollision(vector<CircleObject> &terrain, int xInput, int yInput);
 
 } }

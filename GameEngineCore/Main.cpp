@@ -31,7 +31,8 @@ using namespace motion;
 	ISSUES:
 
 	--COLLISION DETECTIONS--
-		**Player collides with terrain, but because it has collided, it cannot move off of the object
+		**Player collides with but something is wrong with the collision detection.cpp and it's direction tracking
+			so...????
 
 */
 int main(){
@@ -87,27 +88,24 @@ int main(){
 		// Construction
 		PlayerObject player(&window);
 		vector<CircleObject> test = loadPlanets(test, "level.txt");
-		Bullet bullet(player);
 
+		int xIN, yIN, colCode;
 
 		while (!window.closed()){
 			window.clear();
 
-			if (checkCollision(test)){
-				cout << "Collision!\n";
-			}
+			xIN = checkForXInput(&window);
+			yIN = checkForYInput(&window);
+
+			colCode = checkCollision(test, xIN, yIN);
 
 			// Update Background
-			glPushMatrix();
 			for (unsigned int i = 0; i < test.size(); i++){
-				test[i].Draw(checkForInput(&window));
+				test[i].Draw(xIN, yIN, colCode);
 			}
-			glPopMatrix();
 
 			// Update Player 
-			glPushMatrix();
 			player.Draw(); // Bullet movements offsetting
-			glPopMatrix();
 		
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs

@@ -14,10 +14,14 @@ namespace spacey{
 			radius = radius_in;
 		}
 
-		void CircleObject::Draw(int inputValue){
+		void CircleObject::Draw(int xInput, int yInput, int colCode){
 			const float full_angle = 2.0f*3.141592654f;
 			float xN = 0.0f;
 			float yN = 0.0f;
+
+			m_xInput = xInput;
+			m_yInput = yInput;
+			m_colCode = colCode;
 
 			glPushMatrix();
 			glTranslatef(x_coord, y_coord, 0);
@@ -33,25 +37,28 @@ namespace spacey{
 			}
 			glEnd();
 			
+			move();
+
 			glPopMatrix();
 
-			move(inputValue);
 		}
 
-		void CircleObject::move(int inputValue){
-			switch (inputValue){
-			case 1:
+		void CircleObject::move(){
+			//X Movements
+			if (m_xInput == 1 && m_colCode != 1){
 				x_coord++;
-				break;
-			case 2:
+			}
+
+			if (m_xInput == 2 && m_colCode != 2){
 				x_coord--;
-				break;
-			case 3:
+			}
+
+			//Y Movements
+			if (m_yInput == 3 && m_colCode != 3){
 				y_coord--;
-				break;
-			case 4:
+			}
+			else if (m_yInput == 4 && m_colCode != 4){
 				y_coord++;
-				break;
 			}
 		}
 	}

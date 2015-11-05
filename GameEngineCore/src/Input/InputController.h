@@ -4,6 +4,7 @@
 namespace spacey{ namespace input{
 	using namespace graphics;
 
-	int checkForInput(Window* window);
+	int checkForXInput(Window* window);
+	int checkForYInput(Window* window);
 
 } }

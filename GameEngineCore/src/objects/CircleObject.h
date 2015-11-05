@@ -11,9 +11,10 @@ namespace spacey{ namespace objects{
 		public:
 			CircleObject();
 			CircleObject(float x_in, float y_in, float radius_in);
-			void Draw(int inputValue);
+			void Draw(int xInput, int yInput, int colCode);
 			float radius;
 		private:
-			void move(int inputValue);
+			void move();
+			int m_xInput, m_yInput, m_colCode;
 		};
 } }

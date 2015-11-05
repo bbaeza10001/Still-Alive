@@ -16,10 +16,11 @@ namespace spacey{
 			glVertex2d(x_coord, y_coord + 10.0f); //Nose of Ship
 			glVertex2d(x_coord + 5.0f, y_coord - 10.0f);
 			glEnd();
-			glPopMatrix();
 
 			checkRotation();
 			checkFire();
+
+			glPopMatrix();
 		}
 
 		void PlayerObject::checkRotation(){
