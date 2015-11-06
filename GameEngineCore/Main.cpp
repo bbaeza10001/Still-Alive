@@ -16,8 +16,6 @@ using namespace motion;
 	
 	** Shooting System: 
 		-Adjust to allow shooting while moving
-		-Adjust to allow bullets to continue firing when click is released
-		-Adjust to allow bullets to move independantly of the player after they're fired
 		-Adjust to allow diagonal shooting
 
 	** Begin a sound engine
@@ -33,6 +31,8 @@ using namespace motion;
 	--COLLISION DETECTIONS--
 		**Player collides with but something is wrong with the collision detection.cpp and it's direction tracking
 			so...????
+	--BULLET SYSTEM--
+		**Add multi-directional shooting (Look in the playerobject.cpp for the comments on where to do that
 
 */
 int main(){
@@ -88,7 +88,7 @@ int main(){
 		// Construction
 		PlayerObject player(&window);
 		vector<CircleObject> test = loadPlanets(test, "level.txt");
-
+		
 		int xIN, yIN, colCode;
 
 		while (!window.closed()){
@@ -105,7 +105,7 @@ int main(){
 			}
 
 			// Update Player 
-			player.Draw(); // Bullet movements offsetting
+			player.Draw(xIN, yIN, colCode); // Bullet movements offsetting
 		
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs

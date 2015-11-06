@@ -7,11 +7,8 @@
 namespace spacey{
 	namespace objects{
 		struct BaseObject{
-			float x_coord;
-			float y_coord;
-			int orientation;
-
-			void translate(int inputValue);
+			float x_coord = 0;
+			float y_coord = 0;
 		};
 	}
 }
