@@ -5,7 +5,7 @@ namespace spacey{ namespace motion{
 	int motion::checkCollision(vector<CircleObject> &terrain, int xInput, int yInput){
 
 		vector<bool> collided;
-		int direction;
+		vector<int> direction;
 
 		for (int i = 0; i < terrain.size(); i++){
 
@@ -17,24 +17,31 @@ namespace spacey{ namespace motion{
 			if (terrain[i].x_coord + terrain[i].radius >= -5 && terrain[i].x_coord - terrain[i].radius <= 5){
 
 				if (terrain[i].y_coord + terrain[i].radius >= -10 && terrain[i].y_coord - terrain[i].radius <= 10){
+					//Fix the return value, it is returning what is currently being pressed once you collide with an object
+					
 					collided.push_back(true);
 					if (xInput != 0){
-						direction = xInput;
+						direction.push_back(xInput);
 					}
 					else{
-						direction = yInput;
+						direction.push_back(yInput);
 					}
 				}
 			}
+			else {
+				collided.push_back(false);
+				direction.push_back(0);
+			}
+		}
+		//The below section ensures that if only one object is collided into, the entire world stops moving
+		for (int i = 0; i < collided.size(); i++){
+			if (collided[i] == true){
+				return direction[i];
+			}
 		}
 
-		//The below section ensures that if only one object is collided into, the entire world stops moving
-		if (find(collided.begin(), collided.end(), true) != collided.end()){
-			return direction;
-		}
-		else{
-			return 0;
-		}
+		collided.clear();
+		direction.clear();
 	}
 
 } }

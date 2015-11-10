@@ -22,6 +22,8 @@ namespace spacey{
 			m_xInput = xInput;
 			m_yInput = yInput;
 			m_colCode = colCode;
+			
+			move();
 
 			glPushMatrix();
 			glTranslatef(x_coord, y_coord, 0);
@@ -37,8 +39,6 @@ namespace spacey{
 			}
 			glEnd();
 			
-			move();
-
 			glPopMatrix();
 
 		}
@@ -48,8 +48,7 @@ namespace spacey{
 			if (m_xInput == 1 && m_colCode != 1){
 				x_coord++;
 			}
-
-			if (m_xInput == 2 && m_colCode != 2){
+			else if (m_xInput == 2 && m_colCode != 2){
 				x_coord--;
 			}
 

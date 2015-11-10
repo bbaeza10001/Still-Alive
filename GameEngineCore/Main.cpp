@@ -36,6 +36,7 @@ using namespace motion;
 
 */
 int main(){
+	//Width and height for the game window
 	int width = 800;
 	int height = 600;
 
@@ -52,9 +53,9 @@ int main(){
 
 	//button b_start(&start, 250, 400, 50, 40, "Brandenbrug Tor.jpg");
 	//button b_exit(&start, 550, 400, 50, 40, "sample.bmp");
-	bool exit = false;
+	bool exit = false; //Exit bool having to do with the commented out code above (Start Window)
 
-	//Texture test("Brandenbrug Tor.jpg");
+	//Texture test("Brandenbrug Tor.jpg"); //Texturing test --DOES NOT WORK YET--
 
 	//while (!start.closed()){
 	//	start.clear();
@@ -75,7 +76,7 @@ int main(){
 
 		//Game Window
 		static Window window("Still Alive", width, height);
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //Game background color
 
 		// opengl setup
 		glMatrixMode(GL_PROJECTION);
@@ -87,28 +88,34 @@ int main(){
 		
 		// Construction
 		PlayerObject player(&window);
-		vector<CircleObject> test = loadPlanets(test, "level.txt");
+		vector<CircleObject> test = loadPlanets(test, "level.txt"); //Loading in the planets from the "level.txt" file
+																	//Play around with the numbers in the file, see what it does :)
 		
-		int xIN, yIN, colCode;
+		int xIN, yIN, colCode, lastColCode = 0; //Ints having to do with collision detection
 
 		while (!window.closed()){
 			window.clear();
 
-			xIN = checkForXInput(&window);
+			xIN = checkForXInput(&window); //Getting input values from the player in the current window
 			yIN = checkForYInput(&window);
 
-			colCode = checkCollision(test, xIN, yIN);
-
+			if ((xIN != lastColCode || yIN != lastColCode) && xIN != 0 && yIN != 0){ //Player input != the last collision code
+			
+				lastColCode = 0; //There is no longer a collision
+			}
+			
 			// Update Background
 			for (unsigned int i = 0; i < test.size(); i++){
-				test[i].Draw(xIN, yIN, colCode);
+				test[i].Draw(xIN, yIN, lastColCode);
 			}
 
 			// Update Player 
-			player.Draw(xIN, yIN, colCode); // Bullet movements offsetting
+			player.Draw(xIN, yIN, lastColCode);
+
+			lastColCode = checkCollision(test, xIN, yIN); //Reset the collision code
 		
 			window.update();
-			Sleep(0.5); //Controls how fast the game loop runs
+			Sleep(0.5); //Controls how fast the game loop runs at max
 		}
 
 	}
