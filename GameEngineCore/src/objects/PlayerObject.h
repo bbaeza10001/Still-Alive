@@ -12,7 +12,7 @@ namespace spacey{ namespace objects{
 
 	class PlayerObject : public Bullet{
 		public:
-			PlayerObject(Window* currentWindow);
+			PlayerObject(Window* window);
 			void Draw(int xInput, int yInput, int colCode);
 		private: 
 			void checkRotation();
@@ -20,5 +20,13 @@ namespace spacey{ namespace objects{
 			Window* m_window;
 			vector<Bullet> shot;
 			int m_xInput, m_yInput, m_colCode;
+			int direction = 0;
+		private:
+			float x1 = -5.0f;
+			float x2 = 0.0f;
+			float x3 = 5.0f;
+			float y1 = -10.0f;
+			float y2 = 10.0f;
+			float y3 = -10.0f;
 		};
 } }

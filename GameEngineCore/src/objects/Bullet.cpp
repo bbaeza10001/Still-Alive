@@ -2,6 +2,14 @@
 
 namespace spacey{ 	namespace objects{
 
+	Bullet::Bullet(){
+		m_direction = 0;
+	}
+
+	Bullet::Bullet(int direction){
+		m_direction = direction;
+	}
+
 	void Bullet::Fire(int xInput, int yInput, int colCode){
 
 		glPushMatrix();
@@ -32,7 +40,7 @@ namespace spacey{ 	namespace objects{
 	}
 
 	void Bullet::Move(int m_xInput, int m_yInput, int m_colCode){
-		switch (orientation){
+		switch (m_direction){
 		case 1: //Move left
 			bX -= 0.5f;
 			break;
@@ -47,7 +55,7 @@ namespace spacey{ 	namespace objects{
 			break;
 		default: //Print out an error message
 			std::cout << "Error: Bullet orientation is invalid.\n";
-			std::cout << "Direction Code is: " << orientation << std::endl;
+			std::cout << "Direction Code is: " << m_xInput << std::endl;
 			break;
 		}
 
