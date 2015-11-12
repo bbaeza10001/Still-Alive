@@ -92,6 +92,7 @@
     <ClCompile Include="src\objects\Bullet.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
     <ClCompile Include="src\objects\PlayerObject.cpp" />
+    <ClCompile Include="src\objects\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\ImageLoader.h" />
@@ -108,6 +109,7 @@
     <ClInclude Include="src\objects\Bullet.h" />
     <ClInclude Include="src\objects\CircleObject.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
+    <ClInclude Include="src\objects\Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

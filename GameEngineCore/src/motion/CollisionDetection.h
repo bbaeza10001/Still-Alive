@@ -2,6 +2,7 @@
 #include <vector>
 #include <Windows.h>
 #include "../objects/CircleObject.h"
+#include "../objects/Wall.h"
 #include <algorithm>
 #include <iterator>
 
@@ -11,5 +12,6 @@ namespace spacey{ namespace motion{
 	using namespace std;
 
 	int checkCollision(vector<CircleObject> &terrain, int xInput, int yInput);
+	int checkCollision(vector<Wall> &terrain, int xInput, int yInput);
 
 } }
