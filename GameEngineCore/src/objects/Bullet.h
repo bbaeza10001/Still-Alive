@@ -7,14 +7,17 @@ namespace spacey{ namespace objects{
 
 	class Bullet : public BaseObject{
 	public:
-		void Fire();
-		void reset();
+		Bullet();
+		Bullet(int direction);
+		void Fire(int xInput, int yInput, int colCode);
+
+		bool limit();
 
 		float bX = x_coord;
 		float bY = y_coord;
 	private:
-		void Move();
-		int counter;
+		void Move(int xInput, int yInput, int colCode);
+		int m_direction;
 	};
 
 } }

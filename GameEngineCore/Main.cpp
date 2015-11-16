@@ -2,6 +2,7 @@
 #include "src\graphics\Texture.h"
 #include "src\objects\Bullet.h"
 #include "src\motion\CollisionDetection.h"
+#include "src\objects\Wall.h"
 
 using namespace spacey;
 using namespace graphics;
@@ -13,11 +14,13 @@ using namespace motion;
 
 /*
 	TO DO:
+
+	** Implement Basic Enemies
+		-Allow them to shoot every once in a while
+		-Allow them basic movements every once in a while
 	
 	** Shooting System: 
 		-Adjust to allow shooting while moving
-		-Adjust to allow bullets to continue firing when click is released
-		-Adjust to allow bullets to move independantly of the player after they're fired
 		-Adjust to allow diagonal shooting
 
 	** Begin a sound engine
@@ -31,11 +34,16 @@ using namespace motion;
 	ISSUES:
 
 	--COLLISION DETECTIONS--
-		**Player collides with but something is wrong with the collision detection.cpp and it's direction tracking
-			so...????
+		**If the direction is continually tapped after colliding, the player can move through an object
+		**Change colCode variables to size 2 arrays to support multi-directional movement?
+	--BULLET SYSTEM--
+		**Add diagonal shooting
+	--USER INPUT SYSTEM--
+		**Change from two seperate variables for x and y to a single, size 2 array
 
 */
 int main(){
+	//Width and height for the game window
 	int width = 800;
 	int height = 600;
 
@@ -52,9 +60,9 @@ int main(){
 
 	//button b_start(&start, 250, 400, 50, 40, "Brandenbrug Tor.jpg");
 	//button b_exit(&start, 550, 400, 50, 40, "sample.bmp");
-	bool exit = false;
+	bool exit = false; //Exit bool having to do with the commented out code above (Start Window)
 
-	//Texture test("Brandenbrug Tor.jpg");
+	//Texture test("Brandenbrug Tor.jpg"); //Texturing test --DOES NOT WORK YET--
 
 	//while (!start.closed()){
 	//	start.clear();
@@ -75,7 +83,7 @@ int main(){
 
 		//Game Window
 		static Window window("Still Alive", width, height);
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //Game background color
 
 		// opengl setup
 		glMatrixMode(GL_PROJECTION);
@@ -87,28 +95,47 @@ int main(){
 		
 		// Construction
 		PlayerObject player(&window);
-		vector<CircleObject> test = loadPlanets(test, "level.txt");
-
-		int xIN, yIN, colCode;
+		vector<CircleObject> testC = loadPlanets(testC, "Circles.txt"); //Loading in the planets from the "level.txt" file
+		vector<Wall> testW = loadPlanets(testW, "Walls.txt"); //Play around with the numbers in the files, see what it does :)
+		
+		int xIN, yIN, colCode, WColCode = 0, CColCode = 0; //Ints having to do with collision detection
 
 		while (!window.closed()){
 			window.clear();
 
-			xIN = checkForXInput(&window);
+			xIN = checkForXInput(&window); //Getting input values from the player in the current window
 			yIN = checkForYInput(&window);
 
-			colCode = checkCollision(test, xIN, yIN);
+			if ((xIN != WColCode || yIN != WColCode) && xIN != 0 && yIN != 0){ //Player input != the last collision code
+			
+				WColCode = 0; //There is no longer a collision
+			}
+			if ((xIN != CColCode || yIN != CColCode) && xIN != 0 && yIN != 0){ //Player input != the last collision code
 
+				CColCode = 0; //There is no longer a collision
+			}
+			
 			// Update Background
-			for (unsigned int i = 0; i < test.size(); i++){
-				test[i].Draw(xIN, yIN, colCode);
+			for (unsigned int i = 0; i < testC.size(); i++){
+				testC[i].Draw(xIN, yIN, CColCode);
+			}
+			for (unsigned int i = 0; i < testW.size(); i++){
+				testW[i].draw(xIN, yIN, WColCode);
 			}
 
-			// Update Player 
-			player.Draw(); // Bullet movements offsetting
-		
+			//Update the player
+			if (CColCode != 0){
+				if (WColCode != 0){
+					player.Draw(xIN, yIN, WColCode);
+				}
+				player.Draw(xIN, yIN, CColCode);
+			}
+
+			WColCode = checkCollision(testW, xIN, yIN); //Reset the collision code
+			CColCode = checkCollision(testC, xIN, yIN);
+
 			window.update();
-			Sleep(0.5); //Controls how fast the game loop runs
+			Sleep(0.5); //Controls how fast the game loop runs at max
 		}
 
 	}
