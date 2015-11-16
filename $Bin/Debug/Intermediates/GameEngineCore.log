@@ -1,63 +1,25 @@
-﻿Build started 11/9/2015 3:32:20 PM.
-     1>Project "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/5/2015 9:47:18 AM.
+     1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\graphics\LoadLevel.cpp src\graphics\Texture.cpp src\graphics\TextureManager.cpp src\graphics\Window.cpp src\Input\Button.cpp src\Input\InputController.cpp src\motion\CollisionDetection.cpp src\motion\Orbits.cpp src\objects\Bullet.cpp src\objects\CircleObject.cpp src\objects\PlayerObject.cpp
-         PlayerObject.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\objects\CircleObject.cpp
          CircleObject.cpp
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\objects\circleobject.cpp(35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-         Bullet.cpp
-         Orbits.cpp
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(13): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(14): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(15): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(15): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(20): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(23): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(26): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(28): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(30): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\orbits.cpp(31): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-         CollisionDetection.cpp
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\motion\collisiondetection.cpp(10): warning C4018: '<': signed/unsigned mismatch
-         InputController.cpp
-         Button.cpp
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\input\button.cpp(24): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\input\button.cpp(42): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\input\button.cpp(45): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\input\button.cpp(48): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\input\button.cpp(51): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-         Window.cpp
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\graphics\window.cpp(69): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-         TextureManager.cpp
-         Texture.cpp
-         LoadLevel.cpp
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\graphics\loadlevel.cpp(26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-         Main.cpp
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\main.cpp(111): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
-         Generating Code...
-     1>c:\users\willi751\documents\visual studio 2015\projects\still-alive\gameenginecore\src\graphics\window.cpp(72): warning C4715: 'spacey::graphics::Window::closed': not all control paths return a value
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\circleobject.cpp(35): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\LoadLevel.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\Texture.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\TextureManager.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\Window.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\Button.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\InputController.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\CollisionDetection.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\Orbits.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
-         "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>glfw3.lib(init.c.obj) : error LNK2019: unresolved external symbol __imp__vsnprintf referenced in function __glfwInputError
-     1>MSVCRTD.lib(vsnprintf.obj) : error LNK2001: unresolved external symbol __imp__vsnprintf
-     1>glfw3.lib(context.c.obj) : error LNK2019: unresolved external symbol __imp__sscanf referenced in function _parseVersionString
-     1>MSVCRTD.lib(vsnprintf.obj) : error LNK2001: unresolved external symbol __imp___vsnprintf
-     1>C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\$Bin\Debug\GameEngineCore.exe : fatal error LNK1120: 3 unresolved externals
-     1>Done Building Project "C:\Users\willi751\Documents\Visual Studio 2015\Projects\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\LoadLevel.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Texture.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\TextureManager.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Window.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Button.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\InputController.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CollisionDetection.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Orbits.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
+         GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe
+     1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:13.69
+Time Elapsed 00:00:05.21
