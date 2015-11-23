@@ -3,6 +3,7 @@
 #include "src\objects\Bullet.h"
 #include "src\motion\CollisionDetection.h"
 #include "src\objects\Wall.h"
+#include "src\objects\BaseEnemy.h"
 
 using namespace spacey;
 using namespace graphics;
@@ -42,6 +43,7 @@ using namespace motion;
 		**Change from two seperate variables for x and y to a single, size 2 array
 
 */
+
 int main(){
 	//Width and height for the game window
 	int width = 800;
@@ -49,7 +51,6 @@ int main(){
 
 	//Start Screen
 	//static Window start("Still Alive - Start", width, height);
-
 	//// opengl setup
 	//glMatrixMode(GL_PROJECTION);
 	//glLoadIdentity();
@@ -57,27 +58,26 @@ int main(){
 	//                                         //and be the correct width and height
 	//glMatrixMode(GL_MODELVIEW);
 	//glLoadIdentity();
-
 	//button b_start(&start, 250, 400, 50, 40, "Brandenbrug Tor.jpg");
 	//button b_exit(&start, 550, 400, 50, 40, "sample.bmp");
 	bool exit = false; //Exit bool having to do with the commented out code above (Start Window)
 
-	//Texture test("Brandenbrug Tor.jpg"); //Texturing test --DOES NOT WORK YET--
+	/*Texture test("Brandenbrug Tor.jpg"); 
 
-	//while (!start.closed()){
-	//	start.clear();
+	while (!start.closed()){
+		start.clear();
 
-	//	b_start.draw();
-	//	b_exit.draw();
-	//	if (b_start.clicked()){
-	//		start.~Window();
-	//	}
-	//	else if (b_exit.clicked()){
-	//		start.~Window();
-	//		exit = true;
-	//	}
-	//	start.update();
-	//}
+		b_start.draw();
+		b_exit.draw();
+		if (b_start.clicked()){
+			start.~Window();
+		}
+		else if (b_exit.clicked()){
+			start.~Window();
+			exit = true;
+		}
+		start.update();
+	}*/
 	
 	if (exit == false){
 
@@ -97,42 +97,47 @@ int main(){
 		PlayerObject player(&window);
 		vector<CircleObject> testC = loadPlanets(testC, "Circles.txt"); //Loading in the planets from the "level.txt" file
 		vector<Wall> testW = loadPlanets(testW, "Walls.txt"); //Play around with the numbers in the files, see what it does :)
-		
-		int xIN, yIN, colCode, WColCode = 0, CColCode = 0; //Ints having to do with collision detection
+		BaseEnemy dave(50, 50);
+
+		int input[2], colCode, WColCode = 0, CColCode = 0; //Ints having to do with collision detection
 
 		while (!window.closed()){
 			window.clear();
 
-			xIN = checkForXInput(&window); //Getting input values from the player in the current window
-			yIN = checkForYInput(&window);
+			input[0] = checkForXInput(&window); //Getting input values from the player in the current window
+			input[1] = checkForYInput(&window);
 
-			if ((xIN != WColCode || yIN != WColCode) && xIN != 0 && yIN != 0){ //Player input != the last collision code
+		
+
+			if ((input[0] != WColCode || input[1] != WColCode) && input[0] != 0 && input[1] != 0){ //Player input != the last collision code
 			
 				WColCode = 0; //There is no longer a collision
 			}
-			if ((xIN != CColCode || yIN != CColCode) && xIN != 0 && yIN != 0){ //Player input != the last collision code
+			if ((input[0] != CColCode || input[1] != CColCode) && input[0] != 0 && input[1] != 0){ //Player input != the last collision code
 
 				CColCode = 0; //There is no longer a collision
 			}
 			
 			// Update Background
 			for (unsigned int i = 0; i < testC.size(); i++){
-				testC[i].Draw(xIN, yIN, CColCode);
+				testC[i].Draw(input[0], input[1], CColCode);
 			}
-			for (unsigned int i = 0; i < testW.size(); i++){
-				testW[i].draw(xIN, yIN, WColCode);
-			}
+			dave.draw(input[0], input[1], 0);
+
+			/*for (unsigned int i = 0; i < testW.size(); i++){
+				testW[i].draw(input[0], input[1], WColCode);
+			}*/
 
 			//Update the player
-			if (CColCode != 0){
+			if (CColCode != 0 || WColCode != 0){
 				if (WColCode != 0){
-					player.Draw(xIN, yIN, WColCode);
+					player.Draw(input[0], input[1], WColCode);
 				}
-				player.Draw(xIN, yIN, CColCode);
+				player.Draw(input[0], input[1], CColCode);
 			}
 
-			WColCode = checkCollision(testW, xIN, yIN); //Reset the collision code
-			CColCode = checkCollision(testC, xIN, yIN);
+			WColCode = 0; //checkCollision(testW, input[0], input[1]); //Reset the collision code
+			CColCode = checkCollision(testC, input[0], input[1]);
 
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs at max
@@ -141,3 +146,4 @@ int main(){
 	}
 	return 0;
 }
+
