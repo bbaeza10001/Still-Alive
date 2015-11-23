@@ -12,9 +12,10 @@ namespace spacey{ namespace objects{
 
 		BaseEnemy(int x, int y); //Overload Function
 
-		void draw();
+		void draw(int xInput, int yInput, int colCode);
 	private:
-
+		void move(); //Moving entity along with the background
+		int m_xInput, m_yInput, m_colCode;
 	};
 
 } }
