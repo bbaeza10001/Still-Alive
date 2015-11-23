@@ -1,10 +1,8 @@
-﻿Build started 11/11/2015 1:11:37 PM.
+﻿Build started 11/19/2015 12:47:12 PM.
      1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
-     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\main.cpp(135): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
-     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\main.cpp(98): warning C4101: 'colCode' : unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\LoadLevel.obj"
@@ -15,6 +13,7 @@
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\InputController.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CollisionDetection.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Orbits.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BaseEnemy.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
@@ -24,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.33
+Time Elapsed 00:00:07.28
