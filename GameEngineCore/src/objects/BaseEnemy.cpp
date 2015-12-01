@@ -11,7 +11,11 @@ namespace spacey{ namespace objects{
 		
 	}
 
-	void BaseEnemy::draw(){
+	void BaseEnemy::draw(int xInput, int yInput, int colCode){
+
+		m_xInput = xInput;
+		m_yInput = yInput;
+		m_colCode = colCode;
 
 		glPushMatrix();
 		glBegin(GL_TRIANGLES);
@@ -21,12 +25,86 @@ namespace spacey{ namespace objects{
 		glEnd();
 		glPopMatrix();
 
+		if (!delaware.empty()){
+			for (int i = 0; i < delaware.size(); i++){
+				delaware[i].Fire(xInput, yInput, colCode);
+				if (delaware[i].limit()){
+					delaware.erase(delaware.begin() + i);
+				}
+			}
+		}
 
+		move();
+		createNewBullet();
+		walk();
 	}
 
 	BaseEnemy::BaseEnemy(int x, int y){
 		x_coord = x;
 		y_coord = y;
+	}
+
+	void BaseEnemy::move(){
+		//X Movements
+		if (m_xInput == 1 && m_colCode != 1){
+			x_coord++;
+		}
+		else if (m_xInput == 2 && m_colCode != 2){
+			x_coord--;
+		}
+
+		//Y Movements
+		if (m_yInput == 3 && m_colCode != 3){
+			y_coord--;
+		}
+		else if (m_yInput == 4 && m_colCode != 4){
+			y_coord++;
+		}
+	}
+
+	void BaseEnemy::bulletFill(){
+		Bullet bullet(3);
+		bullet.bX = x_coord;
+		bullet.bY = y_coord;
+		delaware.push_back(bullet);
+	}
+
+	void BaseEnemy::createNewBullet(){
+		if (counter < 1000){
+			counter++;
+		}
+		else{
+			bulletFill();
+			counter = 0;
+		}
+	}
+
+	void BaseEnemy::walk(){
+		if (steps >= 300){
+			steps = 0;
+			direction = rand() % 4 + 1;
+		}
+		else{
+			switch (direction){
+			case 1:
+				x_coord -= 0.2;
+				break;
+			case 2:
+				x_coord += 0.2;
+				break;
+			case 3: 
+				y_coord += 0.2;
+				break;
+			case 4: 
+				y_coord -= 0.2;
+				break;
+			default:
+				std::cout << "Not a valid enemy movement key.\n";
+				break;
+			}
+
+			steps++;
+		}
 	}
 
 } }
