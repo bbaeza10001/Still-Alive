@@ -21,6 +21,7 @@ namespace spacey{ namespace objects{
 		int m_xInput, m_yInput, m_colCode;
 		int counter, steps;
 		int direction = 3;
+		int pointing = 0;
 		
 		void createNewBullet(); //Creates new bullet every x ticks
 		void bulletFill(); //Fills bullet vector

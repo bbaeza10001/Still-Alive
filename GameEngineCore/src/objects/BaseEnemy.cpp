@@ -7,10 +7,15 @@ namespace spacey{ namespace objects{
 		y_coord = 0;
 	}
 
+	BaseEnemy::BaseEnemy(int x, int y){
+		x_coord = x;
+		y_coord = y;
+	}
+
 	BaseEnemy::~BaseEnemy(){
 		
 	}
-
+	
 	void BaseEnemy::draw(int xInput, int yInput, int colCode){
 
 		m_xInput = xInput;
@@ -39,11 +44,6 @@ namespace spacey{ namespace objects{
 		walk();
 	}
 
-	BaseEnemy::BaseEnemy(int x, int y){
-		x_coord = x;
-		y_coord = y;
-	}
-
 	void BaseEnemy::move(){
 		//X Movements
 		if (m_xInput == 1 && m_colCode != 1){
@@ -63,14 +63,16 @@ namespace spacey{ namespace objects{
 	}
 
 	void BaseEnemy::bulletFill(){
-		Bullet bullet(3);
+		Bullet bullet(direction);
 		bullet.bX = x_coord;
 		bullet.bY = y_coord;
+		bullet.x_coord = x_coord;
+		bullet.y_coord = y_coord;
 		delaware.push_back(bullet);
 	}
 
 	void BaseEnemy::createNewBullet(){
-		if (counter < 1000){
+		if (counter < 100){
 			counter++;
 		}
 		else{
