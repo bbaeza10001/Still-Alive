@@ -49,6 +49,8 @@ int main(){
 	int width = 800;
 	int height = 600;
 
+	int x = 0, y = 0, z = 0;
+
 	//Start Screen
 	//static Window start("Still Alive - Start", width, height);
 	//// opengl setup
@@ -107,8 +109,6 @@ int main(){
 			input[0] = checkForXInput(&window); //Getting input values from the player in the current window
 			input[1] = checkForYInput(&window);
 
-		
-
 			if ((input[0] != WColCode || input[1] != WColCode) && input[0] != 0 && input[1] != 0){ //Player input != the last collision code
 			
 				WColCode = 0; //There is no longer a collision
@@ -122,6 +122,7 @@ int main(){
 			for (unsigned int i = 0; i < testC.size(); i++){
 				testC[i].Draw(input[0], input[1], CColCode);
 			}
+
 			dave.draw(input[0], input[1], 0);
 
 			/*for (unsigned int i = 0; i < testW.size(); i++){
@@ -138,6 +139,13 @@ int main(){
 
 			WColCode = 0; //checkCollision(testW, input[0], input[1]); //Reset the collision code
 			CColCode = checkCollision(testC, input[0], input[1]);
+
+
+			/* Camera Testing */
+			if (window.isKeyPressed(GLFW_KEY_LEFT)){
+				gluLookAt(x, y, z, 1, y, z, 0, -1, 0);
+				cout << "Moved Camera Left\n";
+			}
 
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs at max

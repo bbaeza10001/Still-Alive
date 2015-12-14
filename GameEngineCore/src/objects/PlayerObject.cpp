@@ -18,7 +18,7 @@ namespace spacey{
 			glPushMatrix();
 			checkRotation();
 
-			glColor3f(1.0, 0.0, 0.0); //Sets the color of the ship each time it's drawn
+			glColor3f(0.0, 1.0, 0.0); //Sets the color of the ship each time it's drawn
 			glBegin(GL_TRIANGLES);
 			glVertex2d(x1, y1); //Bottom Left Corner
 			glVertex2d(x2, y2); //Nose of Ship
