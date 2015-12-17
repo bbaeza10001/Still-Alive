@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\graphics\LoadLevel.cpp" />
+    <ClCompile Include="src\graphics\lodepng.cpp" />
     <ClCompile Include="src\graphics\Texture.cpp" />
     <ClCompile Include="src\graphics\TextureManager.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
@@ -99,6 +100,7 @@
   <ItemGroup>
     <ClInclude Include="src\graphics\ImageLoader.h" />
     <ClInclude Include="src\graphics\LoadLevel.h" />
+    <ClInclude Include="src\graphics\lodepng.h" />
     <ClInclude Include="src\graphics\Texture.h" />
     <ClInclude Include="src\graphics\TextureManager.h" />
     <ClInclude Include="src\include\Includes.h" />
@@ -114,6 +116,9 @@
     <ClInclude Include="src\objects\CircleObject.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
     <ClInclude Include="src\objects\Wall.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ship.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
