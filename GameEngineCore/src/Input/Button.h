@@ -2,6 +2,8 @@
 
 #include "../graphics/Window.h"
 #include "../graphics/Texture.h"
+#include "../graphics/lodepng.h"
+#include <vector>
 #include <string>
 
 namespace spacey{ namespace input{
@@ -24,6 +26,11 @@ namespace spacey{ namespace input{
 		double m_width;
 		double m_height;
 		string m_filename;
+
+		//Image Variables
+		std::vector<unsigned char> image;
+		double u3;
+		double v3;
 	};
 
 } }

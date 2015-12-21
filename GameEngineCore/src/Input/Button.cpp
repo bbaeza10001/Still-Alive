@@ -10,51 +10,63 @@ namespace spacey{ namespace input{
 		m_window = NULL;
 	}
 
-	button::button(Window* window, double x, double y, double width, double height, string filename){
+	button::button(Window* window, double x, double y, double in_width, double in_height, string filename){
 		m_x = x;
 		m_y = y;
-		m_width = width;
-		m_height = height;
 		m_window = window;
 		m_filename = filename;
+		m_width = in_width;
+		m_height = in_height;
+
+		// Load file and decode image.
+		unsigned width, height;
+
+		// Here the PNG is loaded in "image"
+		lodepng::decode(image, width, height, filename);
+
+
+		// Make some OpenGL properties better for 2D and enable alpha channel.
+		glDisable(GL_CULL_FACE);
+		glDisable(GL_DEPTH_TEST);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
+
+		// Texture size must be power of two for the primitive OpenGL version this is written for. Find next power of two.
+		size_t u2 = 1; while (u2 < width) u2 *= 2;
+		size_t v2 = 1; while (v2 < height) v2 *= 2;
+		// Ratio for power of two version compared to actual version, to render the non power of two image with proper size.
+		u3 = (double)width / u2;
+		v3 = (double)height / v2;
+
+		// Make power of two version of the image.
+		std::vector<unsigned char> image2(u2 * v2 * 4);
+		for (size_t y = 0; y < height; y++)
+			for (size_t x = 0; x < width; x++)
+				for (size_t c = 0; c < 4; c++)
+				{
+					image2[4 * u2 * y + 4 * x + c] = image[4 * width * y + 4 * x + c];
+				}
+
+		// Enable the texture for OpenGL.
+		glEnable(GL_TEXTURE_2D);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST); //GL_NEAREST = no smoothing
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &image2[0]);
+
+		glColor4ub(255, 255, 255, 255);
 	}
 
 	void button::draw(){
 		glPushMatrix();
-		glTranslatef(m_x, m_y, 0);
-
-		//Base button drawing
 		glBegin(GL_QUADS);
-		glVertex2d(m_x, m_y);
-		glVertex2d(m_x + m_width, m_y);
-		glVertex2d(m_x + m_width, m_y + m_height);
-		glVertex2d(m_x, m_y + m_height);
+		glTexCoord2d(0, 0);     glVertex2d(m_x, m_y);
+		glTexCoord2d(u3, 0);   glVertex2d(m_x + m_width, m_y);
+		glTexCoord2d(u3, v3);  glVertex2d(m_x + m_width, m_y + m_height);
+		glTexCoord2d(0, v3);   glVertex2d(m_x, m_y + m_height);
 		glEnd();
-		
-		Texture tool(m_filename);
-		GLuint tex;
-		tex = tool.m_TID;
 
-		//Texture drawing
-		glEnable(GL_TEXTURE_2D);
-		glBegin(GL_QUADS);
-		glTexCoord2f(0, 0);
-		glVertex2f(m_x, m_y);
-
-		glTexCoord2f(0, 1);
-		glVertex2f(m_x + m_width, m_y);
-
-		glTexCoord2f(1, 1);
-		glVertex2f(m_x + m_width, m_y + m_height);
-
-		glTexCoord2f(1, 0);
-		glVertex2f(m_x, m_y + m_height);
-		glEnd();
-		
 		glPopMatrix();
-		glBindTexture(GL_TEXTURE_2D, 0);
-		glDisable(GL_TEXTURE_2D);
-
 	}
 
 	bool button::clicked(){
@@ -78,6 +90,5 @@ namespace spacey{ namespace input{
 			return false;
 		}
 	}
-
 
 } }
