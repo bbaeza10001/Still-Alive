@@ -1,0 +1,5 @@
+START
+2
+10 50 ship.png 
+400 5 ship.png
+ENDF

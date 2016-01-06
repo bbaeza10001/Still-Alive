@@ -36,19 +36,10 @@
     <ClCompile Include="src\Input\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\TextureManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\objects\Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Input\InputController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\motion\CollisionDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\objects\Wall.cpp">
@@ -57,10 +48,19 @@
     <ClCompile Include="src\objects\BaseEnemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\Background.cpp">
+    <ClCompile Include="src\graphics\lodepng.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\lodepng.cpp">
+    <ClCompile Include="src\graphics\bg_Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\BaseObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\BG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\motion\MotionController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,22 +89,10 @@
     <ClInclude Include="src\Input\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\Texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\ImageLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\objects\Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\objects\BaseObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\motion\CollisionDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\objects\Wall.h">
@@ -113,10 +101,16 @@
     <ClInclude Include="src\objects\BaseEnemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\objects\Background.h">
+    <ClInclude Include="src\graphics\lodepng.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\lodepng.h">
+    <ClInclude Include="src\graphics\bg_Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\objects\BG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\motion\MotionController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -124,5 +118,8 @@
     <Image Include="ship.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Enemy.txt" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../graphics/Window.h"
-#include "../graphics/Texture.h"
 #include "../graphics/lodepng.h"
 #include <vector>
 #include <string>
@@ -28,7 +27,9 @@ namespace spacey{ namespace input{
 		string m_filename;
 
 		//Image Variables
-		std::vector<unsigned char> image;
+		std::vector<unsigned char> m_image;
+		size_t u2 = 1;
+		size_t v2 = 1;
 		double u3;
 		double v3;
 	};
