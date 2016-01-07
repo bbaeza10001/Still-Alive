@@ -5,18 +5,21 @@
 
 namespace spacey{ namespace objects{
 
-	class Bullet : public BaseObject{
+	class Bullet {
 	public:
 		Bullet();
 		Bullet(int direction);
-		void Fire(int xInput, int yInput, int colCode);
+		void Fire();
 
 		bool limit();
 
-		float bX = x_coord;
-		float bY = y_coord;
+		float bX;
+		float bY;
+
+		float bx_coord;
+		float by_coord;
 	private:
-		void Move(int xInput, int yInput, int colCode);
+		void Move();
 		int m_direction;
 	};
 

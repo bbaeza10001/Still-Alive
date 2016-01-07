@@ -10,7 +10,7 @@ namespace spacey{ 	namespace objects{
 		m_direction = direction;
 	}
 
-	void Bullet::Fire(int xInput, int yInput, int colCode){
+	void Bullet::Fire(){
 
 		glPushMatrix();
 		glColor3f(1, 1, 0.5);
@@ -21,17 +21,17 @@ namespace spacey{ 	namespace objects{
 		glVertex2f(bX - 1, bY - 2);
 		glEnd();
 
-		Move(xInput, yInput, colCode);
+		Move();
 		glPopMatrix();
 	}
 
 	bool Bullet::limit(){
 
-		if ((bX - 100) > x_coord || (bX + 100) < x_coord){
+		if ((bX - 100) > bx_coord || (bX + 100) < bx_coord){
 			return true;
 		}
 
-		else if ((bY - 100) > y_coord || (bY + 100) < y_coord){
+		else if ((bY - 100) > by_coord || (bY + 100) < by_coord){
 			return true;
 		}
 		else{
@@ -39,7 +39,7 @@ namespace spacey{ 	namespace objects{
 		}
 	}
 
-	void Bullet::Move(int m_xInput, int m_yInput, int m_colCode){
+	void Bullet::Move(){
 		switch (m_direction){
 		case 1: //Move left
 			bX -= 0.5f;
@@ -55,25 +55,8 @@ namespace spacey{ 	namespace objects{
 			break;
 		default: //Print out an error message
 			std::cout << "Error: Bullet orientation is invalid.\n";
-			std::cout << "Direction Code is: " << m_xInput << std::endl;
+			std::cout << "Direction Code is: " <<m_direction << std::endl;
 			break;
-		}
-
-		//X Movements
-		if (m_xInput == 1 && m_colCode != 1){
-			bX++;
-		}
-
-		if (m_xInput == 2 && m_colCode != 2){
-			bX--;
-		}
-
-		//Y Movements
-		if (m_yInput == 3 && m_colCode != 3){
-			bY--;
-		}
-		else if (m_yInput == 4 && m_colCode != 4){
-			bY++;
 		}
 		
 	}

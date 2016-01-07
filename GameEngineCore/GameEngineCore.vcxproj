@@ -81,37 +81,45 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\graphics\bg_Texture.cpp" />
     <ClCompile Include="src\graphics\LoadLevel.cpp" />
-    <ClCompile Include="src\graphics\Texture.cpp" />
-    <ClCompile Include="src\graphics\TextureManager.cpp" />
+    <ClCompile Include="src\graphics\lodepng.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\Input\Button.cpp" />
     <ClCompile Include="src\Input\InputController.cpp" />
-    <ClCompile Include="src\motion\CollisionDetection.cpp" />
+    <ClCompile Include="src\motion\MotionController.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\BaseEnemy.cpp" />
+    <ClCompile Include="src\objects\BaseObject.cpp" />
+    <ClCompile Include="src\objects\BG.cpp" />
     <ClCompile Include="src\objects\Bullet.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
     <ClCompile Include="src\objects\PlayerObject.cpp" />
     <ClCompile Include="src\objects\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\ImageLoader.h" />
+    <ClInclude Include="src\graphics\bg_Texture.h" />
     <ClInclude Include="src\graphics\LoadLevel.h" />
-    <ClInclude Include="src\graphics\Texture.h" />
-    <ClInclude Include="src\graphics\TextureManager.h" />
+    <ClInclude Include="src\graphics\lodepng.h" />
     <ClInclude Include="src\include\Includes.h" />
     <ClInclude Include="src\Input\Button.h" />
     <ClInclude Include="src\Input\InputController.h" />
-    <ClInclude Include="src\motion\CollisionDetection.h" />
     <ClInclude Include="src\graphics\Window.h" />
+    <ClInclude Include="src\motion\MotionController.h" />
     <ClInclude Include="src\motion\Orbits.h" />
     <ClInclude Include="src\objects\BaseEnemy.h" />
     <ClInclude Include="src\objects\BaseObject.h" />
+    <ClInclude Include="src\objects\BG.h" />
     <ClInclude Include="src\objects\Bullet.h" />
     <ClInclude Include="src\objects\CircleObject.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
     <ClInclude Include="src\objects\Wall.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Enemy.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

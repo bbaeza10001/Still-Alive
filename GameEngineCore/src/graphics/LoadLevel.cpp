@@ -2,7 +2,7 @@
 
 namespace spacey{ namespace level{
 
-	vector<CircleObject> level::loadPlanets(vector<CircleObject> systemVector, string fileName){
+	void loadObject(vector<CircleObject> &systemVector, string fileName){
 		ifstream file;
 
 		file.open(fileName);
@@ -11,8 +11,7 @@ namespace spacey{ namespace level{
 			cout << "Opening level file named '" << fileName << "' failed.\n";
 		}
 		else{
-			cout << "Opening " << fileName << endl;
-			string line;
+			string line, filename;
 			int x, y, size, amount;
 
 			while (file.is_open()){
@@ -22,12 +21,12 @@ namespace spacey{ namespace level{
 					file >> amount;
 
 					for (int i = 0; i < amount; i++){
-						file >> x >> y >> size; //read the values for the planet and add them to the vector
+						file >> x >> y >> size >> filename; //read the values for the planet and add them to the vector
 
-						CircleObject temp(x, y, size);
+						CircleObject temp(x, y, size, filename);
 
 						systemVector.push_back(temp);
-						cout << "Added element to circle vector.\n";
+						cout << "Added element to vector.\n";
 					}
 
 				}
@@ -36,20 +35,11 @@ namespace spacey{ namespace level{
 					file.close();
 				}
 			}
-
-
-			//Not needed anymore because the system works
-			/*cout << "Finished with while loop" << endl;
-			
-			for (unsigned int i = 0; i < systemVector.size(); i++){
-				cout << "Planet " << i << ": " << systemVector[i].x_coord << ", " << systemVector[i].y_coord << endl;
-			}*/
 		}
 
-		return systemVector;
 	}
 
-	vector<Wall > level::loadPlanets(vector<Wall> systemVector, string fileName){
+	void loadObject(vector<BaseEnemy> &systemVector, string fileName){
 		ifstream file;
 
 		file.open(fileName);
@@ -58,9 +48,8 @@ namespace spacey{ namespace level{
 			cout << "Opening level file named '" << fileName << "' failed.\n";
 		}
 		else{
-			cout << "Opening " << fileName << endl;
-			string line;
-			int width, height, x, y, size, amount;
+			string line, filename;
+			int x, y, size, amount;
 
 			while (file.is_open()){
 				file >> line;
@@ -69,12 +58,12 @@ namespace spacey{ namespace level{
 					file >> amount;
 
 					for (int i = 0; i < amount; i++){
-						file >> width >> height >> x >> y; //read the values for the planet and add them to the vector
+						file >> x >> y >> filename; //read the values for the planet and add them to the vector
 
-						Wall temp(width, height, x, y);
+						BaseEnemy temp(x, y, filename);
 
 						systemVector.push_back(temp);
-						cout << "Added element to wall vector.\n";
+						cout << "Added element to vector.\n";
 					}
 
 				}
@@ -83,18 +72,8 @@ namespace spacey{ namespace level{
 					file.close();
 				}
 			}
-
-
-			//Not needed anymore because the system works
-			/*cout << "Finished with while loop" << endl;
-
-			for (unsigned int i = 0; i < systemVector.size(); i++){
-			cout << "Planet " << i << ": " << systemVector[i].x_coord << ", " << systemVector[i].y_coord << endl;
-			}*/
 		}
 
-		return systemVector;
-
-		systemVector.clear();
 	}
+
 } }
