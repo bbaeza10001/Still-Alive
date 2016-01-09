@@ -19,8 +19,8 @@ namespace spacey{ namespace input{
 		m_height = in_height;
 
 		// Load file and decode image.
+		std::vector<unsigned char> image;
 		unsigned width, height;
-
 		// Here the PNG is loaded in "image"
 		lodepng::decode(image, width, height, filename);
 
@@ -33,8 +33,8 @@ namespace spacey{ namespace input{
 		glDisable(GL_ALPHA_TEST);
 
 		// Texture size must be power of two for the primitive OpenGL version this is written for. Find next power of two.
-		size_t u2 = 1; while (u2 < width) u2 *= 2;
-		size_t v2 = 1; while (v2 < height) v2 *= 2;
+		while (u2 < width) u2 *= 2;
+		while (v2 < height) v2 *= 2;
 		// Ratio for power of two version compared to actual version, to render the non power of two image with proper size.
 		u3 = (double)width / u2;
 		v3 = (double)height / v2;
@@ -48,17 +48,20 @@ namespace spacey{ namespace input{
 					image2[4 * u2 * y + 4 * x + c] = image[4 * width * y + 4 * x + c];
 				}
 
+		m_image = image2;
+
+	}
+
+	void button::draw(){
 		// Enable the texture for OpenGL.
 		glEnable(GL_TEXTURE_2D);
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST); //GL_NEAREST = no smoothing
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &image2[0]);
+		glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &m_image[0]);
 
-		glColor4ub(255, 255, 255, 255);
-	}
-
-	void button::draw(){
+		//Draw the image on a polygon
 		glPushMatrix();
+
 		glBegin(GL_QUADS);
 		glTexCoord2d(0, 0);     glVertex2d(m_x, m_y);
 		glTexCoord2d(u3, 0);   glVertex2d(m_x + m_width, m_y);

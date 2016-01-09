@@ -1,7 +1,5 @@
 #include "src\include\Includes.h"
-#include "src\graphics\Texture.h"
 #include "src\objects\Bullet.h"
-#include "src\motion\CollisionDetection.h"
 #include "src\objects\Wall.h"
 #include "src\objects\BaseEnemy.h"
 #include "src\graphics\lodepng.h"
@@ -23,19 +21,13 @@ using namespace motion;
 
 	** Begin a sound engine
 
-	** Add param to text doc to set object images
-	
-	** Add background photos
-
 	ISSUES:
 
 	--COLLISION DETECTIONS--
 		**If the direction is continually tapped after colliding, the player can move through an object
-		**Change colCode variables to size 2 arrays to support multi-directional movement?
+
 	--BULLET SYSTEM--
 		**Add diagonal shooting
-	--USER INPUT SYSTEM--
-		**Change from two seperate variables for x and y to a single, size 2 array
 
 */
 
@@ -92,49 +84,20 @@ int main(){
 		glLoadIdentity();
 		
 		// Construction
-		PlayerObject player(&window);
-		vector<CircleObject> testC = loadPlanets(testC, "Circles.txt"); //Loading in the planets from the "level.txt" file
-		vector<Wall> testW = loadPlanets(testW, "Walls.txt"); //Play around with the numbers in the files, see what it does :)
-		BaseEnemy dave(50, 50);
+		PlayerObject player(&window, "ship.png");
+		BG test(&window);
+		Motion motion;
 
-		int input[2], colCode, WColCode = 0, CColCode = 0; //Ints having to do with collision detection
+		test.loadEntity("Enemy.txt", "BASE_ENEMY");
 
 		while (!window.closed()){
 			window.clear();
 
-			input[0] = checkForXInput(&window); //Getting input values from the player in the current window
-			input[1] = checkForYInput(&window);
-
-			if ((input[0] != WColCode || input[1] != WColCode) && input[0] != 0 && input[1] != 0){ //Player input != the last collision code
+			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 			
-				WColCode = 0; //There is no longer a collision
-			}
-			if ((input[0] != CColCode || input[1] != CColCode) && input[0] != 0 && input[1] != 0){ //Player input != the last collision code
+			test.update(&motion);
 
-				CColCode = 0; //There is no longer a collision
-			}
-			
-			// Update Background
-			for (unsigned int i = 0; i < testC.size(); i++){
-				testC[i].Draw(input[0], input[1], CColCode);
-			}
-
-			dave.draw(input[0], input[1], 0);
-
-			/*for (unsigned int i = 0; i < testW.size(); i++){
-				testW[i].draw(input[0], input[1], WColCode);
-			}*/
-
-			//Update the player
-			if (CColCode != 0 || WColCode != 0){
-				if (WColCode != 0){
-					player.Draw(input[0], input[1], WColCode);
-				}
-				player.Draw(input[0], input[1], CColCode);
-			}
-
-			WColCode = 0; //checkCollision(testW, input[0], input[1]); //Reset the collision code
-			CColCode = checkCollision(testC, input[0], input[1]);
+			player.Draw(&motion);
 
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs at max
