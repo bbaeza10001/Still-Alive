@@ -33,7 +33,6 @@ namespace spacey{ namespace objects{
 			//Draw the texture
 			glPushMatrix();
 
-			glTranslatef(x_coord, y_coord, 0);
 			glBegin(GL_QUADS);
 			glTexCoord2d(0, v3);		 glVertex2d(x_coord - 16, y_coord - 16);
 			glTexCoord2d(0, 0);		 glVertex2d(x_coord - 16, y_coord + 16);
@@ -70,16 +69,12 @@ namespace spacey{ namespace objects{
 	}
 
 	void BaseEnemy::bulletFill(){
-		Bullet bullet(direction);
-		bullet.bX = x_coord;
-		bullet.bY = y_coord;
-		bullet.bx_coord = x_coord;
-		bullet.by_coord = y_coord;
+		Bullet bullet(direction, x_coord, y_coord);
 		delaware.push_back(bullet);
 	}
 
 	void BaseEnemy::createNewBullet(){
-		if (counter < 100){
+		if (counter < 500){
 			counter++;
 		}
 		else{
@@ -91,21 +86,37 @@ namespace spacey{ namespace objects{
 	void BaseEnemy::walk(){
 		if (steps >= 300){
 			steps = 0;
-			direction = rand() % 4 + 1;
+			direction = rand() % 8 + 1;
 		}
 		else{
 			switch (direction){
-			case 1:
-				x_coord -= 0.2;
-				break;
-			case 2:
-				x_coord += 0.2;
-				break;
-			case 3: 
+			case 1: //Up
 				y_coord += 0.2;
 				break;
-			case 4: 
+			case 2: //Up Right
+				x_coord += 0.2;
+				y_coord += 0.2;
+				break;
+			case 3:  //Right
+				x_coord += 0.2;
+				break;
+			case 4: //Down Right
+				x_coord += 0.2;
 				y_coord -= 0.2;
+				break;
+			case 5: //Down
+				y_coord -= 0.2;
+				break;
+			case 6: //Left Down
+				x_coord -= 0.2;
+				y_coord -= 0.2;
+				break;
+			case 7: //Left
+				x_coord -= 0.2;
+				break;
+			case 8: //Left Up
+				x_coord -= 0.2;
+				y_coord += 0.2;
 				break;
 			default:
 				std::cout << "Not a valid enemy movement key.\n";

@@ -15,7 +15,7 @@ namespace spacey{
 		void PlayerObject::Draw(Motion* motion){
 			
 			checkFire();
-			checkRotation();
+			checkRotation(motion);
 
 			if (imageLoaded){
 				// Enable the texture for OpenGL.
@@ -64,13 +64,38 @@ namespace spacey{
 
 		}
 
-		void PlayerObject::checkRotation(){
-			//Use the motion controller to check how far the player needs to turn
+		void PlayerObject::checkRotation(Motion* motion){
+			direction = motion->angle;
+
+			if (direction == 0){
+				direction = 1;
+			}
+			else if (direction == 45){
+				direction = 2;
+			}
+			else if (direction == 90){
+				direction = 3;
+			}
+			else if (direction == 135){
+				direction = 4;
+			}
+			else if (direction == 180){
+				direction = 5;
+			}
+			else if (direction == 225){
+				direction = 6;
+			}
+			else if (direction == 270){
+				direction = 7;
+			}
+			else if (direction == 315){
+				direction = 8;
+			}
 		}
 
 		void PlayerObject::checkFire(){
 			if (m_window->isMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT)){
-				Bullet bullet(direction);
+				Bullet bullet(direction, x_coord, y_coord);
 				shot.push_back(bullet);
 			}
 		}

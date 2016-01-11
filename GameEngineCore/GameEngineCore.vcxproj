@@ -39,8 +39,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeImage\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2013;$(SolutionDir)Dependencies\GLEW\Lib;$(SolutionDir)Dependencies\FreeImage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2013;$(SolutionDir)Dependencies\GLEW\Lib;$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\SFML\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$Bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$Bin\$(Configuration)\Intermediates\</IntDir>
   </PropertyGroup>
@@ -53,13 +53,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glu32.lib;glfw3.lib;opengl32.lib;glew32s.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glu32.lib;glfw3.lib;opengl32.lib;glew32s.lib;FreeImage.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>/NODEFAULTLIB:msvcrt;/NODEFAULTLIB:libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
