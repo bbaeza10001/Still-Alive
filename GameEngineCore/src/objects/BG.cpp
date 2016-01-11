@@ -58,7 +58,6 @@ namespace spacey{
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){
 				B_Enemy[i].x_coord += motion->xspeed;
 				B_Enemy[i].y_coord += motion->yspeed;
-
 			}
 			
 		}

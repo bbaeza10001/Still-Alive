@@ -20,7 +20,7 @@ namespace spacey{ namespace objects{
 
 		void Draw(Motion* motion);
 	private:
-		std::vector<Bullet> delaware;
+		std::vector<Bullet> delaware; 
 		int counter, steps;
 		int direction = 3;
 		int pointing = 0;
