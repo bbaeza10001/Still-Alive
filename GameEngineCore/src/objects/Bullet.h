@@ -8,7 +8,7 @@ namespace spacey{ namespace objects{
 	class Bullet {
 	public:
 		Bullet();
-		Bullet(int direction);
+		Bullet(int direction, float x, float y);
 		void Fire();
 
 		bool limit();
@@ -16,11 +16,24 @@ namespace spacey{ namespace objects{
 		float bX;
 		float bY;
 
+		
+	private: //Functions
+		void Move();
+
+	private: //Variables
+		int m_direction;
+
 		float bx_coord;
 		float by_coord;
-	private:
-		void Move();
-		int m_direction;
+
+		//Image Variables
+		vector<unsigned char> m_bimage;
+		unsigned b_width, b_height;
+		size_t b_u2 = 1;
+		size_t b_v2 = 1;
+		double b_u3;
+		double b_v3;
+		bool b_imageLoaded = false;
 	};
 
 } }

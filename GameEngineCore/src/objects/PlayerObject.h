@@ -18,7 +18,7 @@ namespace spacey{ namespace objects{
 			void Draw(Motion* motion);
 		
 		private: 
-			void checkRotation();
+			void checkRotation(Motion* motion);
 			void checkFire();
 		
 		private:

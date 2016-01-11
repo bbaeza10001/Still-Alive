@@ -4,6 +4,9 @@
 #include "src\objects\BaseEnemy.h"
 #include "src\graphics\lodepng.h"
 
+#include <SFML/Audio.hpp>
+#include <SFML/Audio/Music.hpp>
+
 using namespace spacey;
 using namespace graphics;
 using namespace objects;
@@ -13,21 +16,25 @@ using namespace input;
 using namespace motion;
 
 /*
+	TO DO IN CLUB:
+
+	-Use the BG class to update any bullets fired by entities as well as the entities themselves
+	-Use the BG class to check for bullet collisions among other entities
+	-Add health aspect to all killable entities
+	-Use health & bullet collisions together to make entities killable (Do in BG class)
+	-Add the wall class to the BG 
+	-Make temporary art assets for each thing
+	-Make the enemy movements more random 
+
 	TO DO:
 	
 	** Shooting System: 
 		-Adjust to allow shooting while moving
-		-Adjust to allow diagonal shooting
-
-	** Begin a sound engine
 
 	ISSUES:
 
 	--COLLISION DETECTIONS--
 		**If the direction is continually tapped after colliding, the player can move through an object
-
-	--BULLET SYSTEM--
-		**Add diagonal shooting
 
 */
 
@@ -90,6 +97,11 @@ int main(){
 
 		test.loadEntity("Enemy.txt", "BASE_ENEMY");
 
+		//Music playing
+		sf::Music music; //Music object setup
+		music.openFromFile("music.ogg"); //Loading the music into memory
+		music.play(); //Playing the music, plays in it's own thread
+
 		while (!window.closed()){
 			window.clear();
 
@@ -117,35 +129,40 @@ int main(){
 	int width = 800;
 	int height = 600;
 
-	//Start Screen
-	static Window start("Still Alive - Start", width, height);
+	//Game Window
+	static Window window("Still Alive", width, height);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //Game background color
 
-	//OpenGL Coordinates Setup
+	//OpenGL Coordinate Grid Setup
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(0, width * 2, height * 2, 0); //Adjusts coordinate system to start from top left
-	                                         //and be the correct width and height
+	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 
+	//the middle of the screen like a standard graph
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	button b_start(&start, 250, 400, 50, 40, "ship.png");
-	button b_exit(&start, 550, 400, 50, 40, "ship.png");
-	bool exit = false;
+	// Construction
+	PlayerObject player(&window, "ship.png");
+	BG test(&window);
+	Motion motion;
 
-	while (!start.closed()){
-	start.clear();
+	test.loadEntity("Enemy.txt", "BASE_ENEMY");
 
-	b_start.draw();
-	b_exit.draw();
-	if (b_start.clicked()){
-	start.~Window();
-	}
-	else if (b_exit.clicked()){
-	start.~Window();
-	exit = true;
-	}
+	sf::Music music;
+	music.openFromFile("music.ogg");
+	music.play();
 
-	start.update();
+	while (!window.closed()){
+		window.clear();
+
+		checkForInput(&window, &motion, test); //Getting input values from the player in the current window
+
+		test.update(&motion);
+
+		player.Draw(&motion);
+
+		window.update();
+		Sleep(0.5); //Controls how fast the game loop runs at max
 	}
 }
 #endif
