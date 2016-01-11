@@ -39,8 +39,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeImage\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2013;$(SolutionDir)Dependencies\GLEW\Lib;$(SolutionDir)Dependencies\FreeImage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2013;$(SolutionDir)Dependencies\GLEW\Lib;$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\SFML\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$Bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$Bin\$(Configuration)\Intermediates\</IntDir>
   </PropertyGroup>
@@ -53,13 +53,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glu32.lib;glfw3.lib;opengl32.lib;glew32s.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glu32.lib;glfw3.lib;opengl32.lib;glew32s.lib;FreeImage.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>/NODEFAULTLIB:msvcrt;/NODEFAULTLIB:libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -81,37 +81,45 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\graphics\bg_Texture.cpp" />
     <ClCompile Include="src\graphics\LoadLevel.cpp" />
-    <ClCompile Include="src\graphics\Texture.cpp" />
-    <ClCompile Include="src\graphics\TextureManager.cpp" />
+    <ClCompile Include="src\graphics\lodepng.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\Input\Button.cpp" />
     <ClCompile Include="src\Input\InputController.cpp" />
-    <ClCompile Include="src\motion\CollisionDetection.cpp" />
+    <ClCompile Include="src\motion\MotionController.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\BaseEnemy.cpp" />
+    <ClCompile Include="src\objects\BaseObject.cpp" />
+    <ClCompile Include="src\objects\BG.cpp" />
     <ClCompile Include="src\objects\Bullet.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
     <ClCompile Include="src\objects\PlayerObject.cpp" />
     <ClCompile Include="src\objects\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\ImageLoader.h" />
+    <ClInclude Include="src\graphics\bg_Texture.h" />
     <ClInclude Include="src\graphics\LoadLevel.h" />
-    <ClInclude Include="src\graphics\Texture.h" />
-    <ClInclude Include="src\graphics\TextureManager.h" />
+    <ClInclude Include="src\graphics\lodepng.h" />
     <ClInclude Include="src\include\Includes.h" />
     <ClInclude Include="src\Input\Button.h" />
     <ClInclude Include="src\Input\InputController.h" />
-    <ClInclude Include="src\motion\CollisionDetection.h" />
     <ClInclude Include="src\graphics\Window.h" />
+    <ClInclude Include="src\motion\MotionController.h" />
     <ClInclude Include="src\motion\Orbits.h" />
     <ClInclude Include="src\objects\BaseEnemy.h" />
     <ClInclude Include="src\objects\BaseObject.h" />
+    <ClInclude Include="src\objects\BG.h" />
     <ClInclude Include="src\objects\Bullet.h" />
     <ClInclude Include="src\objects\CircleObject.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
     <ClInclude Include="src\objects\Wall.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Enemy.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

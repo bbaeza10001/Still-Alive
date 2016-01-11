@@ -1,26 +1,36 @@
-﻿Build started 12/7/2015 7:23:32 AM.
+﻿Build started 1/11/2016 2:10:40 PM.
      1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\Input\InputController.cpp src\graphics\LoadLevel.cpp src\objects\BG.cpp src\objects\BaseEnemy.cpp
+         BG.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(94): warning C4018: '<' : signed/unsigned mismatch
+         Main.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\main.cpp(120): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         BaseEnemy.cpp
+         LoadLevel.cpp
+         InputController.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib "sfml-audio-s-d.lib" "sfml-system-s-d.lib" openal32.lib flac.lib vorbisenc.lib vorbisfile.lib vorbis.lib ogg.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\bg_Texture.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\LoadLevel.obj"
-         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Texture.obj"
-         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\TextureManager.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\lodepng.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Window.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Button.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\InputController.obj"
-         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CollisionDetection.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\MotionController.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Orbits.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BaseEnemy.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BaseObject.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BG.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Wall.obj"
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
          GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe
      1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.43
+Time Elapsed 00:00:08.18

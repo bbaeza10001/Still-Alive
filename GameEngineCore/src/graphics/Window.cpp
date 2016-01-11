@@ -33,7 +33,10 @@ namespace spacey{ namespace graphics{
 		glfwPollEvents();
 		glfwGetFramebufferSize(m_Window, &m_Width, &m_Height);
 		glfwSwapBuffers(m_Window);
-		
+
+		//For clearing Images
+		glClearColor(0, 0, 0, 0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	bool Window::init(){

@@ -1,31 +1,32 @@
 #pragma once
 #include "BaseObject.h"
+#include "Bullet.h"
+#include "../motion/MotionController.h"
 #include <GL\glew.h>
 #include <GL\GLU.h>
-#include "Bullet.h"
 #include <vector>
 #include <stdlib.h>
 
 namespace spacey{ namespace objects{
 
-	class BaseEnemy : Bullet{	
+	using namespace motion;
+
+	class BaseEnemy : Bullet, public BaseObject{	
 	public:
 		BaseEnemy(); //Constructor
 		~BaseEnemy(); //Destructor
 
-		BaseEnemy(int x, int y); //Overload Function
+		BaseEnemy(int x, int y, string filename); //Overload Function
 
-		void draw(int xInput, int yInput, int colCode);
+		void Draw(Motion* motion);
 	private:
-		std::vector<Bullet> delaware;
-		int m_xInput, m_yInput, m_colCode;
+		std::vector<Bullet> delaware; 
 		int counter, steps;
 		int direction = 3;
 		int pointing = 0;
 		
 		void createNewBullet(); //Creates new bullet every x ticks
 		void bulletFill(); //Fills bullet vector
-		void move(); //Moving entity along with the background
 		void walk(); //Enemy moves
 	};
 
