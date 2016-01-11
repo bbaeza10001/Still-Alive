@@ -5,19 +5,35 @@
 
 namespace spacey{ namespace objects{
 
-	class Bullet : public BaseObject{
+	class Bullet {
 	public:
 		Bullet();
-		Bullet(int direction);
-		void Fire(int xInput, int yInput, int colCode);
+		Bullet(int direction, float x, float y);
+		void Fire();
 
 		bool limit();
 
-		float bX = x_coord;
-		float bY = y_coord;
-	private:
-		void Move(int xInput, int yInput, int colCode);
+		float bX;
+		float bY;
+
+		
+	private: //Functions
+		void Move();
+
+	private: //Variables
 		int m_direction;
+
+		float bx_coord;
+		float by_coord;
+
+		//Image Variables
+		vector<unsigned char> m_bimage;
+		unsigned b_width, b_height;
+		size_t b_u2 = 1;
+		size_t b_v2 = 1;
+		double b_u3;
+		double b_v3;
+		bool b_imageLoaded = false;
 	};
 
 } }
