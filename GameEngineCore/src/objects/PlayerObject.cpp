@@ -99,5 +99,10 @@ namespace spacey{
 				shot.push_back(bullet);
 			}
 		}
+
+		void PlayerObject::takeDamage(int amount){
+			health -= amount;
+			cout << "Player now has " << health << "health left.\n";
+		}
 	}
 }

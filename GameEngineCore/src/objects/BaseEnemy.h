@@ -19,8 +19,8 @@ namespace spacey{ namespace objects{
 		BaseEnemy(int x, int y, string filename); //Overload Function
 
 		void Draw(Motion* motion);
-	private:
 		std::vector<Bullet> delaware; 
+	private:
 		int counter, steps;
 		int direction = 3;
 		int pointing = 0;

@@ -4,6 +4,7 @@
 #include <vector>
 #include "CircleObject.h"
 #include "BaseEnemy.h"
+#include "PlayerObject.h"
 #include "../graphics/Window.h"
 #include "../graphics/LoadLevel.h"
 #include "../motion/Orbits.h"
@@ -23,7 +24,8 @@ namespace spacey{
 			BG();
 			BG(Window* window);
 			void loadEntity(string filename, string type);
-			void update(Motion* motion);
+
+			void update(Motion* motion, PlayerObject* player);
 			//Add functions to load in enemies and 
 			//other background elements
 
@@ -33,6 +35,7 @@ namespace spacey{
 		private: //Personal Functions
 			void move(Motion* motion);
 			void collided();
+			void checkBullets(PlayerObject* player);
 
 		private: //Objects
 			vector<CircleObject> planets;
