@@ -17,10 +17,11 @@ namespace spacey{ namespace objects{
 			PlayerObject(Window* window, string filename);
 			void Draw(Motion* motion);
 		
+			int health = 100;
+			void takeDamage(int amount);
 		private: 
 			void checkRotation(Motion* motion);
 			void checkFire();
-		
 		private:
 			Window* m_window;
 			vector<Bullet> shot;
