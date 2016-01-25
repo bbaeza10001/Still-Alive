@@ -21,7 +21,7 @@ namespace spacey{
 			cout << "Elements added to BG vector\n";
 		}
 
-		void BG::update(Motion* motion){
+		void BG::update(Motion* motion, PlayerObject* player){
 			glPushMatrix();
 			motion->applySpeed();
 			move(motion);
@@ -43,7 +43,7 @@ namespace spacey{
 				}
 			}
 
-
+			checkBullets(player);
 			glPopMatrix();
 		}
 
@@ -58,8 +58,32 @@ namespace spacey{
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){
 				B_Enemy[i].x_coord += motion->xspeed;
 				B_Enemy[i].y_coord += motion->yspeed;
+				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){
+					B_Enemy[i].delaware[c].bX += motion->xspeed;
+					B_Enemy[i].delaware[c].bY += motion->yspeed;
+				}
 			}
-			
+
+		}
+
+		void BG::checkBullets(PlayerObject* player){
+			for (unsigned int i = 0; i < B_Enemy.size(); i++){ //For every enemy in world
+
+				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){ //Check their bullet vectors to see if...
+					if (B_Enemy[i].delaware[c].bX >= -15 && B_Enemy[i].delaware[c].bX <= 15){ //The X coordinates
+						if (B_Enemy[i].delaware[c].bY >= -15 && B_Enemy[i].delaware[c].bY <= 15){//and Y coordinates are the same as the players region
+							
+							//If so, delete the bullet that collided, and remove health from the player
+							B_Enemy[i].delaware.erase(B_Enemy[i].delaware.begin() + i);
+							player->takeDamage(10);
+						}
+					}
+				}
+			}
+
+			//-----CHALLENGE----//
+			//Apply collisions for bullets from the player to the enemy here
+			//HINT: You need a health counter for the enemy to actually remove any health
 		}
 
 		int BG::testCollision(){
@@ -87,6 +111,7 @@ namespace spacey{
 
 			return colCode;
 		}
+
 
 		void BG::collided(){
 			hit = false;

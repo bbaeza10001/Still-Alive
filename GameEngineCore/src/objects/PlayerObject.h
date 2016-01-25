@@ -2,6 +2,7 @@
 #include <GL\glew.h>
 #include <GL\GLU.h>
 #include <cmath>
+#include <ctime>
 #include <vector>
 #include "Bullet.h"
 #include "../graphics/Window.h"
@@ -17,13 +18,21 @@ namespace spacey{ namespace objects{
 			PlayerObject(Window* window, string filename);
 			void Draw(Motion* motion);
 		
+			int health = 100;
+			void takeDamage(int amount);
+
 		private: 
 			void checkRotation(Motion* motion);
 			void checkFire();
-		
+
 		private:
 			Window* m_window;
 			vector<Bullet> shot;
 			int direction = 3;
+
+		private: //Clock varaibles
+			clock_t start;
+			double passed;
+			const double wait = 3.0;
 		};
 } }
