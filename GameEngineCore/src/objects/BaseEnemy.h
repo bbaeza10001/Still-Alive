@@ -20,8 +20,11 @@ namespace spacey{ namespace objects{
 
 		void Draw(Motion* motion);
 		std::vector<Bullet> delaware; 
+		
+		const int STEP_MAX = 300;
+		int steps;
 	private:
-		int counter, steps;
+		int counter;
 		int direction = 3;
 		int pointing = 0;
 		

@@ -6,7 +6,7 @@ namespace spacey{
 			x_coord = 0;
 			y_coord = 0;
 			m_window = window;
-
+			start = clock();
 			if (filename != "")
 				imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3, width, height);
 
@@ -101,8 +101,20 @@ namespace spacey{
 		}
 
 		void PlayerObject::takeDamage(int amount){
-			health -= amount;
-			cout << "Player now has " << health << "health left.\n";
+
+			if (passed >= wait){
+				//Removing Health
+				health -= amount;
+				cout << "Player now has " << health << "health left.\n";
+				
+				//Resetting the timer
+				passed = 0;
+				start = clock();
+			}
+			else{
+				passed = (clock() - start) / CLOCKS_PER_SEC;
+				cout << "Could not remove damage yet.\n";
+			}
 		}
 	}
 }
