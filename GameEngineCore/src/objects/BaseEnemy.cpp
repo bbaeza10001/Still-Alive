@@ -23,7 +23,6 @@ namespace spacey{ namespace objects{
 
 		if (imageLoaded){
 
-			//Draw circle w/ a texture
 			// Enable the texture for OpenGL.
 			glEnable(GL_TEXTURE_2D);
 			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //GL_NEAREST = no smoothing
@@ -84,7 +83,7 @@ namespace spacey{ namespace objects{
 	}
 
 	void BaseEnemy::walk(){
-		if (steps >= 300){
+		if (steps >= STEP_MAX){
 			steps = 0;
 			direction = rand() % 8 + 1;
 		}
