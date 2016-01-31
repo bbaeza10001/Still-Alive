@@ -33,6 +33,6 @@ namespace spacey{ namespace objects{
 		private: //Clock varaibles
 			clock_t start;
 			double passed;
-			const double wait = 3.0;
+			const double wait = 0.5;
 		};
 } }

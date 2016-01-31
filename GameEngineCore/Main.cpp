@@ -18,17 +18,14 @@ using namespace motion;
 /*
 	TO DO IN CLUB:
 
-	-Use the BG class to check for bullet collisions among other entities
 	-Add health aspect to all killable entities
 	-Use health & bullet collisions together to make entities killable (Do in BG class)
 	-Add the wall class to the BG 
 	-Make temporary art assets for each thing
-	-Make the enemy movements more random 
 
 	TO DO:
 	
-	** Shooting System: 
-		-Adjust to allow shooting while moving
+	**Fix image jitter when moving diagonally
 
 	ISSUES:
 

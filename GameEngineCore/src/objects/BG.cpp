@@ -69,8 +69,8 @@ namespace spacey{
 		void BG::checkBullets(PlayerObject* player){
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){ //For every enemy in world
 
-				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){ //Check their bullet vectors to see if...
-					if (B_Enemy[i].delaware[c].bX >= -15 && B_Enemy[i].delaware[c].bX <= 15){ //The X coordinates
+				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){ //
+					if (B_Enemy[i].delaware[c].bX >= -15 && B_Enemy[i].delaware[c].bX <= 15){ //The X coordinateCheck their bullet vectors to see if...s
 						if (B_Enemy[i].delaware[c].bY >= -15 && B_Enemy[i].delaware[c].bY <= 15){//and Y coordinates are the same as the players region
 							
 							//If so, delete the bullet that collided, and remove health from the player
