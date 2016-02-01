@@ -19,6 +19,7 @@ namespace spacey{ namespace objects{
 			void Draw(Motion* motion);
 		
 			int health = 100;
+			vector<Bullet> shot;
 			void takeDamage(int amount);
 
 		private: 
@@ -27,7 +28,6 @@ namespace spacey{ namespace objects{
 
 		private:
 			Window* m_window;
-			vector<Bullet> shot;
 			int direction = 3;
 
 		private: //Clock varaibles

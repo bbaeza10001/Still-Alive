@@ -18,8 +18,6 @@ using namespace motion;
 /*
 	TO DO IN CLUB:
 
-	-Add health aspect to all killable entities
-	-Use health & bullet collisions together to make entities killable (Do in BG class)
 	-Add the wall class to the BG 
 	-Make temporary art assets for each thing
 
@@ -93,6 +91,8 @@ int main(){
 
 		test.loadEntity("Enemy.txt", "BASE_ENEMY");
 
+		Wall basic(10, 20, 50, 50);
+
 		//Music playing
 		sf::Music music; //Music object setup
 		music.openFromFile("music.ogg"); //Loading the music into memory
@@ -105,7 +105,7 @@ int main(){
 			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 			
 			test.update(&motion, &player);
-
+			basic.Draw();
 			player.Draw(&motion);
 
 			window.update();

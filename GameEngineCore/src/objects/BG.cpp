@@ -69,21 +69,30 @@ namespace spacey{
 		void BG::checkBullets(PlayerObject* player){
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){ //For every enemy in world
 
+				//Enemy to player bullet collision
 				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){ //
 					if (B_Enemy[i].delaware[c].bX >= -15 && B_Enemy[i].delaware[c].bX <= 15){ //The X coordinateCheck their bullet vectors to see if...s
 						if (B_Enemy[i].delaware[c].bY >= -15 && B_Enemy[i].delaware[c].bY <= 15){//and Y coordinates are the same as the players region
 							
 							//If so, delete the bullet that collided, and remove health from the player
-							B_Enemy[i].delaware.erase(B_Enemy[i].delaware.begin() + i);
+							B_Enemy[i].delaware.erase(B_Enemy[i].delaware.begin() + c);
 							player->takeDamage(10);
 						}
 					}
 				}
-			}
 
-			//-----CHALLENGE----//
-			//Apply collisions for bullets from the player to the enemy here
-			//HINT: You need a health counter for the enemy to actually remove any health
+				//Player to enemy bullet collision
+				for (unsigned int c = 0; c < player->shot.size(); c++){
+					if (player->shot[c].bX >= B_Enemy[i].x_coord - 16 && player->shot[c].bX <= B_Enemy[i].x_coord + 16){
+						if (player->shot[c].bY >= B_Enemy[i].y_coord - 16 && player->shot[c].bY <= B_Enemy[i].y_coord + 16){
+
+							player->shot.erase(player->shot.begin() + c);
+							B_Enemy[i].health -= 10;
+							cout << "Enemy now has " << B_Enemy[i].health << " hp\n";
+						}
+					}
+				}
+			}
 		}
 
 		int BG::testCollision(){

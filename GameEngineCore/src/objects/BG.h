@@ -5,6 +5,7 @@
 #include "CircleObject.h"
 #include "BaseEnemy.h"
 #include "PlayerObject.h"
+#include "Wall.h"
 #include "../graphics/Window.h"
 #include "../graphics/LoadLevel.h"
 #include "../motion/Orbits.h"
