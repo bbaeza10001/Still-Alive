@@ -41,6 +41,7 @@ namespace spacey{
 		private: //Objects
 			vector<CircleObject> planets;
 			vector<BaseEnemy> B_Enemy;
+			vector<Wall> walls;
 
 		private: //Tools
 			Window* m_window;

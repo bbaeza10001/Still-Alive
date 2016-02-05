@@ -4,10 +4,13 @@
 
 namespace spacey{
 	namespace objects{
+
+		using namespace std;
+
 		class Wall : public BaseObject{
 		public:
 			Wall();
-			Wall(int width, int height, int x, int y);
+			Wall(int width, int height, int x, int y, string type);
 			void Draw();
 			unsigned m_width, m_height;
 			

@@ -18,8 +18,10 @@ using namespace motion;
 /*
 	TO DO IN CLUB:
 
-	-Add the wall class to the BG 
 	-Make temporary art assets for each thing
+	-Create a basic melee character
+	-Create a basic medic character
+	-Give all enemy types a logical basic AI
 
 	TO DO:
 	
@@ -90,14 +92,13 @@ int main(){
 		Motion motion;
 
 		test.loadEntity("Enemy.txt", "BASE_ENEMY");
-
-		Wall basic(10, 20, 50, 50);
+		test.loadEntity("Wall.txt", "WALL");
 
 		//Music playing
 		sf::Music music; //Music object setup
 		music.openFromFile("music.ogg"); //Loading the music into memory
 		music.setLoop(true);
-		music.play(); //Playing the music, plays in it's own thread
+		//music.play(); //Playing the music, plays in it's own thread
 
 		while (!window.closed()){
 			window.clear();
@@ -105,7 +106,6 @@ int main(){
 			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 			
 			test.update(&motion, &player);
-			basic.Draw();
 			player.Draw(&motion);
 
 			window.update();

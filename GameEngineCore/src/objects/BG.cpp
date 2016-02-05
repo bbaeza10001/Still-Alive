@@ -12,11 +12,14 @@ namespace spacey{
 		}
 
 		void BG::loadEntity(string filename, string type){
-			if (type == "PLANET")
+			if (type == "CIRCLE")
 				loadObject(planets, filename);
 
 			if (type == "BASE_ENEMY")
 				loadObject(B_Enemy, filename);
+
+			if (type == "WALL")
+				loadObject(walls, filename);
 
 			cout << "Elements added to BG vector\n";
 		}
@@ -43,6 +46,14 @@ namespace spacey{
 				}
 			}
 
+			for (unsigned int i = 0; i < walls.size(); i++){
+				if (walls[i].x_coord < 800 && walls[i].x_coord > -800){
+					if (walls[i].y_coord < 600 && walls[i].y_coord > -600){
+						walls[i].Draw();
+					}
+				}
+			}
+
 			checkBullets(player);
 			glPopMatrix();
 		}
@@ -52,7 +63,6 @@ namespace spacey{
 			for (unsigned int i = 0; i < planets.size(); i++){
 				planets[i].x_coord += motion->xspeed;
 				planets[i].y_coord += motion->yspeed;
-
 			}
 
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){
@@ -62,6 +72,12 @@ namespace spacey{
 					B_Enemy[i].delaware[c].bX += motion->xspeed;
 					B_Enemy[i].delaware[c].bY += motion->yspeed;
 				}
+			}
+			
+			for (unsigned int i = 0; i < walls.size(); i++){
+				walls[i].x_coord += motion->xspeed;
+				walls[i].y_coord += motion->yspeed;
+
 			}
 
 		}

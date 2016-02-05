@@ -118,8 +118,12 @@
     <Image Include="ship.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Basic_Wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Enemy.txt" />
+    <Text Include="Wall.txt" />
   </ItemGroup>
 </Project>
