@@ -5,6 +5,7 @@
 #include <iostream>
 #include "../objects/CircleObject.h"
 #include "../objects/BaseEnemy.h"
+#include "../objects/Wall.h"
 
 namespace spacey{ namespace level{
 
@@ -13,6 +14,6 @@ namespace spacey{ namespace level{
 
 	void loadObject(vector<CircleObject> &container, string fileName);
 	void loadObject(vector<BaseEnemy> &container, string fileName);
-
+	void loadObject(vector<Wall> &container, string fileName);
 
 } }

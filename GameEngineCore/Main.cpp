@@ -18,17 +18,14 @@ using namespace motion;
 /*
 	TO DO IN CLUB:
 
-	-Use the BG class to check for bullet collisions among other entities
-	-Add health aspect to all killable entities
-	-Use health & bullet collisions together to make entities killable (Do in BG class)
-	-Add the wall class to the BG 
 	-Make temporary art assets for each thing
-	-Make the enemy movements more random 
+	-Create a basic melee character
+	-Create a basic medic character
+	-Give all enemy types a logical basic AI
 
 	TO DO:
 	
-	** Shooting System: 
-		-Adjust to allow shooting while moving
+	**Fix image jitter when moving diagonally
 
 	ISSUES:
 
@@ -95,12 +92,13 @@ int main(){
 		Motion motion;
 
 		test.loadEntity("Enemy.txt", "BASE_ENEMY");
+		test.loadEntity("Wall.txt", "WALL");
 
 		//Music playing
 		sf::Music music; //Music object setup
 		music.openFromFile("music.ogg"); //Loading the music into memory
 		music.setLoop(true);
-		music.play(); //Playing the music, plays in it's own thread
+		//music.play(); //Playing the music, plays in it's own thread
 
 		while (!window.closed()){
 			window.clear();
@@ -108,7 +106,6 @@ int main(){
 			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 			
 			test.update(&motion, &player);
-
 			player.Draw(&motion);
 
 			window.update();

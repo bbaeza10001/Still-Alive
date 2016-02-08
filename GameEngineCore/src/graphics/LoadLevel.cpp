@@ -8,7 +8,7 @@ namespace spacey{ namespace level{
 		file.open(fileName);
 
 		if (file.fail()){ //Check if the file is openable
-			cout << "Opening level file named '" << fileName << "' failed.\n";
+			cout << "Opening circle file named '" << fileName << "' failed.\n";
 		}
 		else{
 			string line, filename;
@@ -45,7 +45,7 @@ namespace spacey{ namespace level{
 		file.open(fileName);
 
 		if (file.fail()){ //Check if the file is openable
-			cout << "Opening level file named '" << fileName << "' failed.\n";
+			cout << "Opening enemy file named '" << fileName << "' failed.\n";
 		}
 		else{
 			string line, filename;
@@ -76,4 +76,40 @@ namespace spacey{ namespace level{
 
 	}
 
+	void loadObject(vector<Wall> &systemVector, string fileName){
+		ifstream file;
+
+		file.open(fileName);
+
+		if (file.fail()){ //Check if the file is openable
+			cout << "Opening wall file named '" << fileName << "' failed.\n";
+		}
+		else{
+			string line, type;
+			int x, y, size, width, height, amount;
+
+			while (file.is_open()){
+				file >> line;
+
+				if (line == "START"){ //Check if keyword is start
+					file >> amount;
+
+					for (int i = 0; i < amount; i++){
+						file >> width >> height >> x >> y >>  type; //read the values for the planet and add them to the vector
+
+						Wall temp(width, height, x, y,  type);
+
+						systemVector.push_back(temp);
+						cout << "Added element to wall vector.\n";
+					}
+
+				}
+				else if (line == "ENDF"){//Check if the keyword is the end of the file
+					cout << "Reached end of file.\n";
+					file.close();
+				}
+			}
+		}
+
+	}
 } }

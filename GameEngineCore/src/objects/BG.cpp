@@ -12,11 +12,14 @@ namespace spacey{
 		}
 
 		void BG::loadEntity(string filename, string type){
-			if (type == "PLANET")
+			if (type == "CIRCLE")
 				loadObject(planets, filename);
 
 			if (type == "BASE_ENEMY")
 				loadObject(B_Enemy, filename);
+
+			if (type == "WALL")
+				loadObject(walls, filename);
 
 			cout << "Elements added to BG vector\n";
 		}
@@ -43,6 +46,14 @@ namespace spacey{
 				}
 			}
 
+			for (unsigned int i = 0; i < walls.size(); i++){
+				if (walls[i].x_coord < 800 && walls[i].x_coord > -800){
+					if (walls[i].y_coord < 600 && walls[i].y_coord > -600){
+						walls[i].Draw();
+					}
+				}
+			}
+
 			checkBullets(player);
 			glPopMatrix();
 		}
@@ -52,7 +63,6 @@ namespace spacey{
 			for (unsigned int i = 0; i < planets.size(); i++){
 				planets[i].x_coord += motion->xspeed;
 				planets[i].y_coord += motion->yspeed;
-
 			}
 
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){
@@ -63,27 +73,42 @@ namespace spacey{
 					B_Enemy[i].delaware[c].bY += motion->yspeed;
 				}
 			}
+			
+			for (unsigned int i = 0; i < walls.size(); i++){
+				walls[i].x_coord += motion->xspeed;
+				walls[i].y_coord += motion->yspeed;
+
+			}
 
 		}
 
 		void BG::checkBullets(PlayerObject* player){
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){ //For every enemy in world
 
-				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){ //Check their bullet vectors to see if...
-					if (B_Enemy[i].delaware[c].bX >= -15 && B_Enemy[i].delaware[c].bX <= 15){ //The X coordinates
+				//Enemy to player bullet collision
+				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){ //
+					if (B_Enemy[i].delaware[c].bX >= -15 && B_Enemy[i].delaware[c].bX <= 15){ //The X coordinateCheck their bullet vectors to see if...s
 						if (B_Enemy[i].delaware[c].bY >= -15 && B_Enemy[i].delaware[c].bY <= 15){//and Y coordinates are the same as the players region
 							
 							//If so, delete the bullet that collided, and remove health from the player
-							B_Enemy[i].delaware.erase(B_Enemy[i].delaware.begin() + i);
+							B_Enemy[i].delaware.erase(B_Enemy[i].delaware.begin() + c);
 							player->takeDamage(10);
 						}
 					}
 				}
-			}
 
-			//-----CHALLENGE----//
-			//Apply collisions for bullets from the player to the enemy here
-			//HINT: You need a health counter for the enemy to actually remove any health
+				//Player to enemy bullet collision
+				for (unsigned int c = 0; c < player->shot.size(); c++){
+					if (player->shot[c].bX >= B_Enemy[i].x_coord - 16 && player->shot[c].bX <= B_Enemy[i].x_coord + 16){
+						if (player->shot[c].bY >= B_Enemy[i].y_coord - 16 && player->shot[c].bY <= B_Enemy[i].y_coord + 16){
+
+							player->shot.erase(player->shot.begin() + c);
+							B_Enemy[i].health -= 10;
+							cout << "Enemy now has " << B_Enemy[i].health << " hp\n";
+						}
+					}
+				}
+			}
 		}
 
 		int BG::testCollision(){
