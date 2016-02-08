@@ -23,6 +23,8 @@ namespace spacey{ namespace objects{
 		
 		const int STEP_MAX = 300;
 		int steps;
+
+		int health = 100;
 	private:
 		int counter;
 		int direction = 3;

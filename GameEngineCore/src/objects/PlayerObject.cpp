@@ -105,7 +105,7 @@ namespace spacey{
 			if (passed >= wait){
 				//Removing Health
 				health -= amount;
-				cout << "Player now has " << health << "health left.\n";
+				cout << "Player now has " << health << " health left.\n";
 				
 				//Resetting the timer
 				passed = 0;

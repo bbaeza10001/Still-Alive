@@ -5,6 +5,7 @@
 #include "CircleObject.h"
 #include "BaseEnemy.h"
 #include "PlayerObject.h"
+#include "Wall.h"
 #include "../graphics/Window.h"
 #include "../graphics/LoadLevel.h"
 #include "../motion/Orbits.h"
@@ -40,6 +41,7 @@ namespace spacey{
 		private: //Objects
 			vector<CircleObject> planets;
 			vector<BaseEnemy> B_Enemy;
+			vector<Wall> walls;
 
 		private: //Tools
 			Window* m_window;
