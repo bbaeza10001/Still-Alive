@@ -178,9 +178,11 @@ namespace spacey{ namespace input{
 			!window->isKeyPressed(GLFW_KEY_W) && !window->isKeyPressed(GLFW_KEY_S)){
 
 			//Stopping the player
-
 			motionObj->xspeed = 0;
 			motionObj->yspeed = 0;
+			
+			//Return to idle animation
+			motionObj->animFlag = "IDLE";
 		}
 
 		

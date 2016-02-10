@@ -116,6 +116,8 @@
     <ClInclude Include="src\objects\Wall.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="animate.png" />
+    <Image Include="Multi-Layer.png" />
     <Image Include="ship.png" />
     <Image Include="Basic_Wall.png" />
   </ItemGroup>

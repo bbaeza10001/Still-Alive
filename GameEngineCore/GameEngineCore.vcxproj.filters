@@ -121,6 +121,12 @@
     <Image Include="Basic_Wall.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="animate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Multi-Layer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Enemy.txt" />

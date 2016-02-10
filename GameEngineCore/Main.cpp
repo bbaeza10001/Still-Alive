@@ -34,7 +34,7 @@ using namespace motion;
 
 */
 
-#if 1
+#if 0
 int main(){
 	//Width and height for the game window
 	int width = 800;
@@ -121,14 +121,13 @@ int main(){
 would otherwise be too messy to test in the main game version. To activate this 
 instead of the game's main function, change the 0 after #if to 1, then change the #if 1 
 above the original main function to #if 0 (This part is above this current text, almost at the top of the page)*/
-#if 0
+#if 1
 int main(){
-	int width = 800;
-	int height = 600;
+	int width = 1920;
+	int height = 1080;
 
 	//Game Window
 	static Window window("Still Alive", width, height);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //Game background color
 
 	//OpenGL Coordinate Grid Setup
 	glMatrixMode(GL_PROJECTION);
@@ -139,22 +138,22 @@ int main(){
 	glLoadIdentity();
 
 	// Construction
-	PlayerObject player(&window, "ship.png");
+	PlayerObject player(&window, "Multi-Layer.png", 58, 58);
 	BG test(&window);
 	Motion motion;
 
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
 
-	sf::Music music;
+	/*sf::Music music;
 	music.openFromFile("music.ogg");
-	music.play();
+	music.play();*/
 
 	while (!window.closed()){
 		window.clear();
 
 		checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 
-		test.update(&motion);
+		test.update(&motion, &player);
 
 		player.Draw(&motion);
 

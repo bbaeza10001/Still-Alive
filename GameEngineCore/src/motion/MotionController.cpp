@@ -4,18 +4,22 @@ namespace spacey{ namespace motion{
 
 	void Motion::dirRight(){
 		xspeed = speed;
+		animFlag = "WALK_RIGHT";
 	}
 
 	void Motion::dirLeft(){
 		xspeed = -speed;
+		animFlag = "WALK_LEFT";
 	}
 
 	void Motion::dirUp(){
 		yspeed = speed;
+		animFlag = "WALK_UP";
 	}
 
 	void Motion::dirDown(){
 		yspeed = -speed;
+		animFlag = "WALK_DOWN";
 	}
 
 	void Motion::rotateLeft(){
