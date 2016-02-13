@@ -138,7 +138,7 @@ int main(){
 	glLoadIdentity();
 
 	// Construction
-	PlayerObject player(&window, "Multi-Layer.png", 58, 58);
+	PlayerObject player(&window, "Multi-Layer.png", 37, 37);
 	BG test(&window);
 	Motion motion;
 

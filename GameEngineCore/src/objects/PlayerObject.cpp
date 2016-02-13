@@ -42,7 +42,7 @@ namespace spacey{
 				/*Finding the current x and y coordinates in the texture based on what the current frame is.
 					Note: The tX math will automatically move down a row if it is at the end of the row.*/
 				double tX = (currentFrame % framesPerRow) * (double)tWidth;
-				double tY = (currentFrame / (framesPerRow + 1)) * (double)tHeight;
+				double tY = (currentFrame / framesPerRow) * (double)tHeight;
 
 				//Draw the image on a polygon
 				glPushMatrix();
@@ -55,6 +55,8 @@ namespace spacey{
 				glEnd();
 
 				glPopMatrix();
+
+				cout << "(" << tX << ", " << tY << ")" << endl;
 
 			}
 			else {
@@ -86,15 +88,19 @@ namespace spacey{
 
 		bool PlayerObject::checkAnimState(Motion* motion){
 			if (motion->animFlag == "IDLE"){
-				animate(10, 5, 10);
+				currentFrame = currentFrame;
 				return true;
 			}
 			if (motion->animFlag == "WALK_RIGHT"){
-				animate(10, 1, 5);
+				animate(10, 27, 35);
 				return true;
 			}
 			if (motion->animFlag == "WALK_LEFT"){
-				animate(30, 10, 13);
+				animate(10, 9, 17);
+				return true;
+			}
+			if (motion->animFlag == "WALK_DOWN"){
+				animate(10,18, 26);
 				return true;
 			}
 
@@ -105,8 +111,8 @@ namespace spacey{
 			if (counter == (frameSpeed - 1)){
 				currentFrame = (currentFrame + 1) % maxFrames;
 				
-				if (currentFrame < startFrame)
-					currentFrame += startFrame;
+				while (currentFrame < startFrame)
+					currentFrame++;
 
 			}
 
