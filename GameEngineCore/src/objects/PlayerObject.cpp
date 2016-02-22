@@ -9,6 +9,7 @@ namespace spacey{
 			m_texHeight = tHeight;
 			m_window = window;
 			start = clock();
+			delay = clock();
 			if (filename != "")
 				imageLoaded = loadAnimateable(filename, m_image, u2, v2, width, height);
 
@@ -19,11 +20,6 @@ namespace spacey{
 			checkRotation(motion);
 			checkFire();
 			checkAnimState(motion);
-
-			/*
-			WALKING LEFT ANIMATION IS NOT WORKING. FIX IT.
-			-Love, Past you. <3
-			*/
 
 			if (imageLoaded){
 				// Enable the texture for OpenGL.
@@ -56,8 +52,6 @@ namespace spacey{
 
 				glPopMatrix();
 
-				cout << "(" << tX << ", " << tY << ")" << endl;
-
 			}
 			else {
 
@@ -88,7 +82,7 @@ namespace spacey{
 
 		bool PlayerObject::checkAnimState(Motion* motion){
 			if (motion->animFlag == "IDLE"){
-				currentFrame = currentFrame;
+				currentFrame = 0;
 				return true;
 			}
 			if (motion->animFlag == "WALK_RIGHT"){
@@ -101,6 +95,10 @@ namespace spacey{
 			}
 			if (motion->animFlag == "WALK_DOWN"){
 				animate(10,18, 26);
+				return true;
+			}
+			if (motion->animFlag == "WALK_UP"){
+				animate(10, 0, 9);
 				return true;
 			}
 
@@ -117,8 +115,6 @@ namespace spacey{
 			}
 
 			counter = (counter + 1) % frameSpeed;
-
-			cout << "Current Frame: " << currentFrame << endl;
 
 		}
 
@@ -153,8 +149,17 @@ namespace spacey{
 
 		void PlayerObject::checkFire(){
 			if (m_window->isMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT)){
-				Bullet bullet(direction, x_coord, y_coord);
-				shot.push_back(bullet);
+				if (shotLast <= waited){
+					Bullet bullet(direction, x_coord, y_coord);
+					shot.push_back(bullet);
+					waited = 0;
+					delay = clock();
+				}
+				else
+				{
+					waited = (clock() - delay) / CLOCKS_PER_SEC;
+					cout << "Can't shoot yet.\n";
+				}
 			}
 		}
 

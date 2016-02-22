@@ -94,6 +94,7 @@
     <ClCompile Include="src\objects\BG.cpp" />
     <ClCompile Include="src\objects\Bullet.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
+    <ClCompile Include="src\objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\objects\PlayerObject.cpp" />
     <ClCompile Include="src\objects\Wall.cpp" />
   </ItemGroup>
@@ -112,6 +113,7 @@
     <ClInclude Include="src\objects\BG.h" />
     <ClInclude Include="src\objects\Bullet.h" />
     <ClInclude Include="src\objects\CircleObject.h" />
+    <ClInclude Include="src\objects\MeleeEnemy.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
     <ClInclude Include="src\objects\Wall.h" />
   </ItemGroup>

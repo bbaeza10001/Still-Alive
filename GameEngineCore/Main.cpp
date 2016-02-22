@@ -1,8 +1,4 @@
 #include "src\include\Includes.h"
-#include "src\objects\Bullet.h"
-#include "src\objects\Wall.h"
-#include "src\objects\BaseEnemy.h"
-#include "src\graphics\lodepng.h"
 
 #include <SFML/Audio.hpp>
 #include <SFML/Audio/Music.hpp>
@@ -132,9 +128,8 @@ int main(){
 	//OpenGL Coordinate Grid Setup
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 
-	//the middle of the screen like a standard graph
-	glMatrixMode(GL_MODELVIEW);
+	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 					
+	glMatrixMode(GL_MODELVIEW);											//the middle of the screen like a standard graph
 	glLoadIdentity();
 
 	// Construction
@@ -143,6 +138,7 @@ int main(){
 	Motion motion;
 
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
+	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
 
 	/*sf::Music music;
 	music.openFromFile("music.ogg");

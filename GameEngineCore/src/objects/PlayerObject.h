@@ -37,6 +37,9 @@ namespace spacey{ namespace objects{
 			double passed;
 			const double wait = 0.5;
 
+			clock_t delay; //Clock for how fast you can shoot
+			double waited;
+			const double shotLast = 2;
 		private: //Animation
 			bool checkAnimState(Motion* motion);
 			void animate(int frameSpeed, int startFrame, int maxFrames);
