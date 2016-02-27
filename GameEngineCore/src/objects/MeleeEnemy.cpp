@@ -13,6 +13,7 @@ namespace spacey{
 
 			imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3, width, height);
 
+			width = height = 32;
 		}
 
 		MeleeEnemy::~MeleeEnemy(){
@@ -45,7 +46,7 @@ namespace spacey{
 			else{
 
 				glPushMatrix();
-				glBegin(GL_TRIANGLES);
+				glBegin(GL_QUADS);
 				glVertex2d(x_coord - 5, y_coord - 10); //Bottom Left Corner
 				glVertex2d(x_coord - 5, y_coord + 10); //Top left corner
 				glVertex2d(x_coord + 5, y_coord - 10); //Top Right Corner

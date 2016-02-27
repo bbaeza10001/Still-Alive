@@ -35,8 +35,8 @@ namespace spacey{
 			int testCollision();
 
 		private: //Personal Functions
-			void move(Motion* motion);
 			void collided();
+			void move(Motion* motion);
 			void checkBullets(PlayerObject* player);
 
 		private: //Objects

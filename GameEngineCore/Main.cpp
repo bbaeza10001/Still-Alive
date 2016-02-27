@@ -15,7 +15,6 @@ using namespace motion;
 	TO DO IN CLUB:
 
 	-Make temporary art assets for each thing
-	-Create a basic melee character
 	-Create a basic medic character
 	-Give all enemy types a logical basic AI
 
@@ -136,9 +135,9 @@ int main(){
 	PlayerObject player(&window, "Multi-Layer.png", 37, 37);
 	BG test(&window);
 	Motion motion;
-
-	test.loadEntity("Enemy.txt", "BASE_ENEMY");
-	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
+	test.loadEntity("Wall.txt", "WALL");
+	/*test.loadEntity("Enemy.txt", "BASE_ENEMY");
+	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");*/
 
 	/*sf::Music music;
 	music.openFromFile("music.ogg");

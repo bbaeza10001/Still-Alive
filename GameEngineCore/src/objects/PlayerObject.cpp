@@ -44,10 +44,10 @@ namespace spacey{
 				glPushMatrix();
 
 				glBegin(GL_QUADS);
-				glTexCoord2d(tX, tY + tHeight);				glVertex2d(m_texWidth / -2, m_texHeight / -2);
-				glTexCoord2d(tX, tY);						glVertex2d(m_texWidth / -2, m_texHeight / 2);
-				glTexCoord2d(tX + tWidth, tY);				glVertex2d(m_texWidth / 2, m_texHeight / 2);
-				glTexCoord2d(tX + tWidth, tY + tHeight);	glVertex2d(m_texWidth / 2, m_texHeight / -2);
+				glTexCoord2d(tX, tY + tHeight);				glVertex2d(-15, -15);
+				glTexCoord2d(tX, tY);						glVertex2d(-15, 15);
+				glTexCoord2d(tX + tWidth, tY);				glVertex2d(15, 15);
+				glTexCoord2d(tX + tWidth, tY + tHeight);	glVertex2d(15, -15);
 				glEnd();
 
 				glPopMatrix();

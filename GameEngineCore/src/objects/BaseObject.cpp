@@ -22,7 +22,7 @@ namespace spacey{
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glEnable(GL_BLEND);
 			glDisable(GL_ALPHA_TEST);
-			//glEnable(GL_ALPHA);
+			glEnable(GL_ALPHA);
 
 			// Texture size must be power of two for the primitive OpenGL version this is written for. Find next power of two.
 			u2 = 1;  while (u2 < width) u2 *= 2;
