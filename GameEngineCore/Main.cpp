@@ -3,7 +3,7 @@
 #include "src\objects\Wall.h"
 #include "src\objects\BaseEnemy.h"
 #include "src\graphics\lodepng.h"
-
+#include "src\objects\BaseMedic.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Audio/Music.hpp>
 
@@ -90,8 +90,10 @@ int main(){
 		PlayerObject player(&window, "ship.png");
 		BG test(&window);
 		Motion motion;
+		BaseMedic casual(-100, -100, "ship.png");
+		BaseEnemy josh(-10, 10, "ship.png");
 
-		test.loadEntity("Enemy.txt", "BASE_ENEMY");
+	//	test.loadEntity("Enemy.txt", "BASE_ENEMY");
 		test.loadEntity("Wall.txt", "WALL");
 
 		//Music playing
@@ -106,7 +108,10 @@ int main(){
 			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 			
 			test.update(&motion, &player);
+			josh.Draw(&motion);
 			player.Draw(&motion);
+			casual.Draw(&motion);
+			casual.Heal(josh);
 
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs at max

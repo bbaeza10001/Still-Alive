@@ -90,6 +90,7 @@
     <ClCompile Include="src\motion\MotionController.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\BaseEnemy.cpp" />
+    <ClCompile Include="src\objects\BaseMedic.cpp" />
     <ClCompile Include="src\objects\BaseObject.cpp" />
     <ClCompile Include="src\objects\BG.cpp" />
     <ClCompile Include="src\objects\Bullet.cpp" />
@@ -108,6 +109,7 @@
     <ClInclude Include="src\motion\MotionController.h" />
     <ClInclude Include="src\motion\Orbits.h" />
     <ClInclude Include="src\objects\BaseEnemy.h" />
+    <ClInclude Include="src\objects\BaseMedic.h" />
     <ClInclude Include="src\objects\BaseObject.h" />
     <ClInclude Include="src\objects\BG.h" />
     <ClInclude Include="src\objects\Bullet.h" />
