@@ -273,9 +273,9 @@ namespace spacey{
 			for (int i = 0; i < walls.size(); i++){
 				for (int e = 0; e < B_Enemy.size(); e++){
 
-					if (walls[i].x_coord - (walls[i].width / 2) <= B_Enemy[e].x_coord + (B_Enemy[e].width / 2) && walls[i].x_coord + (walls[i].width / 2) >= B_Enemy[e].x_coord - (B_Enemy[e].width / 2)
-						&& walls[i].y_coord + (walls[i].height / 2) >= B_Enemy[e].y_coord - (B_Enemy[e].height / 2) && walls[i].y_coord - (walls[i].height / 2) <= B_Enemy[e].y_coord - (B_Enemy[e].height / 2)){
-						//cout << "Basic Enemy hit Wall\n";
+					if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Enemy[e].x_coord + (B_Enemy[e].width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Enemy[e].x_coord - (B_Enemy[e].width / 2)
+						&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Enemy[e].y_coord - (B_Enemy[e].height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Enemy[e].y_coord - (B_Enemy[e].height / 2)){
+						cout << "Basic Enemy hit Wall\n";
 						// Tell Basic Enemy's AI to walk away
 					}
 				}
@@ -285,9 +285,9 @@ namespace spacey{
 			for (int i = 0; i < walls.size(); i++){
 				for (int e = 0; e < Ml_Enemy.size(); e++){
 
-					if (walls[i].x_coord - (walls[i].width / 2) <= Ml_Enemy[e].x_coord + (Ml_Enemy[e].width / 2) && walls[i].x_coord + (walls[i].width / 2) >= Ml_Enemy[e].x_coord - (Ml_Enemy[e].width / 2)
-						&& walls[i].y_coord + (walls[i].height / 2) >= Ml_Enemy[e].y_coord - (Ml_Enemy[e].height / 2) && walls[i].y_coord - (walls[i].height / 2) <= Ml_Enemy[e].y_coord - (Ml_Enemy[e].height / 2)){
-						//cout << "Melee Enemy hit Wall\n";
+					if (walls[i].x_coord - (walls[i].m_width / 2) <= Ml_Enemy[e].x_coord + (Ml_Enemy[e].width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= Ml_Enemy[e].x_coord - (Ml_Enemy[e].width / 2)
+						&& walls[i].y_coord + (walls[i].m_height / 2) >= Ml_Enemy[e].y_coord - (Ml_Enemy[e].height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= Ml_Enemy[e].y_coord - (Ml_Enemy[e].height / 2)){
+						cout << "Melee Enemy hit Wall\n";
 						//Tell Melee Enemy's AI to walk away
 					}
 				}

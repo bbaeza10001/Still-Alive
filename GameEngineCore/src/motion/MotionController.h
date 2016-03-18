@@ -15,11 +15,11 @@ namespace spacey{ namespace motion{
 		void dirUp();
 		void dirDown();
 
-		void rotateLeft();
-		void rotateRight();
+		void rotateLeft(int angle);
+		void rotateRight(int angle);
 
 		void applySpeed();
-		void applyRotation();
+		void applyRotation(float x, float y);
 		
 		//For Translations
 		float xspeed = 0;

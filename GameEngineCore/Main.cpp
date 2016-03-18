@@ -1,5 +1,5 @@
 #include "src\include\Includes.h"
-
+#include "src\objects\Door.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Audio/Music.hpp>
 
@@ -11,10 +11,11 @@ using namespace level;
 using namespace input;
 using namespace motion;
 
+using namespace environment;
+
 /*
 	TO DO IN CLUB:
 
-	-Make temporary art assets for each thing
 	-Create a basic medic character
 	-Give all enemy types a logical basic AI
 
@@ -136,8 +137,11 @@ int main(){
 	BG test(&window);
 	Motion motion;
 	test.loadEntity("Wall.txt", "WALL");
-	/*test.loadEntity("Enemy.txt", "BASE_ENEMY");
-	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");*/
+	test.loadEntity("Enemy.txt", "BASE_ENEMY");
+	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
+
+	//Doors do not work yet
+	//Door tester(-100, 30, 200, 10, 3, 1, "Basic_Wall.png"); 
 
 	/*sf::Music music;
 	music.openFromFile("music.ogg");
