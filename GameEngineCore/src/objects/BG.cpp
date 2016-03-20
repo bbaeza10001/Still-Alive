@@ -12,15 +12,21 @@ namespace spacey{
 		}
 
 		void BG::loadEntity(string filename, string type){
-			if (type == "CIRCLE")
+			if (type == "CIRCLE"){
 				loadObject(planets, filename);
-
-			if (type == "BASE_ENEMY")
+			}
+			else if (type == "BASE_ENEMY"){
 				loadObject(B_Enemy, filename);
-			if (type == "WALL")
+			}
+			else if (type == "WALL"){
 				loadObject(walls, filename);
-			if (type == "MELEE_ENEMY")
+			}
+			else if (type == "DOOR"){
+				loadObject(doors, filename);
+			}
+			else if (type == "MELEE_ENEMY"){
 				loadObject(Ml_Enemy, filename);
+			}
 			cout << "Elements added to BG vector\n";
 		}
 
@@ -61,6 +67,14 @@ namespace spacey{
 				}
 			}
 
+			for (unsigned int i = 0; i < doors.size(); i++){
+				if (doors[i].x_coord < 800 && doors[i].x_coord > -800){
+					if (doors[i].y_coord < 600 && doors[i].y_coord > -600){
+						doors[i].draw(m_window);
+					}
+				}
+			}
+
 			checkBullets(player);
 			glPopMatrix();
 		}
@@ -89,7 +103,11 @@ namespace spacey{
 			for (unsigned int i = 0; i < walls.size(); i++){
 				walls[i].x_coord += motion->xspeed;
 				walls[i].y_coord += motion->yspeed;
+			}
 
+			for (unsigned int i = 0; i < doors.size(); i++){
+				doors[i].x_coord += motion->xspeed;
+				doors[i].y_coord += motion->yspeed;
 			}
 
 		}

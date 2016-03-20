@@ -31,9 +31,11 @@ namespace spacey { namespace environment {
 		int m_width;
 		int m_height;
 
+		Motion motionObj;
+
 	private: //Timer Variables
 		int counter = 0;
-		int waitTime = 500;
+		int waitTime = 20;
 
 	private: //Member Functions
 		bool checkRadius(Window* window);

@@ -1,5 +1,4 @@
 #include "src\include\Includes.h"
-#include "src\objects\Door.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Audio/Music.hpp>
 
@@ -10,8 +9,6 @@ using namespace std;
 using namespace level;
 using namespace input;
 using namespace motion;
-
-using namespace environment;
 
 /*
 	TO DO IN CLUB:
@@ -139,9 +136,7 @@ int main(){
 	test.loadEntity("Wall.txt", "WALL");
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
 	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
-
-	//Doors do not work yet
-	//Door tester(-100, 30, 200, 10, 3, 1, "Basic_Wall.png"); 
+	test.loadEntity("Doors.txt", "DOOR");
 
 	/*sf::Music music;
 	music.openFromFile("music.ogg");
@@ -153,7 +148,6 @@ int main(){
 		checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 
 		test.update(&motion, &player);
-
 		player.Draw(&motion);
 
 		window.update();

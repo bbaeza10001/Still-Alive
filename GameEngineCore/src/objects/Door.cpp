@@ -40,6 +40,9 @@ namespace spacey{ namespace environment{
 		glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &m_image[0]);
 		
 		glPushMatrix();
+
+		motionObj.applyRotation(x_coord, y_coord);
+
 		glBegin(GL_QUADS);
 		glTexCoord2d(0, v3);	glVertex2d(x_coord - (m_height / 2), y_coord - (m_height / 2));
 		glTexCoord2d(0, 0);		glVertex2d(x_coord - (m_height / 2), y_coord + (m_height / 2));
@@ -52,26 +55,26 @@ namespace spacey{ namespace environment{
 	bool Door::checkRadius(Window* window){
 		if (x_coord - (m_width + 20) <= 16 && x_coord + (m_width + 20) >= -16
 			&& y_coord + (m_height + 20) >= -16 && y_coord - (m_height + 20) <= 16 && window->isKeyPressed(GLFW_KEY_SPACE)){
+			cout << "Player input detected\n";
 			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 	void Door::update(bool radiusCheck){
 		//Check if player is within door's check radius
-		if (counter >= waitTime){
+		if (counter >= waitTime && radiusCheck){
 			counter = 0;
-			if (radiusCheck){
 
-				//Update State flag
-				if (stateFlag == "CLOSED"){
-					stateFlag = changeState("OPEN");
-				}
-				else{
-					stateFlag = changeState("CLOSED");
-				}
+			//Update State flag
+			if (stateFlag == "CLOSED"){
+				stateFlag = changeState("OPEN");
 			}
+			else{
+				stateFlag = changeState("CLOSED");
+			}	
+			
 		}
 
 		counter++;
@@ -98,26 +101,32 @@ namespace spacey{ namespace environment{
 
 	void Door::rotate(int nState){
 
-
-		switch (dir){
+		/*switch (dir){
 		case 1:
-			if (m_height < 0)
-				m_height = -m_height;
-			break;
+		if (m_height < 0)
+		m_height = -m_height;
+		break;
 		case 3:
-			if (m_width < 0)
-				m_width = -m_width;
-			break;
+		if (m_width < 0)
+		m_width = -m_width;
+		break;
 		case 5:
-			if (m_height > 0)
-				m_height = -m_height;
-			break;
+		if (m_height > 0)
+		m_height = -m_height;
+		break;
 		case 7:
-			if (m_width > 0)
-				m_width = -m_width;
-			break;
+		if (m_width > 0)
+		m_width = -m_width;
+		break;
 		default:
-			cout << "Door is not in a valid direction\n";
+		cout << "Door is not in a valid direction\n";
+		}*/
+
+		if (nState < dir){
+			motionObj.rotateLeft(90);
+		}
+		else{
+			motionObj.rotateRight(90);
 		}
 	}
 } }

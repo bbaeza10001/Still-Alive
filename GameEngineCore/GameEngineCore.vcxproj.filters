@@ -143,5 +143,6 @@
   <ItemGroup>
     <Text Include="Enemy.txt" />
     <Text Include="Wall.txt" />
+    <Text Include="Doors.txt" />
   </ItemGroup>
 </Project>

@@ -75,6 +75,7 @@ namespace spacey{ namespace level{
 		}
 
 	}
+	
 	void loadObject(vector<MeleeEnemy> &systemVector, string fileName){
 		ifstream file;
 
@@ -137,6 +138,43 @@ namespace spacey{ namespace level{
 
 						systemVector.push_back(temp);
 						cout << "Added element to wall vector.\n";
+					}
+
+				}
+				else if (line == "ENDF"){//Check if the keyword is the end of the file
+					cout << "Reached end of file.\n";
+					file.close();
+				}
+			}
+		}
+
+	}
+
+	void loadObject(vector<Door> &systemVector, string fileName){
+		ifstream file;
+
+		file.open(fileName);
+
+		if (file.fail()){ //Check if the file is openable
+			cout << "Opening door file named '" << fileName << "' failed.\n";
+		}
+		else{
+			string line, type;
+			int x, y, size, width, height, cDir, oDir,amount;
+
+			while (file.is_open()){
+				file >> line;
+
+				if (line == "START"){ //Check if keyword is start
+					file >> amount;
+
+					for (int i = 0; i < amount; i++){
+						file >> x >> y >> width >> height >> cDir >> oDir >> type; //read the values for the planet and add them to the vector
+
+						Door temp(x, y, width, height, cDir, oDir, type);
+
+						systemVector.push_back(temp);
+						cout << "Added element to door vector.\n";
 					}
 
 				}
