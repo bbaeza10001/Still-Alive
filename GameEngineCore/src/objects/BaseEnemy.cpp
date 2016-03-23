@@ -13,6 +13,7 @@ namespace spacey{ namespace objects{
 
 		imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3, width, height);
 
+		width = height = 32;
 	}
 
 	BaseEnemy::~BaseEnemy(){

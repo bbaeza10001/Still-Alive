@@ -63,7 +63,14 @@
     <ClCompile Include="src\motion\MotionController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="src\objects\BaseMedic.cpp">
+=======
+    <ClCompile Include="src\objects\MeleeEnemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\Door.cpp">
+>>>>>>> master
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,7 +123,14 @@
     <ClInclude Include="src\motion\MotionController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="src\objects\BaseMedic.h">
+=======
+    <ClInclude Include="src\objects\MeleeEnemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\objects\Door.h">
+>>>>>>> master
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -127,9 +141,16 @@
     <Image Include="Basic_Wall.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="animate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Multi-Layer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Enemy.txt" />
     <Text Include="Wall.txt" />
+    <Text Include="Doors.txt" />
   </ItemGroup>
 </Project>
