@@ -4,6 +4,10 @@
 #include <vector>
 #include "CircleObject.h"
 #include "BaseEnemy.h"
+#include "PlayerObject.h"
+#include "MeleeEnemy.h"
+#include "Wall.h"
+#include "Door.h"
 #include "../graphics/Window.h"
 #include "../graphics/LoadLevel.h"
 #include "../motion/Orbits.h"
@@ -17,26 +21,30 @@ namespace spacey{
 		using namespace level;
 		using namespace motion;
 		using namespace graphics;
+		using namespace environment;
 
 		class BG{
 		public: //Set up functions
 			BG();
 			BG(Window* window);
 			void loadEntity(string filename, string type);
-			void update(Motion* motion);
-			//Add functions to load in enemies and 
-			//other background elements
+
+			void update(Motion* motion, PlayerObject* player);
 
 		public: //Other Functions
 			int testCollision();
 
 		private: //Personal Functions
-			void move(Motion* motion);
 			void collided();
+			void move(Motion* motion);
+			void checkBullets(PlayerObject* player);
 
 		private: //Objects
 			vector<CircleObject> planets;
 			vector<BaseEnemy> B_Enemy;
+			vector<Wall> walls;
+			vector<MeleeEnemy> Ml_Enemy;
+			vector<Door> doors;
 
 		private: //Tools
 			Window* m_window;

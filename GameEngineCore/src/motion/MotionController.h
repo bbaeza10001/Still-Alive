@@ -6,6 +6,8 @@
 
 namespace spacey{ namespace motion{
 
+	using namespace std;
+
 	class Motion{
 	public:
 		void dirRight();
@@ -13,11 +15,11 @@ namespace spacey{ namespace motion{
 		void dirUp();
 		void dirDown();
 
-		void rotateLeft();
-		void rotateRight();
+		void rotateLeft(int angle);
+		void rotateRight(int angle);
 
 		void applySpeed();
-		void applyRotation();
+		void applyRotation(float x, float y);
 		
 		//For Translations
 		float xspeed = 0;
@@ -26,6 +28,8 @@ namespace spacey{ namespace motion{
 		//For Rotations
 		float angle = 0;
 
+		//For Animations
+		string animFlag = "IDLE";
 	private:
 		//Incriments
 		const float speed = 1.0f; //Number of pixel spaces moved per cycle

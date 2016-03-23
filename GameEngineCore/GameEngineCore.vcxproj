@@ -94,6 +94,8 @@
     <ClCompile Include="src\objects\BG.cpp" />
     <ClCompile Include="src\objects\Bullet.cpp" />
     <ClCompile Include="src\objects\CircleObject.cpp" />
+    <ClCompile Include="src\objects\Door.cpp" />
+    <ClCompile Include="src\objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\objects\PlayerObject.cpp" />
     <ClCompile Include="src\objects\Wall.cpp" />
   </ItemGroup>
@@ -112,14 +114,21 @@
     <ClInclude Include="src\objects\BG.h" />
     <ClInclude Include="src\objects\Bullet.h" />
     <ClInclude Include="src\objects\CircleObject.h" />
+    <ClInclude Include="src\objects\Door.h" />
+    <ClInclude Include="src\objects\MeleeEnemy.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
     <ClInclude Include="src\objects\Wall.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="animate.png" />
+    <Image Include="Multi-Layer.png" />
     <Image Include="ship.png" />
+    <Image Include="Basic_Wall.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Enemy.txt" />
+    <Text Include="Doors.txt" />
+    <Text Include="Wall.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

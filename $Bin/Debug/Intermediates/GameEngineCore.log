@@ -1,14 +1,13 @@
-﻿Build started 1/11/2016 2:10:40 PM.
+﻿Build started 3/20/2016 6:24:27 PM.
      1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\Input\InputController.cpp src\graphics\LoadLevel.cpp src\objects\BG.cpp src\objects\BaseEnemy.cpp
-         BG.cpp
-     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(94): warning C4018: '<' : signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\Input\InputController.cpp src\graphics\LoadLevel.cpp src\objects\BG.cpp src\objects\Door.cpp
          Main.cpp
-     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\main.cpp(120): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\main.cpp(157): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
          Generating Code...
          Skipping... (no relevant changes detected)
-         BaseEnemy.cpp
+         Door.cpp
+         BG.cpp
          LoadLevel.cpp
          InputController.cpp
        Link:
@@ -26,11 +25,16 @@
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BG.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Door.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\MeleeEnemy.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Wall.obj"
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
          GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe
      1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:08.18
+Time Elapsed 00:00:06.64
