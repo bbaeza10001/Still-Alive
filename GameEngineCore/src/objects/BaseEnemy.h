@@ -33,6 +33,12 @@ namespace spacey{ namespace objects{
 		void createNewBullet(); //Creates new bullet every x ticks
 		void bulletFill(); //Fills bullet vector
 		void walk(); //Enemy moves
+
+	public:
+		int m_width = 16;
+		int m_height = 16;
+	public:
+		BaseEnemy operator=(BaseEnemy right);
 	};
 
 } }

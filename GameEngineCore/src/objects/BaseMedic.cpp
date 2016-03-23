@@ -24,7 +24,8 @@ namespace spacey{
 		}
 
 
-		void BaseMedic::Draw(Motion* motion){
+		void BaseMedic::Draw(){
+
 			if (imageLoaded){
 
 				// Enable the texture for OpenGL.
@@ -61,9 +62,10 @@ namespace spacey{
 
 		}
 
-		void BaseMedic::Heal(BaseEnemy &enem){
-			if (enem.health <= 50){
+		void BaseMedic::Heal(BaseEnemy &enem, unsigned int i){
 
+			if (enem.health <= 50 && healing == i){
+				available = false;
 
 				if (enem.x_coord > x_coord){
 					x_coord++;
@@ -81,12 +83,20 @@ namespace spacey{
 					y_coord--;
 				}
 
-				if (enem.x_coord == x_coord && enem.y_coord == y_coord){
+				if ((x_coord - (m_width / 2) <= enem.x_coord + (enem.m_width / 2) && x_coord + (m_width / 2) >= enem.x_coord - (enem.m_width / 2)
+					&& y_coord + (m_height / 2) >= enem.y_coord - (enem.m_height / 2) && y_coord - (m_height / 2) <= enem.y_coord - (enem.m_height / 2))){
 					enem.health += 10;
+
+					if (enem.health > 50){
+						available = true;
+					}
 					cout << "Enemy has been healed 10 single points" << endl;
 					cout << "Current Health: " << enem.health << endl;
 					cout << "Y U DO ANAL?" << endl;
 				}
+			}
+			else if (enem.health <= 50 && available == true){
+				healing = i;
 			}
 
 		}

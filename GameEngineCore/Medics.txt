@@ -1,0 +1,4 @@
+START 
+1
+-100 50 ship.png
+ENDF

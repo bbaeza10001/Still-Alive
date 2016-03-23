@@ -27,6 +27,9 @@ namespace spacey{
 			else if (type == "MELEE_ENEMY"){
 				loadObject(Ml_Enemy, filename);
 			}
+			else if (type == "BASE_MEDIC"){
+				loadObject(B_Medics, filename);
+			}
 			cout << "Elements added to BG vector\n";
 		}
 
@@ -48,6 +51,13 @@ namespace spacey{
 				if (B_Enemy[i].x_coord < 800 && B_Enemy[i].x_coord > -800){
 					if (B_Enemy[i].y_coord < 600 && B_Enemy[i].y_coord > -600){
 						B_Enemy[i].Draw(motion);
+					}
+				}
+			}
+			for (unsigned int i = 0; i < B_Medics.size(); i++){
+				if (B_Medics[i].x_coord < 800 && B_Medics[i].x_coord > -800){
+					if (B_Medics[i].y_coord < 600 && B_Medics[i].y_coord > -600){
+						B_Medics[i].Draw();
 					}
 				}
 			}
@@ -92,6 +102,14 @@ namespace spacey{
 				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){
 					B_Enemy[i].delaware[c].bX += motion->xspeed;
 					B_Enemy[i].delaware[c].bY += motion->yspeed;
+				}
+			}
+
+			for (unsigned int i = 0; i < B_Medics.size(); i++){
+				B_Medics[i].x_coord += motion->xspeed;
+				B_Medics[i].y_coord += motion->yspeed;
+				for (unsigned int c = 0; c < B_Enemy.size(); c++){
+					B_Medics[i].Heal(B_Enemy[c], c);
 				}
 			}
 			
@@ -139,7 +157,10 @@ namespace spacey{
 						}
 					}
 				}
-				//Player -> melee enemy 
+			}
+
+			//Player -> melee enemy 
+			for (unsigned int i = 0; i < Ml_Enemy.size(); i++){
 				for (unsigned int c = 0; c < player->shot.size(); c++){
 					if (player->shot[c].bX >= Ml_Enemy[i].x_coord - 16 && player->shot[c].bX <= Ml_Enemy[i].x_coord + 16){
 						if (player->shot[c].bY >= Ml_Enemy[i].y_coord - 16 && player->shot[c].bY <= Ml_Enemy[i].y_coord + 16){
@@ -151,7 +172,6 @@ namespace spacey{
 					}
 				}
 			}
-
 
 			for (unsigned int i = 0; i < Ml_Enemy.size(); i++){ //For every melee enemy in world
 				if ((Ml_Enemy[i].x_coord + 16 >= -16 && Ml_Enemy[i].x_coord - 16 <= 16) && (Ml_Enemy[i].y_coord + 16 >= -16 && Ml_Enemy[i].y_coord - 16 <= 16)) {
@@ -302,11 +322,6 @@ namespace spacey{
 			// For Melee Enemy && Wall
 			for (int i = 0; i < walls.size(); i++){
 				for (int e = 0; e < Ml_Enemy.size(); e++){
-
-<<<<<<< HEAD
-
-
-=======
 					if (walls[i].x_coord - (walls[i].m_width / 2) <= Ml_Enemy[e].x_coord + (Ml_Enemy[e].width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= Ml_Enemy[e].x_coord - (Ml_Enemy[e].width / 2)
 						&& walls[i].y_coord + (walls[i].m_height / 2) >= Ml_Enemy[e].y_coord - (Ml_Enemy[e].height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= Ml_Enemy[e].y_coord - (Ml_Enemy[e].height / 2)){
 						cout << "Melee Enemy hit Wall\n";
@@ -314,7 +329,6 @@ namespace spacey{
 					}
 				}
 			}
->>>>>>> master
 		}
 
 	}

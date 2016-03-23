@@ -1,12 +1,4 @@
 #include "src\include\Includes.h"
-<<<<<<< HEAD
-#include "src\objects\Bullet.h"
-#include "src\objects\Wall.h"
-#include "src\objects\BaseEnemy.h"
-#include "src\graphics\lodepng.h"
-#include "src\objects\BaseMedic.h"
-=======
->>>>>>> master
 #include <SFML/Audio.hpp>
 #include <SFML/Audio/Music.hpp>
 
@@ -144,16 +136,13 @@ int main(){
 
 	// Construction
 	PlayerObject player(&window, "Multi-Layer.png", 37, 37);
-	BG test(&window);
 	Motion motion;
+	BG test(&window);
 	test.loadEntity("Wall.txt", "WALL");
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
+	test.loadEntity("Medics.txt", "BASE_MEDIC");
 	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
 	test.loadEntity("Doors.txt", "DOOR");
-
-	/*sf::Music music;
-	music.openFromFile("music.ogg");
-	music.play();*/
 
 	while (!window.closed()){
 		window.clear();
@@ -161,6 +150,7 @@ int main(){
 		checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 
 		test.update(&motion, &player);
+
 		player.Draw(&motion);
 
 		window.update();

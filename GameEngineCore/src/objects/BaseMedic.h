@@ -16,18 +16,22 @@ namespace spacey{
 		public:
 			BaseMedic(); //Constructor
 			~BaseMedic(); //Destructor
-void Heal(BaseEnemy &enem);
+
+			void Heal(BaseEnemy &enem, unsigned int i);
 			BaseMedic(int x, int y, string filename); //Overload Function
 
-			void Draw(Motion* motion);
+			void Draw();
 
 			int health = 100;
+			unsigned int healing;
+			bool available = true;
 		private:
 			int counter;
 			int direction = 3;
 			int pointing = 0;
-
-			
+			int m_width = 16;
+			int m_height = 16;
+			BaseEnemy enem;
 		};
 	}
 }

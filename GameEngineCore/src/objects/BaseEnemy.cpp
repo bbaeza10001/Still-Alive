@@ -127,4 +127,28 @@ namespace spacey{ namespace objects{
 		}
 	}
 
+	BaseEnemy BaseEnemy::operator=(BaseEnemy right){
+		BaseEnemy temp;
+
+		temp.bX = right.bX;
+		temp.bY = right.bY;
+		temp.counter = right.counter;
+		temp.delaware = right.delaware;
+		temp.direction = right.direction;
+		temp.health = right.health;
+		temp.height = right.height;
+		temp.imageLoaded = right.imageLoaded;
+		temp.m_image = right.m_image;
+		temp.pointing = right.pointing;
+		temp.steps = right.steps;
+		temp.u2 = right.u2;
+		temp.u3 = right.u3;
+		temp.v2 = right.v2;
+		temp.v3 = right.v3;
+		temp.width = right.width;
+		temp.x_coord = right.x_coord;
+		temp.y_coord = right.y_coord;
+
+		return temp;
+	}
 } }

@@ -1,4 +1,5 @@
 START
-1
+2
 100 10 ship.png 
+200 50 ship.png
 ENDF
