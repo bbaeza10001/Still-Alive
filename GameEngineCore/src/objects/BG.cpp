@@ -139,6 +139,13 @@ namespace spacey{
 						}
 					}
 				}
+				//Death function. Created by Kenneth.
+				for (unsigned int i = 0; i < B_Enemy.size(); i++){
+					if (B_Enemy[i].health <= 0){
+						B_Enemy.erase(B_Enemy.begin() + i);
+					}
+				}
+				
 				//Player -> melee enemy 
 				for (unsigned int c = 0; c < player->shot.size(); c++){
 					if (player->shot[c].bX >= Ml_Enemy[i].x_coord - 16 && player->shot[c].bX <= Ml_Enemy[i].x_coord + 16){
