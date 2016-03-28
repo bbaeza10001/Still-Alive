@@ -27,7 +27,7 @@ namespace spacey{ namespace objects{
 		private: 
 			void checkRotation(Motion* motion);
 			void checkFire();
-
+			void regenHealth();
 		private: //Misc
 			Window* m_window;
 			int direction = 3;
@@ -40,6 +40,10 @@ namespace spacey{ namespace objects{
 			clock_t delay; //Clock for how fast you can shoot
 			double waited;
 			const double shotLast = 2;
+
+			clock_t healthStart;
+			double healthPassed;
+			const double healthWait = 30.0;
 		private: //Animation
 			bool checkAnimState(Motion* motion);
 			void animate(int frameSpeed, int startFrame, int maxFrames);

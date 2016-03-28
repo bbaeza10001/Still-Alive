@@ -158,7 +158,11 @@ namespace spacey{
 					}
 				}
 			}
-
+			for (unsigned int i = 0; i < Ml_Enemy.size(); i++){
+				if (Ml_Enemy[i].health <= 0){ //removes the enemy when health = 0.
+					Ml_Enemy.erase(Ml_Enemy.begin() + i); //Death created by Kenneth Morgridge.
+				}
+			}
 
 			for (unsigned int i = 0; i < Ml_Enemy.size(); i++){ //For every melee enemy in world
 				if ((Ml_Enemy[i].x_coord + 16 >= -16 && Ml_Enemy[i].x_coord - 16 <= 16) && (Ml_Enemy[i].y_coord + 16 >= -16 && Ml_Enemy[i].y_coord - 16 <= 16)) {
@@ -204,7 +208,7 @@ namespace spacey{
 							Ml_Enemy[i].direction = 7;
 						}
 						Ml_Enemy[i].steps = 200;
-						cout << "bounced off tether" << endl;
+						//cout << "bounced off tether" << endl;
 				}
 
 				if (Ml_Enemy[i].x_coord < -150){
@@ -220,7 +224,7 @@ namespace spacey{
 						}
 					}
 					Ml_Enemy[i].steps = 200;
-					cout << "bounced off tether" << endl;
+				//	cout << "bounced off tether" << endl;
 					}
 				}
 			}
@@ -289,7 +293,7 @@ namespace spacey{
 				if (Ml_Enemy[i].x_coord - (Ml_Enemy[i].width / 2) <= 16 && Ml_Enemy[i].x_coord + (Ml_Enemy[i].width / 2) >= -16
 					&& Ml_Enemy[i].y_coord + (Ml_Enemy[i].height / 2) >= -16 && Ml_Enemy[i].y_coord - (Ml_Enemy[i].height / 2) <= 16){
 					hit = true;
-					cout << "Melee Enemy hit player\n";
+					//cout << "Melee Enemy hit player\n";
 					//Tell Melee Enemy's AI to move away
 				}
 			}
@@ -300,7 +304,7 @@ namespace spacey{
 
 					if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Enemy[e].x_coord + (B_Enemy[e].width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Enemy[e].x_coord - (B_Enemy[e].width / 2)
 						&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Enemy[e].y_coord - (B_Enemy[e].height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Enemy[e].y_coord - (B_Enemy[e].height / 2)){
-						cout << "Basic Enemy hit Wall\n";
+						//cout << "Basic Enemy hit Wall\n";
 						// Tell Basic Enemy's AI to walk away
 					}
 				}
@@ -312,7 +316,7 @@ namespace spacey{
 
 					if (walls[i].x_coord - (walls[i].m_width / 2) <= Ml_Enemy[e].x_coord + (Ml_Enemy[e].width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= Ml_Enemy[e].x_coord - (Ml_Enemy[e].width / 2)
 						&& walls[i].y_coord + (walls[i].m_height / 2) >= Ml_Enemy[e].y_coord - (Ml_Enemy[e].height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= Ml_Enemy[e].y_coord - (Ml_Enemy[e].height / 2)){
-						cout << "Melee Enemy hit Wall\n";
+						//cout << "Melee Enemy hit Wall\n";
 						//Tell Melee Enemy's AI to walk away
 					}
 				}

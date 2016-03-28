@@ -106,5 +106,25 @@ namespace spacey{
 				steps++;
 			}
 		}
-	}
+		MeleeEnemy MeleeEnemy::operator=(MeleeEnemy right){
+			right.counter = counter;
+			right.direction = direction;
+			right.health = health;
+			right.height = height;
+			right.imageLoaded = imageLoaded;
+			right.m_image = m_image;
+			right.pointing = pointing;
+			right.steps = steps;
+			right.u2 = u2;
+			right.u3 = u3;
+			right.v2 = v2;
+			right.v3 = v3;
+			right.width = width;
+			right.x_coord = x_coord;
+			right.y_coord = y_coord;
+
+			return right;
+		}
+
+}
 }

@@ -10,6 +10,7 @@ namespace spacey{
 			m_window = window;
 			start = clock();
 			delay = clock();
+			healthStart = clock();
 			if (filename != "")
 				imageLoaded = loadAnimateable(filename, m_image, u2, v2, width, height);
 
@@ -20,6 +21,7 @@ namespace spacey{
 			checkRotation(motion);
 			checkFire();
 			checkAnimState(motion);
+			regenHealth();
 
 			if (imageLoaded){
 				// Enable the texture for OpenGL.
@@ -179,5 +181,23 @@ namespace spacey{
 				cout << "Could not remove damage yet.\n";
 			}
 		}
+		void PlayerObject::regenHealth(){
+			if (health < 100 && healthPassed > healthWait){
+				//Regens the players health when its less than 100.
+				//Created by Kenneth Morgridge
+				healthPassed = 0;
+				healthStart = clock();
+				health = health + 10;
+				cout << "10 health restored." << endl;
+				cout << "health is now " << health << endl;
+			}
+			else{
+				healthPassed = (clock() - healthStart) / CLOCKS_PER_SEC;
+				
+				
+			}
+
+			}
+		}
+
 	}
-}

@@ -24,7 +24,7 @@ namespace spacey{ namespace objects{
 		const int STEP_MAX = 300;
 		int steps;
 
-		int health = 100;
+		int health = 10;
 	private:
 		int counter;
 		int direction = 3;
@@ -33,6 +33,9 @@ namespace spacey{ namespace objects{
 		void createNewBullet(); //Creates new bullet every x ticks
 		void bulletFill(); //Fills bullet vector
 		void walk(); //Enemy moves
+
+	public:
+		BaseEnemy operator=(BaseEnemy right);
 	};
 
 } }

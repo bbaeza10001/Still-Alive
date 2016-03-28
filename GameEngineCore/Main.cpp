@@ -135,7 +135,7 @@ int main(){
 	Motion motion;
 	test.loadEntity("Wall.txt", "WALL");
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
-	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
+	//test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
 	test.loadEntity("Doors.txt", "DOOR");
 
 	/*sf::Music music;
