@@ -135,14 +135,14 @@ int main(){
 	glLoadIdentity();
 
 	// Construction
-	PlayerObject player(&window, "Multi-Layer.png", 37, 37);
 	Motion motion;
+	PlayerObject player(&window, &motion, "Multi-Layer.png", 37, 37);
 	BG test(&window);
-	test.loadEntity("Wall.txt", "WALL");
+	//test.loadEntity("Wall.txt", "WALL");
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
 	test.loadEntity("Medics.txt", "BASE_MEDIC");
 	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
-	test.loadEntity("Doors.txt", "DOOR");
+	//test.loadEntity("Doors.txt", "DOOR");
 
 	while (!window.closed()){
 		window.clear();
@@ -151,7 +151,7 @@ int main(){
 
 		test.update(&motion, &player);
 
-		player.Draw(&motion);
+		player.Draw();
 
 		window.update();
 		Sleep(0.5); //Controls how fast the game loop runs at max

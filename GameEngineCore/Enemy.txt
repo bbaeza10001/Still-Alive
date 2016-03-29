@@ -1,5 +1,5 @@
 START
-2
-100 10 ship.png 
-200 50 ship.png
+1
+100 10 37 37 BaseEnemy.png
+200 50 37 37 BaseEnemy.png
 ENDF

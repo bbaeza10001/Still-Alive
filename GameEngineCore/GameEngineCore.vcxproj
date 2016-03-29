@@ -90,6 +90,7 @@
     <ClCompile Include="src\motion\MotionController.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\BaseEnemy.cpp" />
+    <ClCompile Include="src\objects\BaseEntity.cpp" />
     <ClCompile Include="src\objects\BaseMedic.cpp" />
     <ClCompile Include="src\objects\BaseObject.cpp" />
     <ClCompile Include="src\objects\BG.cpp" />
@@ -111,6 +112,7 @@
     <ClInclude Include="src\motion\MotionController.h" />
     <ClInclude Include="src\motion\Orbits.h" />
     <ClInclude Include="src\objects\BaseEnemy.h" />
+    <ClInclude Include="src\objects\BaseEntity.h" />
     <ClInclude Include="src\objects\BaseMedic.h" />
     <ClInclude Include="src\objects\BaseObject.h" />
     <ClInclude Include="src\objects\BG.h" />
@@ -122,10 +124,11 @@
     <ClInclude Include="src\objects\Wall.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="animate.png" />
     <Image Include="Multi-Layer.png" />
     <Image Include="ship.png" />
     <Image Include="Basic_Wall.png" />
+    <Image Include="BaseEnemy.png" />
+    <Image Include="Medic.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Enemy.txt" />

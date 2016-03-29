@@ -1,4 +1,4 @@
 START 
 1
--100 50 ship.png
+-100 50 37 37 Medic.png
 ENDF

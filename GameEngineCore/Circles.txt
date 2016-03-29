@@ -1,8 +1,0 @@
-START
-5
--1000 0 500 ship.png
--500 0 8 ship.png
--300 0 12 ship.png
-200 0 15 ship.png
-900 0 25 ship.png
-ENDF

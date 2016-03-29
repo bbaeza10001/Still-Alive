@@ -20,6 +20,7 @@
     <ClCompile Include="src\objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\objects\PlayerObject.cpp" />
     <ClCompile Include="src\objects\Wall.cpp" />
+    <ClCompile Include="src\objects\BaseEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\bg_Texture.h" />
@@ -41,12 +42,15 @@
     <ClInclude Include="src\objects\MeleeEnemy.h" />
     <ClInclude Include="src\objects\PlayerObject.h" />
     <ClInclude Include="src\objects\Wall.h" />
+    <ClInclude Include="src\objects\BaseEntity.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="animate.png" />
     <Image Include="Multi-Layer.png" />
     <Image Include="ship.png" />
     <Image Include="Basic_Wall.png" />
+    <Image Include="BaseEnemy.png" />
+    <Image Include="Medic.png" />
+    <Image Include="MeleeEnemy.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Enemy.txt" />

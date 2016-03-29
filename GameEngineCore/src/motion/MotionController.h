@@ -29,7 +29,7 @@ namespace spacey{ namespace motion{
 		float angle = 0;
 
 		//For Animations
-		string animFlag = "IDLE";
+		string animFlag;
 	private:
 		//Incriments
 		const float speed = 1.0f; //Number of pixel spaces moved per cycle
