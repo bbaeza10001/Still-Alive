@@ -100,7 +100,10 @@ namespace spacey{ namespace objects{
 	}
 
 	BaseEnemy BaseEnemy::operator=(BaseEnemy right){
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 		BaseEnemy temp;
 
 		temp.bX = right.bX;

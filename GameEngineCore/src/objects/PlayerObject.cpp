@@ -12,6 +12,7 @@ namespace spacey{
 			start = clock();
 			delay = clock();
 			healthStart = clock();
+
 			if (filename != "")
 				imageLoaded = loadAnimateable(filename, m_image, u2, v2, width, height);
 

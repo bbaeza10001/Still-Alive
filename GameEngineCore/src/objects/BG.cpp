@@ -158,7 +158,6 @@ namespace spacey{
 						}
 					}
 				}
-				
 				//Death function. Created by Kenneth.
 				for (unsigned int g = 0; g < B_Enemy.size(); g++){
 					if (B_Enemy[g].health <= 0){

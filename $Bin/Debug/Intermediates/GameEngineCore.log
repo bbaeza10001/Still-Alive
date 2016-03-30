@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 3/30/2016 10:17:13 AM.
      1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -101,6 +102,18 @@
          Generating Code...
      1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\window.cpp(75): warning C4715: 'spacey::graphics::Window::closed' : not all control paths return a value
      1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\door.cpp(100): warning C4715: 'spacey::environment::Door::changeState' : not all control paths return a value
+=======
+﻿Build started 3/29/2016 2:46:39 AM.
+     1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\objects\PlayerObject.cpp
+         PlayerObject.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\playerobject.cpp(29): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\playerobject.cpp(39): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+         Main.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\main.cpp(157): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
+         Generating Code...
+>>>>>>> master
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib "sfml-audio-s-d.lib" "sfml-system-s-d.lib" openal32.lib flac.lib vorbisenc.lib vorbisfile.lib vorbis.lib ogg.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
          "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\bg_Texture.obj"
@@ -125,10 +138,23 @@
          LINK : C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe not found or not built by the last incremental link; performing full link
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
      1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>Wall.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'Wall.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>CircleObject.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'CircleObject.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>Bullet.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'Bullet.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>BaseObject.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'BaseObject.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>Orbits.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'Orbits.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>Button.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'Button.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>Window.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'Window.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>lodepng.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'lodepng.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>bg_Texture.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'bg_Texture.obj' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
      1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
          GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe
      1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
 
 Build succeeded.
 
+<<<<<<< HEAD
 Time Elapsed 00:00:58.83
+=======
+Time Elapsed 00:00:10.72
+>>>>>>> master
