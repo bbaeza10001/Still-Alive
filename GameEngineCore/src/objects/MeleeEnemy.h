@@ -20,7 +20,7 @@ namespace spacey{
 			MeleeEnemy(int x, int y, int tWidth, int tHeight, string filename); //Overload Function
 
 
-			int health = 1;
+			int health = 100;
 		private: //Direction and Movement Tracking
 			const int STEP_MAX = 300;
 			int counter;

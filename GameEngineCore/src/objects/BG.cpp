@@ -169,7 +169,6 @@ namespace spacey{
 
 			//Player -> melee enemy 
 			for (unsigned int i = 0; i < Ml_Enemy.size(); i++){
-
 				for (unsigned int c = 0; c < player->shot.size(); c++){
 					if (player->shot[c].bX >= Ml_Enemy[i].x_coord - 16 && player->shot[c].bX <= Ml_Enemy[i].x_coord + 16){
 						if (player->shot[c].bY >= Ml_Enemy[i].y_coord - 16 && player->shot[c].bY <= Ml_Enemy[i].y_coord + 16){

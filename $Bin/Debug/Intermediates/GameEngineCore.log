@@ -1,34 +1,134 @@
-﻿Build started 3/28/2016 5:19:11 PM.
-     1>Project "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
+﻿Build started 3/30/2016 10:17:13 AM.
+     1>Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\\" /Fd"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\graphics\bg_Texture.cpp src\graphics\LoadLevel.cpp src\graphics\lodepng.cpp src\graphics\Window.cpp src\Input\Button.cpp src\Input\InputController.cpp src\motion\MotionController.cpp src\motion\Orbits.cpp src\objects\BaseEnemy.cpp src\objects\BaseEntity.cpp src\objects\BaseMedic.cpp src\objects\BaseObject.cpp src\objects\BG.cpp src\objects\Bullet.cpp src\objects\CircleObject.cpp src\objects\Door.cpp src\objects\MeleeEnemy.cpp src\objects\PlayerObject.cpp src\objects\Wall.cpp
+         Wall.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\wall.cpp(16): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\wall.cpp(17): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+         PlayerObject.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\playerobject.cpp(30): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\playerobject.cpp(40): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+         MeleeEnemy.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(11): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(12): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(75): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(79): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(80): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(83): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(87): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(88): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(91): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(95): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(96): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(99): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(103): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\meleeenemy.cpp(104): warning C4305: '+=' : truncation from 'double' to 'float'
+         Door.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\door.cpp(23): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\door.cpp(24): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+         CircleObject.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\circleobject.cpp(55): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         Bullet.cpp
+         BG.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(233): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(243): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(252): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(262): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(272): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(273): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(283): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\bg.cpp(284): warning C4018: '<' : signed/unsigned mismatch
+         BaseObject.cpp
+         BaseMedic.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(17): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(18): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(118): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(122): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(123): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(126): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(130): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(131): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(134): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(138): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(139): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(142): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(146): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\basemedic.cpp(147): warning C4305: '+=' : truncation from 'double' to 'float'
+         BaseEntity.cpp
+         BaseEnemy.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(11): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(12): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(27): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(62): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(66): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(67): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(70): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(74): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(75): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(78): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(82): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(83): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(86): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(90): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\baseenemy.cpp(91): warning C4305: '+=' : truncation from 'double' to 'float'
+         Orbits.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(13): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(14): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(15): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(15): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(20): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(23): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(26): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(28): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(30): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\motion\orbits.cpp(31): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+         MotionController.cpp
+         InputController.cpp
+         Button.cpp
+         Window.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\window.cpp(72): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+         lodepng.cpp
+         LoadLevel.cpp
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\loadlevel.cpp(26): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\loadlevel.cpp(52): warning C4101: 'size' : unreferenced local variable
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\loadlevel.cpp(89): warning C4101: 'size' : unreferenced local variable
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\loadlevel.cpp(126): warning C4101: 'size' : unreferenced local variable
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\loadlevel.cpp(163): warning C4101: 'size' : unreferenced local variable
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\loadlevel.cpp(200): warning C4101: 'size' : unreferenced local variable
+         bg_Texture.cpp
          Main.cpp
-     1>c:\users\kenny\documents\visual studio 2013\projects\still alive\still-alive\gameenginecore\main.cpp(154): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\main.cpp(157): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
+         Generating Code...
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\graphics\window.cpp(75): warning C4715: 'spacey::graphics::Window::closed' : not all control paths return a value
+     1>c:\users\baeza\documents\visual studio 2013\projects\games in progress\still-alive\gameenginecore\src\objects\door.cpp(100): warning C4715: 'spacey::environment::Door::changeState' : not all control paths return a value
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib "sfml-audio-s-d.lib" "sfml-system-s-d.lib" openal32.lib flac.lib vorbisenc.lib vorbisfile.lib vorbis.lib ogg.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\bg_Texture.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\LoadLevel.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\lodepng.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\Window.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\Button.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\InputController.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\MotionController.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\Orbits.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\BaseEnemy.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\BaseObject.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\BG.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\Door.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\MeleeEnemy.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
-         "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\Intermediates\Wall.obj"
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe" /INCREMENTAL /NOLOGO glu32.lib glfw3.lib opengl32.lib glew32s.lib FreeImage.lib "sfml-audio-s-d.lib" "sfml-system-s-d.lib" openal32.lib flac.lib vorbisenc.lib vorbisfile.lib vorbis.lib ogg.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:/NODEFAULTLIB:msvcrt /NODEFAULTLIB:/NODEFAULTLIB:libcmt /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.lib" /MACHINE:X86 "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Main.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\bg_Texture.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\LoadLevel.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\lodepng.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Window.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Button.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\InputController.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\MotionController.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Orbits.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BaseEnemy.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BaseEntity.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BaseMedic.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BaseObject.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\BG.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Bullet.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\CircleObject.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Door.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\MeleeEnemy.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\PlayerObject.obj"
+         "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\Intermediates\Wall.obj"
+         LINK : C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe not found or not built by the last incremental link; performing full link
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
      1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
-         GameEngineCore.vcxproj -> C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\$Bin\Debug\GameEngineCore.exe
-     1>Done Building Project "C:\Users\Kenny\Documents\Visual Studio 2013\Projects\Still Alive\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
+     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\vc120.pdb'; linking object as if no debug info
+         GameEngineCore.vcxproj -> C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\$Bin\Debug\GameEngineCore.exe
+     1>Done Building Project "C:\Users\Baeza\Documents\Visual Studio 2013\Projects\Games In Progress\Still-Alive\GameEngineCore\GameEngineCore.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.83
+Time Elapsed 00:00:58.83
