@@ -8,6 +8,7 @@
 #include "MeleeEnemy.h"
 #include "Wall.h"
 #include "Door.h"
+#include "BaseMedic.h"
 #include "../graphics/Window.h"
 #include "../graphics/LoadLevel.h"
 #include "../motion/Orbits.h"
@@ -45,6 +46,7 @@ namespace spacey{
 			vector<Wall> walls;
 			vector<MeleeEnemy> Ml_Enemy;
 			vector<Door> doors;
+			vector<BaseMedic> B_Medics;
 
 		private: //Tools
 			Window* m_window;

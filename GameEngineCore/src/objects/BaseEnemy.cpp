@@ -7,53 +7,21 @@ namespace spacey{ namespace objects{
 		y_coord = 0;
 	}
 
-	BaseEnemy::BaseEnemy(int x, int y, string filename){
+	BaseEnemy::BaseEnemy(int x, int y, int tWidth, int tHeight, string filename){
 		x_coord = x;
 		y_coord = y;
+		m_texWidth = tWidth;
+		m_texHeight = tHeight;
+		imageLoaded = loadAnimateable(filename, m_image, u2, v2, width, height);
 
-		imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3, width, height);
-
-		width = height = 32;
+		framesPerRow = width / m_texWidth;
 	}
 
 	BaseEnemy::~BaseEnemy(){
 		
 	}
-	
-	void BaseEnemy::Draw(Motion* motion){
 
-		if (imageLoaded){
-
-			// Enable the texture for OpenGL.
-			glEnable(GL_TEXTURE_2D);
-			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //GL_NEAREST = no smoothing
-			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);//GL_LINEAR = smoothing
-			glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &m_image[0]);
-
-			//Draw the texture
-			glPushMatrix();
-
-			glBegin(GL_QUADS);
-			glTexCoord2d(0, v3);		 glVertex2d(x_coord - 16, y_coord - 16);
-			glTexCoord2d(0, 0);		 glVertex2d(x_coord - 16, y_coord + 16);
-			glTexCoord2d(u3, 0);	 glVertex2d(x_coord + 16, y_coord + 16);
-			glTexCoord2d(u3, v3);		 glVertex2d(x_coord + 16, y_coord - 16);
-			glEnd();
-
-			glPopMatrix();
-
-		}
-		else{
-
-			glPushMatrix();
-			glBegin(GL_TRIANGLES);
-			glVertex2d(x_coord - 5, y_coord - 10); //Bottom Left Corner
-			glVertex2d(x_coord, y_coord + 10); //Nose of Ship
-			glVertex2d(x_coord + 5, y_coord - 10); //Top Right Corner
-			glEnd();
-			glPopMatrix();
-
-		}
+	void BaseEnemy::AI(string indicator){
 
 		if (!delaware.empty()){
 			for (int i = 0; i < delaware.size(); i++){
@@ -67,7 +35,7 @@ namespace spacey{ namespace objects{
 		createNewBullet();
 		walk();
 	}
-
+	
 	void BaseEnemy::bulletFill(){
 		Bullet bullet(direction, x_coord, y_coord);
 		delaware.push_back(bullet);
@@ -92,6 +60,7 @@ namespace spacey{ namespace objects{
 			switch (direction){
 			case 1: //Up
 				y_coord += 0.2;
+				mObj.animFlag = "WALK_UP";
 				break;
 			case 2: //Up Right
 				x_coord += 0.2;
@@ -99,6 +68,7 @@ namespace spacey{ namespace objects{
 				break;
 			case 3:  //Right
 				x_coord += 0.2;
+				mObj.animFlag = "WALK_RIGHT";
 				break;
 			case 4: //Down Right
 				x_coord += 0.2;
@@ -106,6 +76,7 @@ namespace spacey{ namespace objects{
 				break;
 			case 5: //Down
 				y_coord -= 0.2;
+				mObj.animFlag = "WALK_DOWN";
 				break;
 			case 6: //Left Down
 				x_coord -= 0.2;
@@ -113,6 +84,7 @@ namespace spacey{ namespace objects{
 				break;
 			case 7: //Left
 				x_coord -= 0.2;
+				mObj.animFlag = "WALK_LEFT";
 				break;
 			case 8: //Left Up
 				x_coord -= 0.2;

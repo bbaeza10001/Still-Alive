@@ -1,4 +1,4 @@
 START
 1
-40 40 MeleeEnemy.png
+40 40 37 37 MeleeEnemy.png
 ENDF

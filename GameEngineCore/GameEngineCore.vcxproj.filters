@@ -1,148 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\graphics\bg_Texture.cpp" />
+    <ClCompile Include="src\graphics\LoadLevel.cpp" />
+    <ClCompile Include="src\graphics\lodepng.cpp" />
+    <ClCompile Include="src\graphics\Window.cpp" />
+    <ClCompile Include="src\Input\Button.cpp" />
+    <ClCompile Include="src\Input\InputController.cpp" />
+    <ClCompile Include="src\motion\MotionController.cpp" />
+    <ClCompile Include="src\motion\Orbits.cpp" />
+    <ClCompile Include="src\objects\BaseEnemy.cpp" />
+    <ClCompile Include="src\objects\BaseMedic.cpp" />
+    <ClCompile Include="src\objects\BaseObject.cpp" />
+    <ClCompile Include="src\objects\BG.cpp" />
+    <ClCompile Include="src\objects\Bullet.cpp" />
+    <ClCompile Include="src\objects\CircleObject.cpp" />
+    <ClCompile Include="src\objects\Door.cpp" />
+    <ClCompile Include="src\objects\MeleeEnemy.cpp" />
+    <ClCompile Include="src\objects\PlayerObject.cpp" />
+    <ClCompile Include="src\objects\Wall.cpp" />
+    <ClCompile Include="src\objects\BaseEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\PlayerObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\CircleObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\LoadLevel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\motion\Orbits.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input\Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\Bullet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input\InputController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\Wall.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\BaseEnemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\lodepng.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\bg_Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\BaseObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\BG.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\motion\MotionController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\MeleeEnemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\Door.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="src\graphics\bg_Texture.h" />
+    <ClInclude Include="src\graphics\LoadLevel.h" />
+    <ClInclude Include="src\graphics\lodepng.h" />
+    <ClInclude Include="src\include\Includes.h" />
+    <ClInclude Include="src\Input\Button.h" />
+    <ClInclude Include="src\Input\InputController.h" />
+    <ClInclude Include="src\graphics\Window.h" />
+    <ClInclude Include="src\motion\MotionController.h" />
+    <ClInclude Include="src\motion\Orbits.h" />
+    <ClInclude Include="src\objects\BaseEnemy.h" />
+    <ClInclude Include="src\objects\BaseMedic.h" />
+    <ClInclude Include="src\objects\BaseObject.h" />
+    <ClInclude Include="src\objects\BG.h" />
+    <ClInclude Include="src\objects\Bullet.h" />
+    <ClInclude Include="src\objects\CircleObject.h" />
+    <ClInclude Include="src\objects\Door.h" />
+    <ClInclude Include="src\objects\MeleeEnemy.h" />
+    <ClInclude Include="src\objects\PlayerObject.h" />
+    <ClInclude Include="src\objects\Wall.h" />
+    <ClInclude Include="src\objects\BaseEntity.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\CircleObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\PlayerObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Input\InputController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\Includes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\LoadLevel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\motion\Orbits.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Input\Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\Bullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\BaseObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\Wall.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\BaseEnemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\lodepng.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\bg_Texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\BG.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\motion\MotionController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\MeleeEnemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\objects\Door.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="ship.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Basic_Wall.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="animate.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Multi-Layer.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <Image Include="Multi-Layer.png" />
+    <Image Include="ship.png" />
+    <Image Include="Basic_Wall.png" />
+    <Image Include="BaseEnemy.png" />
+    <Image Include="Medic.png" />
+    <Image Include="MeleeEnemy.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Enemy.txt" />
-    <Text Include="Wall.txt" />
     <Text Include="Doors.txt" />
+    <Text Include="Wall.txt" />
+    <Text Include="Medics.txt" />
   </ItemGroup>
 </Project>

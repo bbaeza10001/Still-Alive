@@ -83,8 +83,10 @@ int main(){
 		PlayerObject player(&window, "ship.png");
 		BG test(&window);
 		Motion motion;
+		BaseMedic casual(-100, -100, "ship.png");
+		BaseEnemy josh(-10, 10, "ship.png");
 
-		test.loadEntity("Enemy.txt", "BASE_ENEMY");
+	//	test.loadEntity("Enemy.txt", "BASE_ENEMY");
 		test.loadEntity("Wall.txt", "WALL");
 
 		//Music playing
@@ -99,7 +101,10 @@ int main(){
 			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 			
 			test.update(&motion, &player);
+			josh.Draw(&motion);
 			player.Draw(&motion);
+			casual.Draw(&motion);
+			casual.Heal(josh);
 
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs at max
@@ -130,17 +135,14 @@ int main(){
 	glLoadIdentity();
 
 	// Construction
-	PlayerObject player(&window, "Multi-Layer.png", 37, 37);
-	BG test(&window);
 	Motion motion;
-	test.loadEntity("Wall.txt", "WALL");
+	PlayerObject player(&window, &motion, "Multi-Layer.png", 37, 37);
+	BG test(&window);
+	//test.loadEntity("Wall.txt", "WALL");
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
-	//test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
-	test.loadEntity("Doors.txt", "DOOR");
-
-	/*sf::Music music;
-	music.openFromFile("music.ogg");
-	music.play();*/
+	test.loadEntity("Medics.txt", "BASE_MEDIC");
+	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
+	//test.loadEntity("Doors.txt", "DOOR");
 
 	while (!window.closed()){
 		window.clear();
@@ -148,7 +150,8 @@ int main(){
 		checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 
 		test.update(&motion, &player);
-		player.Draw(&motion);
+
+		player.Draw();
 
 		window.update();
 		Sleep(0.5); //Controls how fast the game loop runs at max
