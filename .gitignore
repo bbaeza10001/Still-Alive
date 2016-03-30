@@ -20,9 +20,6 @@ build/
 [Bb]in/
 [Oo]bj/
 
-$[Bb]in\
-$[Bb]in/
-
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
@@ -188,3 +185,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+GameEngineCore.sdf
+$Bin/Debug/GameEngineCore.ilk
+*.obj

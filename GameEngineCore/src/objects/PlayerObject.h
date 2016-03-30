@@ -28,7 +28,7 @@ namespace spacey{
 			void AI(string indicator);
 			void checkRotation(Motion* motion);
 			void checkFire();
-
+			void regenHealth();
 		private: //Misc
 			Window* m_window;
 			Motion* motionObj;
@@ -42,6 +42,10 @@ namespace spacey{
 			clock_t delay; //Clock for how fast you can shoot
 			double waited;
 			const double shotLast = 2;
+
+			clock_t healthStart;
+			double healthPassed;
+			const double healthWait = 30.0;
 
 		};
 	}

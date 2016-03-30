@@ -28,9 +28,13 @@ namespace spacey{
 			int steps = 400;
 			int pointing = 0;
 
+			void walk(); //Enemy moves
+
+		public:
+			MeleeEnemy operator=(MeleeEnemy right);
+
 		public: //AI
 			void AI(string indicator);
-			void walk();
 
 		public: //Size
 			float m_width = 32;

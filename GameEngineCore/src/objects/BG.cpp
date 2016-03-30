@@ -132,6 +132,7 @@ namespace spacey{
 
 		void BG::checkBullets(PlayerObject* player){
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){ //For every basic enemy in world
+				
 
 				//Basic enemy -> player
 				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){ //
@@ -157,6 +158,12 @@ namespace spacey{
 						}
 					}
 				}
+				//Death function. Created by Kenneth.
+				for (unsigned int g = 0; g < B_Enemy.size(); g++){
+					if (B_Enemy[g].health <= 0){
+						B_Enemy.erase(B_Enemy.begin() + g);
+					}
+				}
 			}
 
 			//Player -> melee enemy 
@@ -169,6 +176,12 @@ namespace spacey{
 							Ml_Enemy[i].health -= 10;
 							cout << "Enemy now has " << Ml_Enemy[i].health << " hp\n";
 						}
+					}
+				}
+
+				for (unsigned int g = 0; g < Ml_Enemy.size(); g++){
+					if (Ml_Enemy[g].health <= 0){ //removes the enemy when health = 0.
+						Ml_Enemy.erase(Ml_Enemy.begin() + g); //Death created by Kenneth Morgridge.
 					}
 				}
 			}
@@ -249,7 +262,7 @@ namespace spacey{
 				if (Ml_Enemy[i].x_coord - (Ml_Enemy[i].m_width / 2) <= 16 && Ml_Enemy[i].x_coord + (Ml_Enemy[i].m_width / 2) >= -16
 					&& Ml_Enemy[i].y_coord + (Ml_Enemy[i].m_height / 2) >= -16 && Ml_Enemy[i].y_coord - (Ml_Enemy[i].m_height / 2) <= 16){
 					hit = true;
-					cout << "Melee Enemy hit player\n";
+					//cout << "Melee Enemy hit player\n";
 					//Tell Melee Enemy's AI to move away
 				}
 			}
@@ -257,7 +270,6 @@ namespace spacey{
 			// For Basic Enemy && Wall
 			for (int i = 0; i < walls.size(); i++){
 				for (int e = 0; e < B_Enemy.size(); e++){
-
 					if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Enemy[e].x_coord + (B_Enemy[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Enemy[e].x_coord - (B_Enemy[e].m_width / 2)
 						&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Enemy[e].y_coord - (B_Enemy[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Enemy[e].y_coord - (B_Enemy[e].m_height / 2)){
 						cout << "Basic Enemy hit Wall\n";
