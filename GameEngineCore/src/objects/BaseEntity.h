@@ -19,6 +19,11 @@ namespace spacey{
 			float x_coord = 0;
 			float y_coord = 0;
 
+		public: //Information
+			int health = 50;
+			int m_width = 32;
+			int m_height = 32;
+
 		protected: //Image Variables
 			vector<unsigned char> m_image;
 			unsigned width, height;
@@ -31,6 +36,7 @@ namespace spacey{
 		private: //Animation
 			void checkAnimState();
 			void animate(int frameSpeed, int startFrame, int maxFrames);
+		
 		protected: 
 			Motion mObj;
 			int counter = 0;

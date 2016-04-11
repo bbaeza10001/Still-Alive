@@ -10,23 +10,6 @@ using namespace level;
 using namespace input;
 using namespace motion;
 
-/*
-	TO DO IN CLUB:
-
-	-Create a basic medic character
-	-Give all enemy types a logical basic AI
-
-	TO DO:
-	
-	**Fix image jitter when moving diagonally
-
-	ISSUES:
-
-	--COLLISION DETECTIONS--
-		**If the direction is continually tapped after colliding, the player can move through an object
-
-*/
-
 #if 0
 int main(){
 	//Width and height for the game window
@@ -138,7 +121,7 @@ int main(){
 	Motion motion;
 	PlayerObject player(&window, &motion, "Multi-Layer.png", 37, 37);
 	BG test(&window);
-	//test.loadEntity("Wall.txt", "WALL");
+	test.loadEntity("Wall.txt", "WALL");
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
 	test.loadEntity("Medics.txt", "BASE_MEDIC");
 	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");

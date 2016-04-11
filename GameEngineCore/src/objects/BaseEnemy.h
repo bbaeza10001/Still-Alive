@@ -23,7 +23,6 @@ namespace spacey{ namespace objects{
 		const int STEP_MAX = 300;
 		int steps;
 
-		int health = 50;
 	private:
 		int counter;
 		int direction = 3;
@@ -35,8 +34,6 @@ namespace spacey{ namespace objects{
 
 	public:
 		void AI(string indicator);
-		int m_width = 16;
-		int m_height = 16;
 	public:
 		BaseEnemy operator=(BaseEnemy right);
 	};

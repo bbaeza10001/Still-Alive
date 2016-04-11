@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <vector>
-#include "CircleObject.h"
 #include "BaseEnemy.h"
 #include "PlayerObject.h"
 #include "MeleeEnemy.h"
@@ -37,11 +36,10 @@ namespace spacey{
 
 		private: //Personal Functions
 			void collided();
-			void move(Motion* motion);
+			void move(Motion* motion, PlayerObject* player);
 			void checkBullets(PlayerObject* player);
 
 		private: //Objects
-			vector<CircleObject> planets;
 			vector<BaseEnemy> B_Enemy;
 			vector<Wall> walls;
 			vector<MeleeEnemy> Ml_Enemy;

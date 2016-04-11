@@ -26,22 +26,17 @@ namespace spacey{
 			int direction = 3;
 			int pointing = 0;
 
-		private: //Size
-			int m_width = 16;
-			int m_height = 16;
-
 		private: //Healing and AI 
-			void AI(string indicator);
 			void move();
 			
 			int steps = 0;
 			const int STEP_MAX = 500;
 
 		public:
-			void Heal(BaseEnemy &enem, unsigned int i);
-			void Heal(MeleeEnemy &enem, unsigned int i);
+			void AI(string indicator);
 
-			int health = 100;
+			void Heal(BaseEntity* entity, unsigned int i, string type);
+
 			unsigned int healing;
 			string healType;
 			bool available = true;

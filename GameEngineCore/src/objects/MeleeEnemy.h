@@ -19,8 +19,6 @@ namespace spacey{
 
 			MeleeEnemy(int x, int y, int tWidth, int tHeight, string filename); //Overload Function
 
-
-			int health = 100;
 		private: //Direction and Movement Tracking
 			const int STEP_MAX = 300;
 			int counter;
@@ -36,9 +34,6 @@ namespace spacey{
 		public: //AI
 			void AI(string indicator);
 
-		public: //Size
-			float m_width = 32;
-			float m_height = 32;
 		};
 
 	}

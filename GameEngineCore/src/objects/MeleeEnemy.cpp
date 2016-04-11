@@ -24,6 +24,16 @@ namespace spacey{
 		void MeleeEnemy::AI(string indicator){
 			walk();
 
+			if (indicator == "REDIRECT"){
+				int temp = rand() % 8 + 1;
+				while (temp == direction){
+					temp = rand() % 8 + 1;
+				}
+
+				direction = temp;
+				steps = 0;
+			}
+
 			//If it walks into the player...
 			if (indicator == "RETREAT"){
 				AI_Flag = indicator;

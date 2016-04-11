@@ -4,7 +4,7 @@ namespace spacey{
 	namespace background{
 	
 		BG::BG(){
-			planets.clear();
+			
 		}
 
 		BG::BG(Window* window){
@@ -12,10 +12,8 @@ namespace spacey{
 		}
 
 		void BG::loadEntity(string filename, string type){
-			if (type == "CIRCLE"){
-				loadObject(planets, filename);
-			}
-			else if (type == "BASE_ENEMY"){
+
+			if (type == "BASE_ENEMY"){
 				loadObject(B_Enemy, filename);
 			}
 			else if (type == "WALL"){
@@ -34,18 +32,9 @@ namespace spacey{
 		}
 
 		void BG::update(Motion* motion, PlayerObject* player){
-			glPushMatrix();
 			motion->applySpeed();
-			move(motion);
-
-			for (unsigned int i = 0; i < planets.size(); i++){
-				if (planets[i].x_coord < 800 && planets[i].x_coord > -800){
-					if (planets[i].y_coord < 600 && planets[i].y_coord > -600){
-						planets[i].Draw();
-					}
-				}
-			}
-			orb.orbit(planets);
+			move(motion, player);
+			checkBullets(player);
 
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){
 				if (B_Enemy[i].x_coord < 800 && B_Enemy[i].x_coord > -800){
@@ -84,16 +73,13 @@ namespace spacey{
 					}
 				}
 			}
-
-			checkBullets(player);
-			glPopMatrix();
 		}
 
-		void BG::move(Motion* motion){
+		void BG::move(Motion* motion, PlayerObject* player){
 			
-			for (unsigned int i = 0; i < planets.size(); i++){
-				planets[i].x_coord += motion->xspeed;
-				planets[i].y_coord += motion->yspeed;
+			for (unsigned int i = 0; i < player->shot.size(); i++){
+				player->shot[i].bX += motion->xspeed;
+				player->shot[i].bY += motion->yspeed;
 			}
 
 			for (unsigned int i = 0; i < B_Enemy.size(); i++){
@@ -109,7 +95,7 @@ namespace spacey{
 				B_Medics[i].x_coord += motion->xspeed;
 				B_Medics[i].y_coord += motion->yspeed;
 				for (unsigned int c = 0; c < B_Enemy.size(); c++){
-					B_Medics[i].Heal(B_Enemy[c], c);
+					B_Medics[i].Heal(&B_Enemy[c], c, "BASE_ENEMY");
 				}
 			}
 			
@@ -228,22 +214,11 @@ namespace spacey{
 			hit = false; //This bool is only for if the PLAYER hits something, everything else should
 						 //only tell the respective AI to either stop or walk away
 
-			// For Circles && Player
-			for (int i = 0; i < planets.size(); i++){
-				if (planets[i].x_coord + (planets[i].radius / 2) >= -16 && planets[i].x_coord - (planets[i].radius / 2) <= 16){
-					if (planets[i].y_coord + (planets[i].radius / 2) >= -16 && planets[i].y_coord - (planets[i].radius / 2) <= 16){
-						hit = true;
-						cout << "Player hit circle\n";
-					}
-				}
-			}
-
 			// For player && Wall 
 			for (int i = 0; i < walls.size(); i++){
 				if (walls[i].x_coord - (walls[i].m_width / 2) <= 16 && walls[i].x_coord + (walls[i].m_width / 2) >= -16
 					&& walls[i].y_coord + (walls[i].m_height / 2) >= -16 && walls[i].y_coord - (walls[i].m_height / 2) <= 16){
 					hit = true;
-					//cout << "Player hit Wall\n";
 				}
 			}
 
@@ -252,8 +227,7 @@ namespace spacey{
 				if (B_Enemy[i].x_coord - (B_Enemy[i].m_width / 2) <= 16 && B_Enemy[i].x_coord + (B_Enemy[i].m_width / 2) >= -16
 					&& B_Enemy[i].y_coord + (B_Enemy[i].m_height / 2) >= -16 && B_Enemy[i].y_coord - (B_Enemy[i].m_height / 2) <= 16){
 					hit = true;
-					cout << "Basic Enemy hit player\n";
-					//Call Basic Enemy's AI to move away
+					B_Enemy[i].AI("REDIRECT");
 				}
 			}
 
@@ -262,8 +236,16 @@ namespace spacey{
 				if (Ml_Enemy[i].x_coord - (Ml_Enemy[i].m_width / 2) <= 16 && Ml_Enemy[i].x_coord + (Ml_Enemy[i].m_width / 2) >= -16
 					&& Ml_Enemy[i].y_coord + (Ml_Enemy[i].m_height / 2) >= -16 && Ml_Enemy[i].y_coord - (Ml_Enemy[i].m_height / 2) <= 16){
 					hit = true;
-					//cout << "Melee Enemy hit player\n";
-					//Tell Melee Enemy's AI to move away
+					Ml_Enemy[i].AI("RETREAT");
+				}
+			}
+
+			// For player && Basic Medic
+			for (int i = 0; i < B_Medics.size(); i++){
+				if (B_Medics[i].x_coord - (B_Medics[i].m_width / 2) <= 16 && B_Medics[i].x_coord + (B_Medics[i].m_width / 2) >= -16
+					&& B_Medics[i].y_coord + (B_Medics[i].m_height / 2) >= -16 && B_Medics[i].y_coord - (B_Medics[i].m_height / 2) <= 16){
+					hit = true;
+					B_Medics[i].AI("REDIRECT");
 				}
 			}
 
@@ -272,8 +254,8 @@ namespace spacey{
 				for (int e = 0; e < B_Enemy.size(); e++){
 					if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Enemy[e].x_coord + (B_Enemy[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Enemy[e].x_coord - (B_Enemy[e].m_width / 2)
 						&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Enemy[e].y_coord - (B_Enemy[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Enemy[e].y_coord - (B_Enemy[e].m_height / 2)){
-						cout << "Basic Enemy hit Wall\n";
-						// Tell Basic Enemy's AI to walk away
+
+						B_Enemy[e].AI("REDIRECT");
 					}
 				}
 			}
@@ -283,8 +265,19 @@ namespace spacey{
 				for (int e = 0; e < Ml_Enemy.size(); e++){
 					if (walls[i].x_coord - (walls[i].m_width / 2) <= Ml_Enemy[e].x_coord + (Ml_Enemy[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= Ml_Enemy[e].x_coord - (Ml_Enemy[e].m_width / 2)
 						&& walls[i].y_coord + (walls[i].m_height / 2) >= Ml_Enemy[e].y_coord - (Ml_Enemy[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= Ml_Enemy[e].y_coord - (Ml_Enemy[e].m_height / 2)){
-						cout << "Melee Enemy hit Wall\n";
-						//Tell Melee Enemy's AI to walk away
+
+						Ml_Enemy[e].AI("REDIRECT");
+					}
+				}
+			}
+
+			// For Base Medic && Wall
+			for (int i = 0; i < walls.size(); i++){
+				for (int e = 0; e < B_Medics.size(); e++){
+					if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Medics[e].x_coord + (B_Medics[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Medics[e].x_coord - (B_Medics[e].m_width / 2)
+						&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Medics[e].y_coord - (B_Medics[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Medics[e].y_coord - (B_Medics[e].m_height / 2)){
+
+						B_Medics[e].AI("REDIRECT");
 					}
 				}
 			}

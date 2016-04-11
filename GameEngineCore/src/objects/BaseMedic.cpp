@@ -24,85 +24,70 @@ namespace spacey{
 		}
 
 		void BaseMedic::AI(string indicator){
+			if (indicator == "REDIRECT"){
+				cout << "Redirecting Medic after player collision\n";
+
+				int temp = rand() % 8 + 1;
+				while (temp == direction){
+					temp = rand() % 8 + 1;
+				}
+
+				direction = temp;
+				steps = 0;
+			}
+			else if (indicator == "RETREAT"){
+				AI_Flag = indicator;
+
+			}
+			else if (indicator == "HEAL"){
+				AI_Flag = "HEAL";
+
+
+			}
+			else if (indicator == "IDLE"){
+				AI_Flag = indicator;
+			}
+
 			move();
 		}
 
-		void BaseMedic::Heal(BaseEnemy &enem, unsigned int i){
+		void BaseMedic::Heal(BaseEntity* enem, unsigned int i, string type){
 
-			if (enem.health <= 50 && healing == i && healType == "BASE_ENEMY"){
+			if (enem->health <= 50 && healing == i && healType == type){
 				available = false;
 
-				if (enem.x_coord > x_coord){
+				if (enem->x_coord > x_coord){
 					x_coord++;
 				} 
 
-				if (enem.x_coord < x_coord){
+				if (enem->x_coord < x_coord){
 					x_coord--;
 				}
 				
-				if (enem.y_coord > y_coord){
+				if (enem->y_coord > y_coord){
 					y_coord++;
 				}
 				
-				if (enem.y_coord < y_coord){
+				if (enem->y_coord < y_coord){
 					y_coord--;
 				}
 
-				if ((x_coord - (m_width / 2) <= enem.x_coord + (enem.m_width / 2) && x_coord + (m_width / 2) >= enem.x_coord - (enem.m_width / 2)
-					&& y_coord + (m_height / 2) >= enem.y_coord - (enem.m_height / 2) && y_coord - (m_height / 2) <= enem.y_coord - (enem.m_height / 2))){
-					enem.health += 10;
+				if ((x_coord - (m_width / 2) <= enem->x_coord + (enem->m_width / 2) && x_coord + (m_width / 2) >= enem->x_coord - (enem->m_width / 2)
+					&& y_coord + (m_height / 2) >= enem->y_coord - (enem->m_height / 2) && y_coord - (m_height / 2) <= enem->y_coord - (enem->m_height / 2))){
+					enem->health += 10;
 
-					if (enem.health > 50){
+					if (enem->health > 50){
 						available = true;
+						healType = "";
 					}
 					cout << "Enemy has been healed 10 single points" << endl;
-					cout << "Current Health: " << enem.health << endl;
+					cout << "Current Health: " << enem->health << endl;
 					cout << "Y U DO ANAL?" << endl;
 				}
 			}
-			else if (enem.health <= 50 && available == true){
+			else if (enem->health <= 50 && available == true){
 				healing = i;
-				healType = "BASE_ENEMY";
-			}
-
-		}
-
-		void BaseMedic::Heal(MeleeEnemy &enem, unsigned int i){
-
-			if (enem.health <= 50 && healing == i && healType == "MELEE"){
-				available = false;
-
-				if (enem.x_coord > x_coord){
-					x_coord++;
-				}
-
-				if (enem.x_coord < x_coord){
-					x_coord--;
-				}
-
-				if (enem.y_coord > y_coord){
-					y_coord++;
-				}
-
-				if (enem.y_coord < y_coord){
-					y_coord--;
-				}
-
-				if ((x_coord - (m_width / 2) <= enem.x_coord + (enem.m_width / 2) && x_coord + (m_width / 2) >= enem.x_coord - (enem.m_width / 2)
-					&& y_coord + (m_height / 2) >= enem.y_coord - (enem.m_height / 2) && y_coord - (m_height / 2) <= enem.y_coord - (enem.m_height / 2))){
-					enem.health += 10;
-
-					if (enem.health > 50){
-						available = true;
-					}
-					cout << "Enemy has been healed 10 single points" << endl;
-					cout << "Current Health: " << enem.health << endl;
-					cout << "Y U DO ANAL?" << endl;
-				}
-			}
-			else if (enem.health <= 50 && available == true){
-				healing = i;
-				healType = "MELEE";
+				healType = type;
 			}
 
 		}

@@ -54,11 +54,11 @@ namespace spacey{ 	namespace objects{
 
 	bool Bullet::limit(){
 
-		if ((bX - 100) > bx_coord || (bX + 100) < bx_coord){
+		if ((bX - LIMIT) > bx_coord || (bX + LIMIT) < bx_coord){
 			return true;
 		}
 
-		else if ((bY - 100) > by_coord || (bY + 100) < by_coord){
+		else if ((bY - LIMIT) > by_coord || (bY + LIMIT) < by_coord){
 			return true;
 		}
 		else{
@@ -69,38 +69,58 @@ namespace spacey{ 	namespace objects{
 	void Bullet::Move(){
 		switch (m_direction){
 		case 1: //Move Up
-			bY += 0.5f;
+			bY += MOVE_RATE;
 			break;
 		case 2: //Move Up Right
-			bX += 0.5f;
-			bY += 0.5f;
+			bX += MOVE_RATE;
+			bY += MOVE_RATE;
 			break;
 		case 3: //Move Right
-			bX += 0.5f;
+			bX += MOVE_RATE;
 			break;
 		case 4: //Move Down Right
-			bX += 0.5f;
-			bY -= 0.5f;
+			bX += MOVE_RATE;
+			bY -= MOVE_RATE;
 			break;
 		case 5: //Move Down
-			bY -= 0.5f;
+			bY -= MOVE_RATE;
 			break;
 		case 6: //Move Down Left
-			bX -= 0.5f;
-			bY -= 0.5f;
+			bX -= MOVE_RATE;
+			bY -= MOVE_RATE;
 			break;
 		case 7: //Move Left
-			bX -= 0.5f;
+			bX -= MOVE_RATE;
 			break;
 		case 8: //Move Up Left
-			bX -= 0.5f;
-			bY += 0.5f;
+			bX -= MOVE_RATE;
+			bY += MOVE_RATE;
 			break;
 		default: //Print out an error message
 			std::cout << "Error: Bullet orientation is invalid.\n";
-			std::cout << "Direction Code is: " <<m_direction << std::endl;
+			std::cout << "Direction Code is: " << m_direction << std::endl;
 			break;
 		}
 		
+	}
+
+	Bullet Bullet::operator=(Bullet right){
+
+		Bullet temp;
+		temp.bX = right.bX;
+		temp.bx_coord = right.bx_coord;
+		temp.bY = right.bY;
+		temp.by_coord = right.by_coord;
+		temp.b_height = right.b_height;
+		temp.b_imageLoaded = right.b_imageLoaded;
+		temp.b_u2 = right.b_u2;
+		temp.b_u3 = right.b_u3;
+		temp.b_v2 = right.b_v2;
+		temp.b_v3 = right.b_v3;
+		temp.b_width = right.b_width;
+		temp.m_bimage = right.m_bimage;
+		temp.m_direction = right.m_direction;
+		
+		return temp;
 	}
 } }

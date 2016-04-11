@@ -23,6 +23,16 @@ namespace spacey{ namespace objects{
 
 	void BaseEnemy::AI(string indicator){
 
+		if (indicator == "REDIRECT"){
+			int temp = rand() % 8 + 1;
+			while (temp == direction){
+				temp = rand() % 8 + 1;
+			}
+
+			direction = temp;
+			steps = 0;
+		}
+
 		if (!delaware.empty()){
 			for (int i = 0; i < delaware.size(); i++){
 				delaware[i].Fire();
@@ -100,10 +110,7 @@ namespace spacey{ namespace objects{
 	}
 
 	BaseEnemy BaseEnemy::operator=(BaseEnemy right){
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 		BaseEnemy temp;
 
 		temp.bX = right.bX;
