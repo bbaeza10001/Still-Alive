@@ -19,10 +19,10 @@ namespace spacey{ namespace input{
 			//Turning the player to point where they are going
 			if (motionObj->angle != 90){
 				if (motionObj->angle >= 270 || motionObj->angle < 90){
-					motionObj->rotateRight();
+					motionObj->rotateRight(NULL);
 				}
 				else if (motionObj->angle < 270 && motionObj->angle > 90){
-					motionObj->rotateLeft();
+					motionObj->rotateLeft(NULL);
 				}
 			}
 		}
@@ -39,10 +39,10 @@ namespace spacey{ namespace input{
 			//Turning the player to point where they are going
 			if (motionObj->angle != 270){
 				if (motionObj->angle > 270 || motionObj->angle <= 90){
-					motionObj->rotateLeft();
+					motionObj->rotateLeft(NULL);
 				}
 				else if (motionObj->angle < 270 && motionObj->angle > 90){
-					motionObj->rotateRight();
+					motionObj->rotateRight(NULL);
 				}
 			}
 
@@ -62,10 +62,10 @@ namespace spacey{ namespace input{
 			//Turning the player to point where they are going
 			if (motionObj->angle != 0){
 				if (motionObj->angle >= 180){
-					motionObj->rotateRight();
+					motionObj->rotateRight(NULL);
 				}
 				else if (motionObj->angle < 180){
-					motionObj->rotateLeft();
+					motionObj->rotateLeft(NULL);
 				}
 			}
 		} 
@@ -82,10 +82,10 @@ namespace spacey{ namespace input{
 			//Turning the player to point where they are going
 			if (motionObj->angle != 180){
 				if (motionObj->angle < 180){
-					motionObj->rotateRight();
+					motionObj->rotateRight(NULL);
 				}
 				else if (motionObj->angle > 180){
-					motionObj->rotateLeft();
+					motionObj->rotateLeft(NULL);
 				}
 			}
 
@@ -105,10 +105,10 @@ namespace spacey{ namespace input{
 
 			if (motionObj->angle != 45){
 				if (motionObj->angle >= 225 || motionObj->angle < 45){
-					motionObj->rotateRight();
+					motionObj->rotateRight(NULL);
 				}
 				else if (motionObj->angle < 225 && motionObj->angle > 45){
-					motionObj->rotateLeft();
+					motionObj->rotateLeft(NULL);
 				}
 			}
 		}
@@ -125,10 +125,10 @@ namespace spacey{ namespace input{
 
 			if (motionObj->angle != 315){
 				if (motionObj->angle >= 135 && motionObj->angle < 315){
-					motionObj->rotateRight();
+					motionObj->rotateRight(NULL);
 				}
 				else if (motionObj->angle < 135 || motionObj->angle > 315){
-					motionObj->rotateLeft();
+					motionObj->rotateLeft(NULL);
 				}
 			}
 		}
@@ -145,10 +145,10 @@ namespace spacey{ namespace input{
 
 			if (motionObj->angle != 135){
 				if (motionObj->angle >= 315 || motionObj->angle < 135){
-					motionObj->rotateRight();
+					motionObj->rotateRight(NULL);
 				}
 				else if (motionObj->angle > 135 && motionObj->angle < 315){
-					motionObj->rotateLeft();
+					motionObj->rotateLeft(NULL);
 				}
 			}
 		}
@@ -165,10 +165,10 @@ namespace spacey{ namespace input{
 
 			if (motionObj->angle != 225){
 				if (motionObj->angle >= 45 && motionObj->angle < 225){
-					motionObj->rotateRight();
+					motionObj->rotateRight(NULL);
 				}
 				else if (motionObj->angle > 225 || motionObj->angle < 45){
-					motionObj->rotateLeft();
+					motionObj->rotateLeft(NULL);
 				}
 			}
 		}

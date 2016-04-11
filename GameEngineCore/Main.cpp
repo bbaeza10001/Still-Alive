@@ -1,9 +1,4 @@
 #include "src\include\Includes.h"
-#include "src\objects\Bullet.h"
-#include "src\objects\Wall.h"
-#include "src\objects\BaseEnemy.h"
-#include "src\graphics\lodepng.h"
-
 #include <SFML/Audio.hpp>
 #include <SFML/Audio/Music.hpp>
 
@@ -14,25 +9,6 @@ using namespace std;
 using namespace level;
 using namespace input;
 using namespace motion;
-
-/*
-	TO DO IN CLUB:
-
-	-Make temporary art assets for each thing
-	-Create a basic melee character
-	-Create a basic medic character
-	-Give all enemy types a logical basic AI
-
-	TO DO:
-	
-	**Fix image jitter when moving diagonally
-
-	ISSUES:
-
-	--COLLISION DETECTIONS--
-		**If the direction is continually tapped after colliding, the player can move through an object
-
-*/
 
 #if 0
 int main(){
@@ -90,8 +66,10 @@ int main(){
 		PlayerObject player(&window, "ship.png");
 		BG test(&window);
 		Motion motion;
+		BaseMedic casual(-100, -100, "ship.png");
+		BaseEnemy josh(-10, 10, "ship.png");
 
-		test.loadEntity("Enemy.txt", "BASE_ENEMY");
+	//	test.loadEntity("Enemy.txt", "BASE_ENEMY");
 		test.loadEntity("Wall.txt", "WALL");
 
 		//Music playing
@@ -106,7 +84,10 @@ int main(){
 			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 			
 			test.update(&motion, &player);
+			josh.Draw(&motion);
 			player.Draw(&motion);
+			casual.Draw(&motion);
+			casual.Heal(josh);
 
 			window.update();
 			Sleep(0.5); //Controls how fast the game loop runs at max
@@ -132,21 +113,19 @@ int main(){
 	//OpenGL Coordinate Grid Setup
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 
-	//the middle of the screen like a standard graph
-	glMatrixMode(GL_MODELVIEW);
+	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 					
+	glMatrixMode(GL_MODELVIEW);											//the middle of the screen like a standard graph
 	glLoadIdentity();
 
 	// Construction
-	PlayerObject player(&window, "Multi-Layer.png", 58, 58);
-	BG test(&window);
 	Motion motion;
-
+	PlayerObject player(&window, &motion, "Multi-Layer.png", 37, 37);
+	BG test(&window);
+	test.loadEntity("Wall.txt", "WALL");
 	test.loadEntity("Enemy.txt", "BASE_ENEMY");
-
-	/*sf::Music music;
-	music.openFromFile("music.ogg");
-	music.play();*/
+	test.loadEntity("Medics.txt", "BASE_MEDIC");
+	test.loadEntity("MeleeEnemy.txt", "MELEE_ENEMY");
+	//test.loadEntity("Doors.txt", "DOOR");
 
 	while (!window.closed()){
 		window.clear();
@@ -155,7 +134,7 @@ int main(){
 
 		test.update(&motion, &player);
 
-		player.Draw(&motion);
+		player.Draw();
 
 		window.update();
 		Sleep(0.5); //Controls how fast the game loop runs at max

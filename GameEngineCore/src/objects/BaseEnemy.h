@@ -1,5 +1,5 @@
 #pragma once
-#include "BaseObject.h"
+#include "BaseEntity.h"
 #include "Bullet.h"
 #include "../motion/MotionController.h"
 #include <GL\glew.h>
@@ -11,20 +11,18 @@ namespace spacey{ namespace objects{
 
 	using namespace motion;
 
-	class BaseEnemy : Bullet, public BaseObject{	
+	class BaseEnemy : public Bullet, public BaseEntity{	
 	public:
 		BaseEnemy(); //Constructor
 		~BaseEnemy(); //Destructor
 
-		BaseEnemy(int x, int y, string filename); //Overload Function
+		BaseEnemy(int x, int y, int tWidth, int tHeight, string filename); //Overload Function
 
-		void Draw(Motion* motion);
 		std::vector<Bullet> delaware; 
 		
 		const int STEP_MAX = 300;
 		int steps;
 
-		int health = 100;
 	private:
 		int counter;
 		int direction = 3;
@@ -33,6 +31,11 @@ namespace spacey{ namespace objects{
 		void createNewBullet(); //Creates new bullet every x ticks
 		void bulletFill(); //Fills bullet vector
 		void walk(); //Enemy moves
+
+	public:
+		void AI(string indicator);
+	public:
+		BaseEnemy operator=(BaseEnemy right);
 	};
 
 } }

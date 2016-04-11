@@ -16,7 +16,7 @@ namespace spacey{ namespace objects{
 		float bX;
 		float bY;
 
-		
+		Bullet operator=(Bullet right);
 	private: //Functions
 		void Move();
 
@@ -25,6 +25,9 @@ namespace spacey{ namespace objects{
 
 		float bx_coord;
 		float by_coord;
+
+		const int LIMIT = 400;
+		const float MOVE_RATE = 1.0f;
 
 		//Image Variables
 		vector<unsigned char> m_bimage;
