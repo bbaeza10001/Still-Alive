@@ -31,13 +31,13 @@ namespace spacey{
 				//Drawing the image
 				glPushMatrix();
 
-				//parallax(); //Doesn't work, won't repeat past origional draw position
+				//parallax();
 
 				glBegin(GL_QUADS);
 				glTexCoord2d(0, 0);    glVertex2d(x_coord, y_coord);
-				glTexCoord2d(0, 8);   glVertex2d(x_coord, y_coord + 600);
-				glTexCoord2d(8, 8);  glVertex2d(x_coord + 800, y_coord + 600);
-				glTexCoord2d(8, 0);   glVertex2d(x_coord + 800, y_coord);
+				glTexCoord2d(0, 1);   glVertex2d(x_coord, y_coord + height);
+				glTexCoord2d(1, 1);  glVertex2d(x_coord + width, y_coord + height);
+				glTexCoord2d(1, 0);   glVertex2d(x_coord + width, y_coord);
 				glEnd();
 
 				glPopMatrix();
@@ -61,7 +61,6 @@ namespace spacey{
 		bool bg_Texture::loadBG(string filename){
 			// Load file and decode image.
 			vector<unsigned char> image;
-			unsigned width, height;
 			unsigned error = lodepng::decode(image, width, height, filename);
 			// If there's an error, display it.
 			if (error != 0)

@@ -63,10 +63,10 @@ namespace spacey{ namespace input{
 		glPushMatrix();
 
 		glBegin(GL_QUADS);
-		glTexCoord2d(0, 0);     glVertex2d(m_x, m_y);
-		glTexCoord2d(u3, 0);   glVertex2d(m_x + m_width, m_y);
-		glTexCoord2d(u3, v3);  glVertex2d(m_x + m_width, m_y + m_height);
-		glTexCoord2d(0, v3);   glVertex2d(m_x, m_y + m_height);
+		glTexCoord2d(0, 0);    glVertex2d(m_x - (m_width / 2), m_y - (m_height / 2));
+		glTexCoord2d(0, v3);   glVertex2d(m_x - (m_width / 2), m_y + (m_height / 2));
+		glTexCoord2d(u3, v3);  glVertex2d(m_x + (m_width / 2), m_y + (m_height / 2));
+		glTexCoord2d(u3, 0);   glVertex2d(m_x + (m_width / 2), m_y - (m_height / 2));
 		glEnd();
 
 		glPopMatrix();

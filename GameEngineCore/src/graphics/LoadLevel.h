@@ -23,4 +23,6 @@ namespace spacey{ namespace level{
 	void loadObject(vector<Wall> &container, string fileName);
 	void loadObject(vector<Door> &container, string fileName);
 
+	static string filePath = "Resources/Images/";
+
 } }

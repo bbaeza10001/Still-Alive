@@ -23,6 +23,8 @@ namespace spacey{ namespace level{
 					for (int i = 0; i < amount; i++){
 						file >> x >> y >> size >> filename; //read the values for the planet and add them to the vector
 
+						filename = "Resources/Images/" + filename;
+
 						CircleObject temp(x, y, size, filename);
 
 						systemVector.push_back(temp);
@@ -59,6 +61,8 @@ namespace spacey{ namespace level{
 
 					for (int i = 0; i < amount; i++){
 						file >> x >> y >> texWidth >> texHeight>> filename ; //read the values for the enemy and add them to the vector
+
+						filename = "Resources/Images/" + filename;
 
 						BaseEnemy temp(x, y, texWidth, texHeight, filename);
 
@@ -97,6 +101,8 @@ namespace spacey{ namespace level{
 					for (int i = 0; i < amount; i++){
 						file >> x >> y >> tWidth >> tHeight >> filename; //read the values for the enemy and add them to the vector
 
+						filename = filePath + filename;
+
 						BaseMedic temp(x, y, tWidth, tHeight, filename);
 
 						systemVector.push_back(temp);
@@ -133,6 +139,8 @@ namespace spacey{ namespace level{
 
 					for (int i = 0; i < amount; i++){
 						file >> x >> y >> tWidth >> tHeight >> filename; //read the values for the Enemy and add them to the vector
+
+						filename = "Resources/Images/" + filename;
 
 						MeleeEnemy temp(x, y, tWidth, tHeight, filename);
 
@@ -196,7 +204,7 @@ namespace spacey{ namespace level{
 			cout << "Opening door file named '" << fileName << "' failed.\n";
 		}
 		else{
-			string line, type;
+			string line, filename;
 			int x, y, size, width, height, cDir, oDir,amount;
 
 			while (file.is_open()){
@@ -206,9 +214,11 @@ namespace spacey{ namespace level{
 					file >> amount;
 
 					for (int i = 0; i < amount; i++){
-						file >> x >> y >> width >> height >> cDir >> oDir >> type; //read the values for the planet and add them to the vector
+						file >> x >> y >> width >> height >> cDir >> oDir >> filename; //read the values for the planet and add them to the vector
 
-						Door temp(x, y, width, height, cDir, oDir, type);
+						filename = filePath + filename;
+
+						Door temp(x, y, width, height, cDir, oDir, filename);
 
 						systemVector.push_back(temp);
 						cout << "Added element to door vector.\n";

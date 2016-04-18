@@ -110,8 +110,6 @@ namespace spacey{
 			}
 			else{
 				healthPassed = (clock() - healthStart) / CLOCKS_PER_SEC;
-				
-				
 			}
 
 			}

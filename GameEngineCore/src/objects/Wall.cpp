@@ -19,7 +19,7 @@ namespace spacey{
 			string filename;
 
 			if (type == "TEST"){
-				filename = "Basic_Wall.png";
+				filename = "Resources/Images/Basic_Wall.png";
 			}
 			else if (type == "BRICK"){
 

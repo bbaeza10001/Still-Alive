@@ -21,6 +21,7 @@
     <ClCompile Include="src\objects\PlayerObject.cpp" />
     <ClCompile Include="src\objects\Wall.cpp" />
     <ClCompile Include="src\objects\BaseEntity.cpp" />
+    <ClCompile Include="src\Items\BaseItem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\bg_Texture.h" />
@@ -43,19 +44,23 @@
     <ClInclude Include="src\objects\PlayerObject.h" />
     <ClInclude Include="src\objects\Wall.h" />
     <ClInclude Include="src\objects\BaseEntity.h" />
+    <ClInclude Include="src\Items\BaseItem.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Multi-Layer.png" />
-    <Image Include="ship.png" />
-    <Image Include="Basic_Wall.png" />
-    <Image Include="BaseEnemy.png" />
-    <Image Include="Medic.png" />
-    <Image Include="MeleeEnemy.png" />
+    <Image Include="Resources\Images\BaseEnemy.png" />
+    <Image Include="Resources\Images\Basic_Wall.png" />
+    <Image Include="Resources\Images\BG.png" />
+    <Image Include="Resources\Images\exit.png" />
+    <Image Include="Resources\Images\Medic.png" />
+    <Image Include="Resources\Images\MeleeEnemy.png" />
+    <Image Include="Resources\Images\Multi-Layer.png" />
+    <Image Include="Resources\Images\start.png" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Enemy.txt" />
-    <Text Include="Doors.txt" />
-    <Text Include="Wall.txt" />
-    <Text Include="Medics.txt" />
+    <Text Include="Resources\Levels\Doors.txt" />
+    <Text Include="Resources\Levels\Enemy.txt" />
+    <Text Include="Resources\Levels\Medics.txt" />
+    <Text Include="Resources\Levels\MeleeEnemy.txt" />
+    <Text Include="Resources\Levels\Wall.txt" />
   </ItemGroup>
 </Project>
