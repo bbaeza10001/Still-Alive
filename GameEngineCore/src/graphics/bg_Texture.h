@@ -19,6 +19,9 @@ namespace spacey{
 			void parallax();
 			bool loadBG(string filename);
 			Window* m_window;
+
+			unsigned width;
+			unsigned height;
 		};
 	}
 }

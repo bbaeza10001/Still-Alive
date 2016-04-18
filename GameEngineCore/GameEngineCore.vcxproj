@@ -87,6 +87,7 @@
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\Input\Button.cpp" />
     <ClCompile Include="src\Input\InputController.cpp" />
+    <ClCompile Include="src\Items\BaseItem.cpp" />
     <ClCompile Include="src\motion\MotionController.cpp" />
     <ClCompile Include="src\motion\Orbits.cpp" />
     <ClCompile Include="src\objects\BaseEnemy.cpp" />
@@ -109,6 +110,7 @@
     <ClInclude Include="src\Input\Button.h" />
     <ClInclude Include="src\Input\InputController.h" />
     <ClInclude Include="src\graphics\Window.h" />
+    <ClInclude Include="src\Items\BaseItem.h" />
     <ClInclude Include="src\motion\MotionController.h" />
     <ClInclude Include="src\motion\Orbits.h" />
     <ClInclude Include="src\objects\BaseEnemy.h" />
@@ -124,17 +126,21 @@
     <ClInclude Include="src\objects\Wall.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Multi-Layer.png" />
-    <Image Include="ship.png" />
-    <Image Include="Basic_Wall.png" />
-    <Image Include="BaseEnemy.png" />
-    <Image Include="Medic.png" />
+    <Image Include="Resources\Images\BG.png" />
+    <Image Include="Resources\Images\MeleeEnemy.png" />
+    <Image Include="Resources\Images\Multi-Layer.png" />
+    <Image Include="Resources\Images\start.png" />
+    <Image Include="Resources\Images\Basic_Wall.png" />
+    <Image Include="Resources\Images\BaseEnemy.png" />
+    <Image Include="Resources\Images\Medic.png" />
+    <Image Include="Resources\Images\exit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Enemy.txt" />
-    <Text Include="Doors.txt" />
-    <Text Include="Medics.txt" />
-    <Text Include="Wall.txt" />
+    <Text Include="Resources\Levels\Enemy.txt" />
+    <Text Include="Resources\Levels\Doors.txt" />
+    <Text Include="Resources\Levels\Medics.txt" />
+    <Text Include="Resources\Levels\MeleeEnemy.txt" />
+    <Text Include="Resources\Levels\Wall.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

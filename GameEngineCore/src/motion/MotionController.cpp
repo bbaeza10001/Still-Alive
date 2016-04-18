@@ -63,8 +63,6 @@ namespace spacey{ namespace motion{
 		xspeed = -xspeed;
 		yspeed = -yspeed;
 
-		glTranslatef(xspeed, yspeed, 0);
-
 	}
 
 	void Motion::applyRotation(float x, float y){
