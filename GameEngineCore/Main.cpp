@@ -79,9 +79,9 @@ int main(){
 		BG test(&window);
 		test.loadEntity("Resources/Levels/Wall.txt", "WALL");
 		test.loadEntity("Resources/Levels/Doors.txt", "DOOR");
-		/*test.loadEntity("Resources/Levels/Medics.txt", "BASE_MEDIC");
+		test.loadEntity("Resources/Levels/Medics.txt", "BASE_MEDIC");
 		test.loadEntity("Resources/Levels/Enemy.txt", "BASE_ENEMY");
-		test.loadEntity("Resources/Levels/MeleeEnemy.txt", "MELEE_ENEMY");*/
+		test.loadEntity("Resources/Levels/MeleeEnemy.txt", "MELEE_ENEMY");
 
 		while (!window.closed()){
 			window.clear();

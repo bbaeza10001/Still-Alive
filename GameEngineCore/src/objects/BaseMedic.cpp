@@ -25,30 +25,21 @@ namespace spacey{
 
 		void BaseMedic::AI(string indicator){
 			if (indicator == "REDIRECT"){
-				cout << "Redirecting Medic after player collision\n";
+				direction++;
 
-				int temp = rand() % 8 + 1;
-				while (temp == direction){
-					temp = rand() % 8 + 1;
-				}
+				if (direction > 8)
+					direction = 1;
 
-				direction = temp;
 				steps = 0;
 			}
 			else if (indicator == "RETREAT"){
 				AI_Flag = indicator;
 
 			}
-			else if (indicator == "HEAL"){
-				AI_Flag = "HEAL";
-
-
-			}
 			else if (indicator == "IDLE"){
 				AI_Flag = indicator;
+				move();
 			}
-
-			move();
 		}
 
 		void BaseMedic::Heal(BaseEntity* enem, unsigned int i, string type){
