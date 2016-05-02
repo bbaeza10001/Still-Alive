@@ -55,6 +55,7 @@
     <Image Include="Resources\Images\MeleeEnemy.png" />
     <Image Include="Resources\Images\Multi-Layer.png" />
     <Image Include="Resources\Images\start.png" />
+    <Image Include="Resources\Images\FloorTile1.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Levels\Doors.txt" />

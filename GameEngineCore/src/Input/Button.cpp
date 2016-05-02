@@ -77,21 +77,13 @@ namespace spacey{ namespace input{
 			double x, y;
 			m_window->getMousePosition(x, y);
 
-			if (x >= m_x && x <= m_x + m_width){
-				if (y >= m_y && y <= m_y + m_height){
-					return true;
-				}
-				else{
-					return false;
-				}
+			if (m_x - (m_width / 2) <= x && m_x + (m_width / 2) >= x
+				&& m_y + (m_height / 2) >= y && m_y - (m_height / 2) <= y){
+
+				return true;
 			}
-			else{
-				return false;
-			}
-		}
-		else{
+
 			return false;
 		}
 	}
-
 } }

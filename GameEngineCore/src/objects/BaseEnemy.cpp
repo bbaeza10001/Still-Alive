@@ -24,13 +24,21 @@ namespace spacey{ namespace objects{
 	void BaseEnemy::AI(string indicator){
 
 		if (indicator == "REDIRECT"){
-			int temp = rand() % 8 + 1;
-			while (temp == direction){
-				temp = rand() % 8 + 1;
-			}
+			direction++;
 
-			direction = temp;
+			if (direction > 8)
+				direction = 1;
+
 			steps = 0;
+		}
+		else if (indicator == "ATTACK"){
+			pursue();
+		}
+		else if (indicator == "RETREAT"){
+			flee();
+		}
+		else if (indicator == "IDLE"){
+			walk();
 		}
 
 		if (!delaware.empty()){
@@ -41,9 +49,6 @@ namespace spacey{ namespace objects{
 				}
 			}
 		}
-
-		createNewBullet();
-		walk();
 	}
 	
 	void BaseEnemy::bulletFill(){
@@ -107,6 +112,75 @@ namespace spacey{ namespace objects{
 
 			steps++;
 		}
+	}
+
+	void BaseEnemy::flee(){
+
+		//Move in the correct x direction
+		if (p_x > x_coord){
+			x_coord -= 0.2;
+		}
+		else if (p_x < x_coord){
+			x_coord += 0.2;
+		}
+
+		//Move in the correct y direction
+		if (p_y > y_coord){
+			y_coord -= 0.2;
+		}
+		else if (p_y < y_coord){
+			y_coord += 0.2;
+		}
+
+		
+	}
+
+	void BaseEnemy::pursue(){
+
+		if (health >= 20){
+
+			//Move in the correct x direction
+			if (p_x > x_coord){
+				x_coord += 0.2;
+			}
+			else if (p_x < x_coord){
+				x_coord -= 0.2;
+			}
+
+			//Move in the correct y direction
+			if (p_y > y_coord){
+				y_coord += 0.2;
+			}
+			else if (p_y < y_coord){
+				y_coord -= 0.2;
+			}
+
+			//Once the enemy is lined up with the player, shoot
+			if (x_coord - (m_width / 2) <= 16 && x_coord + (m_width / 2) >= -16){
+				createNewBullet();
+			}
+
+			if (y_coord + (m_height / 2) >= -16 && y_coord - (m_height / 2) <= 16){
+				createNewBullet();
+			}
+		}
+	}
+
+	bool BaseEnemy::checkArea(PlayerObject player){
+		
+		//If the player is within a 100 pixel radius of the enemy...
+		if (x_coord <= 100 && x_coord >= -100
+			&& y_coord >= -100 && y_coord <= 100){
+
+			//Return true and save it's coordinates and health
+			p_x = player.x_coord;
+			p_y = player.y_coord;
+			p_health = player.health;
+
+			return true;
+		}
+
+		return false;
 	}
 
 	BaseEnemy BaseEnemy::operator=(BaseEnemy right){

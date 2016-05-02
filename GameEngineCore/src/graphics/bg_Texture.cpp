@@ -9,12 +9,22 @@ namespace spacey{
 			imageLoaded = false;
 		}
 
-		bg_Texture::bg_Texture(Window* window, string filename){
+		bg_Texture::bg_Texture(Window* window, string filename, int x, int y, int width, int height, bool parallax){
+			x_coord = x;
+			y_coord = y;
 			m_window = window;
 			imageLoaded = loadBG(filename); //Filling parameters
 
 			if (imageLoaded)
 				cout << "Loaded background image.\n";
+
+			repeatAmtY = height / this->height;
+			repeatAmtX = width / this->width;
+
+			this->width = width;
+			this->height = height;
+
+			paral = parallax;
 		}
 
 		void bg_Texture::Draw(){
@@ -28,21 +38,21 @@ namespace spacey{
 				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //GL_LINEAR = smoothing
 				glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &m_image[0]);
 
+				if (paral)
+					parallax();
+
 				//Drawing the image
 				glPushMatrix();
 
-				//parallax();
-
 				glBegin(GL_QUADS);
-				glTexCoord2d(0, 0);    glVertex2d(x_coord, y_coord);
-				glTexCoord2d(0, 1);   glVertex2d(x_coord, y_coord + height);
-				glTexCoord2d(1, 1);  glVertex2d(x_coord + width, y_coord + height);
-				glTexCoord2d(1, 0);   glVertex2d(x_coord + width, y_coord);
+				glTexCoord2d(0, 0);						glVertex2d(x_coord, y_coord);
+				glTexCoord2d(0, repeatAmtY);			glVertex2d(x_coord, y_coord + height);
+				glTexCoord2d(repeatAmtX, repeatAmtY);   glVertex2d(x_coord + width, y_coord + height);
+				glTexCoord2d(repeatAmtX, 0);			glVertex2d(x_coord + width, y_coord);
 				glEnd();
 
 				glPopMatrix();
 
-				glDisable(GL_TEXTURE_2D);
 
 			}
 		}
@@ -59,9 +69,11 @@ namespace spacey{
 		}
 
 		bool bg_Texture::loadBG(string filename){
+			
 			// Load file and decode image.
 			vector<unsigned char> image;
 			unsigned error = lodepng::decode(image, width, height, filename);
+			
 			// If there's an error, display it.
 			if (error != 0)
 			{
