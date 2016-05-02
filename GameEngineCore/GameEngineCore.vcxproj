@@ -80,6 +80,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\objects\Inventory.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\graphics\bg_Texture.cpp" />
     <ClCompile Include="src\graphics\LoadLevel.cpp" />
@@ -103,6 +104,7 @@
     <ClCompile Include="src\objects\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\objects\Inventory.h" />
     <ClInclude Include="src\graphics\bg_Texture.h" />
     <ClInclude Include="src\graphics\LoadLevel.h" />
     <ClInclude Include="src\graphics\lodepng.h" />
