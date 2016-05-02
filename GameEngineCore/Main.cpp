@@ -1,8 +1,6 @@
 #include "src\include\Includes.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Audio/Music.hpp>
-
-#include "src\Items\BaseItem.h"
 #include "src\graphics\bg_Texture.h"
 
 using namespace spacey;
@@ -13,9 +11,8 @@ using namespace level;
 using namespace input;
 using namespace motion;
 
-using namespace items;
-
 #if 1
+
 int main(){
 	//Width and height for the game window
 	int width = 800;
@@ -32,7 +29,7 @@ int main(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	bg_Texture background(&start, "Resources/Images/BG.png");
+	bg_Texture background(&start, "Resources/Images/BG.png", 0, 0, 800, 600, false);
 
 	button b_start(&start, 400, 350, 50, 40, "Resources/Images/start.png");
 	button b_exit(&start, 400, 400, 50, 40, "Resources/Images/exit.png");
@@ -73,21 +70,24 @@ int main(){
 		glMatrixMode(GL_MODELVIEW);											//the middle of the screen like a standard graph
 		glLoadIdentity();
 		
+		bg_Texture floor(&window, "Resources/Images/FloorTile1.png", 100, 100, 1000, 1000, true);
+
 		// Construction
 		Motion motion;
 		PlayerObject player(&window, &motion, "Resources/Images/Multi-Layer.png", 37, 37);
 		BG test(&window);
-		test.loadEntity("Resources/Levels/Wall.txt", "WALL");
+		/*test.loadEntity("Resources/Levels/Wall.txt", "WALL");
 		test.loadEntity("Resources/Levels/Doors.txt", "DOOR");
 		test.loadEntity("Resources/Levels/Medics.txt", "BASE_MEDIC");
 		test.loadEntity("Resources/Levels/Enemy.txt", "BASE_ENEMY");
 		test.loadEntity("Resources/Levels/MeleeEnemy.txt", "MELEE_ENEMY");
-
+		*/
 		while (!window.closed()){
 			window.clear();
 
 			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 
+			floor.Draw();
 			test.update(&motion, &player);
 
 			player.Draw();
