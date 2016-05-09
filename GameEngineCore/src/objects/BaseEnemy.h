@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseEntity.h"
 #include "Bullet.h"
+#include "PlayerObject.h"
 #include "../motion/MotionController.h"
 #include <GL\glew.h>
 #include <GL\GLU.h>
@@ -32,8 +33,16 @@ namespace spacey{ namespace objects{
 		void bulletFill(); //Fills bullet vector
 		void walk(); //Enemy moves
 
+		void pursue(); //Follows player until they are either dead or own health is too low
+		void flee(); //Runs away form the player
+
+		float p_x;
+		float p_y;
+		int p_health;
 	public:
 		void AI(string indicator);
+		bool checkArea(PlayerObject player);
+
 	public:
 		BaseEnemy operator=(BaseEnemy right);
 	};

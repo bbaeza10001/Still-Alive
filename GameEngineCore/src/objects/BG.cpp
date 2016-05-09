@@ -40,6 +40,8 @@ namespace spacey{
 				if (B_Enemy[i].x_coord < 800 && B_Enemy[i].x_coord > -800){
 					if (B_Enemy[i].y_coord < 600 && B_Enemy[i].y_coord > -600){
 						B_Enemy[i].Draw();
+						if (B_Enemy[i].checkArea(*player))
+							B_Enemy[i].AI("ATTACK");
 					}
 				}
 			}
@@ -94,9 +96,6 @@ namespace spacey{
 			for (unsigned int i = 0; i < B_Medics.size(); i++){
 				B_Medics[i].x_coord += motion->xspeed;
 				B_Medics[i].y_coord += motion->yspeed;
-				for (unsigned int c = 0; c < B_Enemy.size(); c++){
-					B_Medics[i].Heal(&B_Enemy[c], c, "BASE_ENEMY");
-				}
 			}
 			
 			for (unsigned int i = 0; i < Ml_Enemy.size(); i++){
@@ -183,6 +182,7 @@ namespace spacey{
 				}
 			}
 		}
+
 		int BG::testCollision(){
 			collided();
 
@@ -208,7 +208,6 @@ namespace spacey{
 
 			return colCode;
 		}
-
 
 		void BG::collided(){
 			hit = false; //This bool is only for if the PLAYER hits something, everything else should
