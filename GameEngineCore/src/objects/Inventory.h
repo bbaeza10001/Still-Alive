@@ -1,10 +1,13 @@
 #pragma once
 
-#include "../graphics/Window.h"
-#include <GL\GLU.h>
-#include <GL\GL.h>
+#include <GL\glew.h>
+#include <GL/glu.h>
+#include <GL/gl.h>
 #include "BaseObject.h"
 #include "../Items/BaseItem.h"
+#include "../graphics/Window.h"
+#include <thread>
+
 namespace spacey{
 	namespace GUI{
 		using namespace objects;
@@ -13,20 +16,34 @@ namespace spacey{
 
 		class Inventory : public BaseObject{
 		public:
+
 			Inventory();
-			Inventory(Window* window, string filename);
 			void addtoInventory(BaseItem item);
-		private:
+			bool open = false;
+			void rend();
 
-			void select(int index);
+		public: // Loader functions to work around a construction error in the Player.H 
+
+			void Init(Window* window, string filename);
+			void update();
+
+		protected: // Navigation functions
+
+			/*void select(int index);
 			void drop(int index);
-			void moveToHotbar(int index);
-			void checkForInput();
+			void drawItems();*/
 
-		private:
+		private: // Necessary variables
+
 			Window* m_window;
 			bool IsOpened = false;
-			vector<BaseItem> container;
+			BaseItem container[9];
+			bool taken[9];
+			bool drawing = false;
+
+		public:
+			std::thread render;
+
 		};
 	}
 }

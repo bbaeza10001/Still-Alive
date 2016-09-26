@@ -85,5 +85,7 @@ namespace spacey{ namespace input{
 
 			return false;
 		}
+
+		return false;
 	}
 } }

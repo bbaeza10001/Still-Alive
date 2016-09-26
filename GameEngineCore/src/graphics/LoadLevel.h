@@ -16,13 +16,12 @@ namespace spacey{ namespace level{
 	using namespace environment;
 	using namespace std;
 
-	void loadObject(vector<BaseEnemy> &container, string fileName);
-	void loadObject(vector<BaseMedic> &container, string fileName);
-	void loadObject(vector<MeleeEnemy> &container, string fileName);
-	void loadObject(vector<CircleObject> &container, string fileName);
-	void loadObject(vector<Wall> &container, string fileName);
-	void loadObject(vector<Door> &container, string fileName);
+	void loadObject(vector<BaseObject> &container, string fileName);
+	void loadEntity(vector<BaseEntity*> &container, string fileName);
 
-	static string filePath = "Resources/Images/";
+
+	static string pathImage = "Resources/Images/";
+	static string pathLevel = "Resources/Levels/";
+	static string pathAudio = "Resources/Audio/";
 
 } }

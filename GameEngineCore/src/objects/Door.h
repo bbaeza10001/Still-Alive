@@ -21,8 +21,6 @@ namespace spacey { namespace environment {
 		Door(int x, int y, int width, 
 			int height, int closed_dir, int open_dir, string filename);
 
-		void draw(Window* window);
-
 	private: //Associated objects/variables
 		string stateFlag = "CLOSED";
 		int cDir;

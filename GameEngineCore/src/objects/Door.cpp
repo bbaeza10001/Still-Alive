@@ -30,28 +30,6 @@ namespace spacey{ namespace environment{
 		imageLoaded = loadImage(filename, m_image, u2, v2, u3, v3, width, height);
 	}
 
-	void Door::draw(Window* window){
-		update(checkRadius(window));
-
-		// Enable the texture for OpenGL.
-		glEnable(GL_TEXTURE_2D);
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //GL_NEAREST = no smoothing
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);//GL_LINEAR = smoothing
-		glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &m_image[0]);
-		
-		glPushMatrix();
-
-		motionObj.applyRotation(x_coord, y_coord);
-
-		glBegin(GL_QUADS);
-		glTexCoord2d(0, v3);	glVertex2d(x_coord - (m_height / 2), y_coord - (m_height / 2));
-		glTexCoord2d(0, 0);		glVertex2d(x_coord - (m_height / 2), y_coord + (m_height / 2));
-		glTexCoord2d(u3, 0);	glVertex2d(x_coord + (m_width - (m_height / 2)), y_coord + (m_height / 2));
-		glTexCoord2d(u3, v3);	glVertex2d(x_coord + (m_width - (m_height / 2)), y_coord - (m_height / 2));
-		glEnd();
-		glPopMatrix();
-	}
-
 	bool Door::checkRadius(Window* window){
 		if (x_coord - (m_width + 20) <= 16 && x_coord + (m_width + 20) >= -16
 			&& y_coord + (m_height + 20) >= -16 && y_coord - (m_height + 20) <= 16 && window->isKeyPressed(GLFW_KEY_SPACE)){
@@ -63,7 +41,7 @@ namespace spacey{ namespace environment{
 	}
 
 	void Door::update(bool radiusCheck){
-		//Check if player is within door's check radius
+		//Check if player is able to open the door
 		if (counter >= waitTime && radiusCheck){
 			counter = 0;
 
@@ -90,7 +68,7 @@ namespace spacey{ namespace environment{
 			return "OPEN";
 		}
 
-		else if (state == "CLOSED"){
+		else{
 			
 			rotate(cDir);
 

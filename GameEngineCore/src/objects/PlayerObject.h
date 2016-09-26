@@ -1,4 +1,5 @@
 #pragma once
+
 #include <GL\glew.h>
 #include <cmath>
 #include <ctime>
@@ -9,12 +10,14 @@
 #include "../graphics/Window.h"
 #include "../motion/MotionController.h"
 #include "BaseEntity.h"
+#include "Inventory.h"
 
 namespace spacey{
 	namespace objects{
 		using namespace std;
 		using namespace graphics;
 		using namespace motion;
+		using namespace GUI;
 
 		class PlayerObject : public Bullet, public BaseEntity{
 		public:
@@ -29,6 +32,7 @@ namespace spacey{
 			void checkRotation(Motion* motion);
 			void checkFire();
 			void regenHealth();
+
 		private: //Misc
 			Window* m_window;
 			Motion* motionObj;
@@ -46,6 +50,14 @@ namespace spacey{
 			clock_t healthStart;
 			double healthPassed;
 			const double healthWait = 30.0;
+
+		public: //Inventory
+			Inventory inven;
+
+		private: 
+			int tick;
+			const int MINIMUM_INVEN_TICK = 10;
+			bool openInven();
 
 		};
 	}

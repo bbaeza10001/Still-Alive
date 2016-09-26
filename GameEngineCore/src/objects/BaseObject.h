@@ -29,6 +29,9 @@ namespace spacey{
 			double u3;
 			double v3;
 			bool imageLoaded = false;
+
+			//Size Variables
+			int iWidth, iHeight;
 		};
 	}
 }

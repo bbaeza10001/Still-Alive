@@ -36,8 +36,8 @@ namespace spacey{
 		}
 
 		void BaseEntity::Draw(){
-			AI(AI_Flag);
 			checkAnimState();
+			AI(AI_Flag);
 
 			if (imageLoaded){
 				// Enable the texture for OpenGL.
@@ -62,17 +62,18 @@ namespace spacey{
 				glPushMatrix();
 				
 				glBegin(GL_QUADS);
-				glTexCoord2d(tX, tY + tHeight);				glVertex2d(x_coord - 16, y_coord - 16);
-				glTexCoord2d(tX, tY);						glVertex2d(x_coord - 16, y_coord + 16);
-				glTexCoord2d(tX + tWidth, tY);				glVertex2d(x_coord + 16, y_coord + 16);
-				glTexCoord2d(tX + tWidth, tY + tHeight);	glVertex2d(x_coord + 16, y_coord - 16);
+				glTexCoord2d(tX, tY + tHeight);				glVertex2d(x_coord - 32, y_coord - 32);
+				glTexCoord2d(tX, tY);						glVertex2d(x_coord - 32, y_coord + 32);
+				glTexCoord2d(tX + tWidth, tY);				glVertex2d(x_coord + 32, y_coord + 32);
+				glTexCoord2d(tX + tWidth, tY + tHeight);	glVertex2d(x_coord + 32, y_coord - 32);
 				glEnd();
 
 				glPopMatrix();
+				
 
 			}
 			else {
-				cout << "Could not load image(s)\n";
+				cout << "Failed to load image(s)\n";
 			}
 
 		}

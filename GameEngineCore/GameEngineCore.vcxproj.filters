@@ -58,6 +58,8 @@
     <Image Include="Resources\Images\Multi-Layer.png" />
     <Image Include="Resources\Images\start.png" />
     <Image Include="Resources\Images\FloorTile1.png" />
+    <Image Include="Resources\Images\Inventory.png" />
+    <Image Include="Resources\Images\Base_Bullet.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Levels\Doors.txt" />

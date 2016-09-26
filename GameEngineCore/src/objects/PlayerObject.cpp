@@ -13,6 +13,8 @@ namespace spacey{
 			delay = clock();
 			healthStart = clock();
 
+			inven.Init(window, "Resources/Images/Inventory.png");
+
 			if (filename != "")
 				imageLoaded = loadAnimateable(filename, m_image, u2, v2, width, height);
 
@@ -23,6 +25,9 @@ namespace spacey{
 			//Set the BaseEntity's version of the animFlag to the players, only because there is a separate one
 			mObj.animFlag = motionObj->animFlag; 
 			
+			inven.open = openInven();
+			inven.update();
+
 			checkRotation(motionObj);
 			checkFire();
 			regenHealth();
@@ -35,6 +40,32 @@ namespace spacey{
 					}
 				}
 			}
+
+			/*if (inven.render.joinable()){
+				inven.render.join();
+			}*/
+		}
+
+		bool PlayerObject::openInven(){
+			if (m_window->isKeyPressed(GLFW_KEY_I)){
+
+				if (tick >= MINIMUM_INVEN_TICK){
+					tick = 0;
+
+					if (inven.open){
+						return false;
+					}
+					else{
+						return true;
+					}
+				}
+				else{
+					tick++;
+					return inven.open;
+				}
+			}
+			
+			return inven.open;
 		}
 
 		void PlayerObject::checkRotation(Motion* motion){
@@ -98,6 +129,7 @@ namespace spacey{
 				cout << "Could not remove damage yet.\n";
 			}
 		}
+		
 		void PlayerObject::regenHealth(){
 			if (health < 100 && healthPassed > healthWait){
 				//Regens the players health when its less than 100.

@@ -10,10 +10,7 @@ namespace spacey{
 		class Wall : public BaseObject{
 		public:
 			Wall();
-			Wall(int width, int height, int x, int y, string type);
-			void Draw();
-			unsigned m_width, m_height;
-			
+			Wall(int width, int height, int x, int y, string type);			
 		};
 	}
 }
