@@ -68,10 +68,12 @@ namespace spacey{ namespace graphics{
 	}
 
 	bool Window::closed() const{
-		if (!close)
+		if (!close){
 			return glfwWindowShouldClose(m_Window);
-		if (close)
+		}
+		else {
 			return close;
+		}
 	}
 
 	bool Window::isKeyPressed(unsigned int keycode) const{

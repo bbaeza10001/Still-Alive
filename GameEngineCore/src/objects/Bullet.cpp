@@ -10,7 +10,7 @@ namespace spacey{ 	namespace objects{
 		m_direction = direction;
 		bx_coord = bX = x;
 		by_coord = bY = y;
-		b_imageLoaded = loadImage("ship.png", m_bimage, b_u2, b_v2, b_u3, b_v3, b_width, b_height);
+		b_imageLoaded = loadImage("Resources/Images/Base_Bullet.png", m_bimage, b_u2, b_v2, b_u3, b_v3, b_width, b_height);
 	}
 
 	void Bullet::Fire(){
@@ -26,10 +26,10 @@ namespace spacey{ 	namespace objects{
 			glPushMatrix();
 			Move();
 			glBegin(GL_QUADS);
-			glTexCoord2d(0, b_v3);	glVertex2d(bX - 1, bY - 2);
-			glTexCoord2d(0, 0);		glVertex2d(bX - 1, bY + 2);
-			glTexCoord2d(b_u3, 0);	glVertex2d(bX + 1, bY + 2);
-			glTexCoord2d(b_u3, b_v3);	glVertex2d(bX + 1, bY - 2);
+			glTexCoord2d(0, b_v3);	glVertex2d(bX - 8, bY - 16);
+			glTexCoord2d(0, 0);		glVertex2d(bX - 8, bY + 16);
+			glTexCoord2d(b_u3, 0);	glVertex2d(bX + 8, bY + 16);
+			glTexCoord2d(b_u3, b_v3);	glVertex2d(bX + 8, bY - 16);
 			glEnd();
 			
 			glPopMatrix();

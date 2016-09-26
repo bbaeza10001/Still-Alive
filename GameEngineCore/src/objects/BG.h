@@ -27,7 +27,7 @@ namespace spacey{
 		public: //Set up functions
 			BG();
 			BG(Window* window);
-			void loadEntity(string filename, string type);
+			void loadFile(string filename, string type);
 
 			void update(Motion* motion, PlayerObject* player);
 
@@ -45,6 +45,9 @@ namespace spacey{
 			vector<MeleeEnemy> Ml_Enemy;
 			vector<Door> doors;
 			vector<BaseMedic> B_Medics;
+
+			vector<BaseObject> environment;
+			vector<BaseEntity*> entities;
 
 		private: //Tools
 			Window* m_window;

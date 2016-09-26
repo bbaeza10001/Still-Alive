@@ -82,5 +82,34 @@ namespace spacey{
 
 			return true;
 		}
+
+		void BaseObject::Draw(){
+
+			if (imageLoaded){
+				// Enable the texture for OpenGL.
+				glEnable(GL_TEXTURE_2D);
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST); //GL_NEAREST = no smoothing
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);//GL_LINEAR = smoothing
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+				glTexImage2D(GL_TEXTURE_2D, 0, 4, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &m_image[0]);
+
+				/*u3 = iWidth / u2;
+				v3 = iHeight / v2;*/
+
+				//Draw the texture
+				glPushMatrix();
+
+				glBegin(GL_QUADS);
+				glTexCoord2d(0, v3);	 glVertex2d(x_coord - (iWidth / 2), y_coord - (iHeight / 2));
+				glTexCoord2d(0, 0);		 glVertex2d(x_coord - (iWidth / 2), y_coord + (iHeight / 2));
+				glTexCoord2d(u3, 0);	 glVertex2d(x_coord + (iWidth / 2), y_coord + (iHeight / 2));
+				glTexCoord2d(u3, v3);	 glVertex2d(x_coord + (iWidth / 2), y_coord - (iHeight / 2));
+				glEnd();
+
+				glPopMatrix();
+			}
+			glPopMatrix();
+		}
 	}
 }

@@ -3,6 +3,10 @@
 #include <SFML/Audio/Music.hpp>
 #include "src\graphics\bg_Texture.h"
 
+#include "src\objects\Inventory.h"
+
+#include <thread>
+
 using namespace spacey;
 using namespace graphics;
 using namespace objects;
@@ -11,32 +15,45 @@ using namespace level;
 using namespace input;
 using namespace motion;
 
+using namespace GUI;
+
+/*
+NOTES:
+
+-Give the door class its own draw function
+-Figure out which parts of code can be done in parallel
+-Change the collision detection to read from black/white image outlines and check collisions
+  with the image locations
+-Fix the start screen matrix
+*/
+
 #if 1
 
 int main(){
 	//Width and height for the game window
-	int width = 800;
-	int height = 600;
+	int width = 960;
+	int height = 720;
 
 	//Start Screen
-	static Window start("A World... - Start", width, height);
+	static Window start("Arorbis - Start", width, height);
 
 	//OpenGl Coordinate Grid Setup
 	glViewport(0, 0, width, height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0, width, height, 0, -1, 1);
+	gluOrtho2D(0, width, height, 0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	bg_Texture background(&start, "Resources/Images/BG.png", 0, 0, 800, 600, false);
+	bg_Texture background(&start, "Resources/Images/BG.png", 0, 0, 960, 720, false);
 
-	button b_start(&start, 400, 350, 50, 40, "Resources/Images/start.png");
-	button b_exit(&start, 400, 400, 50, 40, "Resources/Images/exit.png");
+	button b_start(&start, width / 2, height / 2, 50, 40, "Resources/Images/start.png");
+	button b_exit(&start, width / 2, (height / 2) + 50, 50, 40, "Resources/Images/exit.png");
 	bool exit = true;
 
 	while (!start.closed()){
 		start.clear();
+
 		background.Draw();
 
 		b_start.draw();
@@ -52,15 +69,18 @@ int main(){
 
 		start.update();
 	}
+	//bullshit from George's anus
 	
 	if (exit == false){
 
+		glViewport(0, 0, width, height);
+
 		//Changing the in-game window's width and height to something more eye catching
-		width = 1920;
-		height = 1080;
+		width = 960;
+		height = 720;
 
 		//Game Window
-		static Window window("A World...", width, height);
+		static Window window("Arorbis - DEMO", width, height);
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //Game background color
 
 		//OpenGL Coordinate Grid Setup
@@ -70,26 +90,26 @@ int main(){
 		glMatrixMode(GL_MODELVIEW);											//the middle of the screen like a standard graph
 		glLoadIdentity();
 		
-		bg_Texture floor(&window, "Resources/Images/FloorTile1.png", 100, 100, 1000, 1000, true);
+		bg_Texture floor(&window, "Resources/Images/FloorTile1.png", -800, -600, 1600, 1200, true);
 
 		// Construction
 		Motion motion;
 		PlayerObject player(&window, &motion, "Resources/Images/Multi-Layer.png", 37, 37);
 		BG test(&window);
-		/*test.loadEntity("Resources/Levels/Wall.txt", "WALL");
-		test.loadEntity("Resources/Levels/Doors.txt", "DOOR");
-		test.loadEntity("Resources/Levels/Medics.txt", "BASE_MEDIC");
-		test.loadEntity("Resources/Levels/Enemy.txt", "BASE_ENEMY");
-		test.loadEntity("Resources/Levels/MeleeEnemy.txt", "MELEE_ENEMY");
-		*/
+		test.loadFile("Resources/Levels/Wall.txt", "ENVIRONMENT");
+		//test.loadFile("Resources/Levels/Doors.txt", "ENVIRONMENT");
+		/*test.loadFile("Resources/Levels/Medics.txt", "ENTITY");
+		test.loadFile("Resources/Levels/Enemy.txt", "ENTITY");
+		test.loadFile("Resources/Levels/MeleeEnemy.txt", "ENTITY");*/
+				
 		while (!window.closed()){
 			window.clear();
 
 			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
 
+
 			floor.Draw();
 			test.update(&motion, &player);
-
 			player.Draw();
 
 			window.update();

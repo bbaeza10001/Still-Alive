@@ -11,24 +11,15 @@ namespace spacey{
 			m_window = window;
 		}
 
-		void BG::loadEntity(string filename, string type){
+		void BG::loadFile(string filename, string type){
 
-			if (type == "BASE_ENEMY"){
-				loadObject(B_Enemy, filename);
+			if (type == "ENTITY"){
+				loadEntity(entities, filename);
 			}
-			else if (type == "WALL"){
-				loadObject(walls, filename);
+			else if (type == "ENVIRONMENT"){
+				loadObject(environment, filename);
 			}
-			else if (type == "DOOR"){
-				loadObject(doors, filename);
-			}
-			else if (type == "MELEE_ENEMY"){
-				loadObject(Ml_Enemy, filename);
-			}
-			else if (type == "BASE_MEDIC"){
-				loadObject(B_Medics, filename);
-			}
-			cout << "Elements added to BG vector\n";
+			cout << "Elements added to BG Buffer\n";
 		}
 
 		void BG::update(Motion* motion, PlayerObject* player){
@@ -36,7 +27,7 @@ namespace spacey{
 			move(motion, player);
 			checkBullets(player);
 
-			for (unsigned int i = 0; i < B_Enemy.size(); i++){
+			/*for (unsigned int i = 0; i < B_Enemy.size(); i++){
 				if (B_Enemy[i].x_coord < 800 && B_Enemy[i].x_coord > -800){
 					if (B_Enemy[i].y_coord < 600 && B_Enemy[i].y_coord > -600){
 						B_Enemy[i].Draw();
@@ -74,7 +65,28 @@ namespace spacey{
 						doors[i].draw(m_window);
 					}
 				}
+			}*/
+
+			for (unsigned int i = 0; i < environment.size(); i++){
+				if (environment[i].x_coord < 800 && environment[i].x_coord > -800){
+					if (environment[i].y_coord < 600 && environment[i].y_coord > -600){
+						environment[i].Draw();
+					}
+				}
 			}
+
+			for (unsigned int i = 0; i < entities.size(); i++){
+				if (entities[i]->x_coord < 800 && entities[i]->x_coord > -800){
+					if (entities[i]->y_coord < 600 && entities[i]->y_coord > -600){
+						entities[i]->Draw();
+					}
+				}
+			}
+
+			
+
+			//Don't forget to add AI calls to Base Enemy to check if the player is nearby
+
 		}
 
 		void BG::move(Motion* motion, PlayerObject* player){
@@ -84,35 +96,17 @@ namespace spacey{
 				player->shot[i].bY += motion->yspeed;
 			}
 
-			for (unsigned int i = 0; i < B_Enemy.size(); i++){
-				B_Enemy[i].x_coord += motion->xspeed;
-				B_Enemy[i].y_coord += motion->yspeed;
-				for (unsigned int c = 0; c < B_Enemy[i].delaware.size(); c++){
-					B_Enemy[i].delaware[c].bX += motion->xspeed;
-					B_Enemy[i].delaware[c].bY += motion->yspeed;
-				}
-			}
-
-			for (unsigned int i = 0; i < B_Medics.size(); i++){
-				B_Medics[i].x_coord += motion->xspeed;
-				B_Medics[i].y_coord += motion->yspeed;
+			for (unsigned int i = 0; i < entities.size(); i++){
+				entities[i]->x_coord += motion->xspeed;
+				entities[i]->y_coord += motion->yspeed;
 			}
 			
-			for (unsigned int i = 0; i < Ml_Enemy.size(); i++){
-				Ml_Enemy[i].x_coord += motion->xspeed;
-				Ml_Enemy[i].y_coord += motion->yspeed;
-			}
-			
-			for (unsigned int i = 0; i < walls.size(); i++){
-				walls[i].x_coord += motion->xspeed;
-				walls[i].y_coord += motion->yspeed;
+			for (unsigned int i = 0; i < environment.size(); i++){
+				environment[i].x_coord += motion->xspeed;
+				environment[i].y_coord += motion->yspeed;
 			}
 
-			for (unsigned int i = 0; i < doors.size(); i++){
-				doors[i].x_coord += motion->xspeed;
-				doors[i].y_coord += motion->yspeed;
-			}
-
+			//Update bullet movements for Base Enemy
 		}
 
 		void BG::checkBullets(PlayerObject* player){
@@ -144,9 +138,9 @@ namespace spacey{
 					}
 				}
 				//Death function. Created by Kenneth.
-				for (unsigned int g = 0; g < B_Enemy.size(); g++){
-					if (B_Enemy[g].health <= 0){
-						B_Enemy.erase(B_Enemy.begin() + g);
+				for (unsigned int g = 0; g < entities.size(); g++){
+					if (entities[g]->health <= 0){
+						entities.erase(entities.begin() + g);
 					}
 				}
 			}
@@ -161,12 +155,6 @@ namespace spacey{
 							Ml_Enemy[i].health -= 10;
 							cout << "Enemy now has " << Ml_Enemy[i].health << " hp\n";
 						}
-					}
-				}
-
-				for (unsigned int g = 0; g < Ml_Enemy.size(); g++){
-					if (Ml_Enemy[g].health <= 0){ //removes the enemy when health = 0.
-						Ml_Enemy.erase(Ml_Enemy.begin() + g); //Death created by Kenneth Morgridge.
 					}
 				}
 			}
@@ -214,72 +202,72 @@ namespace spacey{
 						 //only tell the respective AI to either stop or walk away
 
 			// For player && Wall 
-			for (int i = 0; i < walls.size(); i++){
-				if (walls[i].x_coord - (walls[i].m_width / 2) <= 16 && walls[i].x_coord + (walls[i].m_width / 2) >= -16
-					&& walls[i].y_coord + (walls[i].m_height / 2) >= -16 && walls[i].y_coord - (walls[i].m_height / 2) <= 16){
-					hit = true;
-				}
-			}
+			//for (int i = 0; i < walls.size(); i++){
+			//	if (walls[i].x_coord - (walls[i].m_width / 2) <= 16 && walls[i].x_coord + (walls[i].m_width / 2) >= -16
+			//		&& walls[i].y_coord + (walls[i].m_height / 2) >= -16 && walls[i].y_coord - (walls[i].m_height / 2) <= 16){
+			//		hit = true;
+			//	}
+			//}
 
-			// For player && Basic Enemy 
-			for (int i = 0; i < B_Enemy.size(); i++){
-				if (B_Enemy[i].x_coord - (B_Enemy[i].m_width / 2) <= 16 && B_Enemy[i].x_coord + (B_Enemy[i].m_width / 2) >= -16
-					&& B_Enemy[i].y_coord + (B_Enemy[i].m_height / 2) >= -16 && B_Enemy[i].y_coord - (B_Enemy[i].m_height / 2) <= 16){
-					hit = true;
-					B_Enemy[i].AI("REDIRECT");
-				}
-			}
+			//// For player && Basic Enemy 
+			//for (int i = 0; i < B_Enemy.size(); i++){
+			//	if (B_Enemy[i].x_coord - (B_Enemy[i].m_width / 2) <= 16 && B_Enemy[i].x_coord + (B_Enemy[i].m_width / 2) >= -16
+			//		&& B_Enemy[i].y_coord + (B_Enemy[i].m_height / 2) >= -16 && B_Enemy[i].y_coord - (B_Enemy[i].m_height / 2) <= 16){
+			//		hit = true;
+			//		B_Enemy[i].AI("REDIRECT");
+			//	}
+			//}
 
-			// For player && Melee Enemy 
-			for (int i = 0; i < Ml_Enemy.size(); i++){
-				if (Ml_Enemy[i].x_coord - (Ml_Enemy[i].m_width / 2) <= 16 && Ml_Enemy[i].x_coord + (Ml_Enemy[i].m_width / 2) >= -16
-					&& Ml_Enemy[i].y_coord + (Ml_Enemy[i].m_height / 2) >= -16 && Ml_Enemy[i].y_coord - (Ml_Enemy[i].m_height / 2) <= 16){
-					hit = true;
-					Ml_Enemy[i].AI("RETREAT");
-				}
-			}
+			//// For player && Melee Enemy 
+			//for (int i = 0; i < Ml_Enemy.size(); i++){
+			//	if (Ml_Enemy[i].x_coord - (Ml_Enemy[i].m_width / 2) <= 16 && Ml_Enemy[i].x_coord + (Ml_Enemy[i].m_width / 2) >= -16
+			//		&& Ml_Enemy[i].y_coord + (Ml_Enemy[i].m_height / 2) >= -16 && Ml_Enemy[i].y_coord - (Ml_Enemy[i].m_height / 2) <= 16){
+			//		hit = true;
+			//		Ml_Enemy[i].AI("RETREAT");
+			//	}
+			//}
 
-			// For player && Basic Medic
-			for (int i = 0; i < B_Medics.size(); i++){
-				if (B_Medics[i].x_coord - (B_Medics[i].m_width / 2) <= 16 && B_Medics[i].x_coord + (B_Medics[i].m_width / 2) >= -16
-					&& B_Medics[i].y_coord + (B_Medics[i].m_height / 2) >= -16 && B_Medics[i].y_coord - (B_Medics[i].m_height / 2) <= 16){
-					hit = true;
-					B_Medics[i].AI("REDIRECT");
-				}
-			}
+			//// For player && Basic Medic
+			//for (int i = 0; i < B_Medics.size(); i++){
+			//	if (B_Medics[i].x_coord - (B_Medics[i].m_width / 2) <= 16 && B_Medics[i].x_coord + (B_Medics[i].m_width / 2) >= -16
+			//		&& B_Medics[i].y_coord + (B_Medics[i].m_height / 2) >= -16 && B_Medics[i].y_coord - (B_Medics[i].m_height / 2) <= 16){
+			//		hit = true;
+			//		B_Medics[i].AI("REDIRECT");
+			//	}
+			//}
 
-			// For Basic Enemy && Wall
-			for (int i = 0; i < walls.size(); i++){
-				for (int e = 0; e < B_Enemy.size(); e++){
-					if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Enemy[e].x_coord + (B_Enemy[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Enemy[e].x_coord - (B_Enemy[e].m_width / 2)
-						&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Enemy[e].y_coord - (B_Enemy[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Enemy[e].y_coord - (B_Enemy[e].m_height / 2)){
+			//// For Basic Enemy && Wall
+			//for (int i = 0; i < walls.size(); i++){
+			//	for (int e = 0; e < B_Enemy.size(); e++){
+			//		if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Enemy[e].x_coord + (B_Enemy[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Enemy[e].x_coord - (B_Enemy[e].m_width / 2)
+			//			&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Enemy[e].y_coord - (B_Enemy[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Enemy[e].y_coord - (B_Enemy[e].m_height / 2)){
 
-						B_Enemy[e].AI("REDIRECT");
-					}
-				}
-			}
-			
-			// For Melee Enemy && Wall
-			for (int i = 0; i < walls.size(); i++){
-				for (int e = 0; e < Ml_Enemy.size(); e++){
-					if (walls[i].x_coord - (walls[i].m_width / 2) <= Ml_Enemy[e].x_coord + (Ml_Enemy[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= Ml_Enemy[e].x_coord - (Ml_Enemy[e].m_width / 2)
-						&& walls[i].y_coord + (walls[i].m_height / 2) >= Ml_Enemy[e].y_coord - (Ml_Enemy[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= Ml_Enemy[e].y_coord - (Ml_Enemy[e].m_height / 2)){
+			//			B_Enemy[e].AI("REDIRECT");
+			//		}
+			//	}
+			//}
+			//
+			//// For Melee Enemy && Wall
+			//for (int i = 0; i < walls.size(); i++){
+			//	for (int e = 0; e < Ml_Enemy.size(); e++){
+			//		if (walls[i].x_coord - (walls[i].m_width / 2) <= Ml_Enemy[e].x_coord + (Ml_Enemy[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= Ml_Enemy[e].x_coord - (Ml_Enemy[e].m_width / 2)
+			//			&& walls[i].y_coord + (walls[i].m_height / 2) >= Ml_Enemy[e].y_coord - (Ml_Enemy[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= Ml_Enemy[e].y_coord - (Ml_Enemy[e].m_height / 2)){
 
-						Ml_Enemy[e].AI("REDIRECT");
-					}
-				}
-			}
+			//			Ml_Enemy[e].AI("REDIRECT");
+			//		}
+			//	}
+			//}
 
-			// For Base Medic && Wall
-			for (int i = 0; i < walls.size(); i++){
-				for (int e = 0; e < B_Medics.size(); e++){
-					if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Medics[e].x_coord + (B_Medics[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Medics[e].x_coord - (B_Medics[e].m_width / 2)
-						&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Medics[e].y_coord - (B_Medics[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Medics[e].y_coord - (B_Medics[e].m_height / 2)){
+			//// For Base Medic && Wall
+			//for (int i = 0; i < walls.size(); i++){
+			//	for (int e = 0; e < B_Medics.size(); e++){
+			//		if (walls[i].x_coord - (walls[i].m_width / 2) <= B_Medics[e].x_coord + (B_Medics[e].m_width / 2) && walls[i].x_coord + (walls[i].m_width / 2) >= B_Medics[e].x_coord - (B_Medics[e].m_width / 2)
+			//			&& walls[i].y_coord + (walls[i].m_height / 2) >= B_Medics[e].y_coord - (B_Medics[e].m_height / 2) && walls[i].y_coord - (walls[i].m_height / 2) <= B_Medics[e].y_coord - (B_Medics[e].m_height / 2)){
 
-						B_Medics[e].AI("REDIRECT");
-					}
-				}
-			}
+			//			B_Medics[e].AI("REDIRECT");
+			//		}
+			//	}
+			//}
 		}
 
 	}
