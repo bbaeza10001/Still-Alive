@@ -52,14 +52,15 @@
     <Image Include="Resources\Images\BaseEnemy.png" />
     <Image Include="Resources\Images\Basic_Wall.png" />
     <Image Include="Resources\Images\BG.png" />
-    <Image Include="Resources\Images\exit.png" />
     <Image Include="Resources\Images\Medic.png" />
     <Image Include="Resources\Images\MeleeEnemy.png" />
     <Image Include="Resources\Images\Multi-Layer.png" />
-    <Image Include="Resources\Images\start.png" />
     <Image Include="Resources\Images\FloorTile1.png" />
     <Image Include="Resources\Images\Inventory.png" />
     <Image Include="Resources\Images\Base_Bullet.png" />
+    <Image Include="Resources\Images\clock_arrow.png" />
+    <Image Include="Resources\Images\start_screen.png" />
+    <Image Include="Resources\Images\empty_button.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Levels\Doors.txt" />
@@ -67,5 +68,20 @@
     <Text Include="Resources\Levels\Medics.txt" />
     <Text Include="Resources\Levels\MeleeEnemy.txt" />
     <Text Include="Resources\Levels\Wall.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Audio\Piano_Tones\a1.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\a1s.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\b1.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\c1.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\c1s.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\c2.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\d1.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\d1s.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\e1.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\f1.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\f1s.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\g1.ogg" />
+    <None Include="Resources\Audio\Piano_Tones\g1s.ogg" />
   </ItemGroup>
 </Project>

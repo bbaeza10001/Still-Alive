@@ -5,6 +5,8 @@
 
 #include "src\objects\Inventory.h"
 
+#include <stdlib.h>
+
 #include <thread>
 
 using namespace spacey;
@@ -46,6 +48,7 @@ int main(){
 	glLoadIdentity();
 
 	bg_Texture background(&start, "Resources/Images/BG.png", 0, 0, 960, 720, false);
+	bg_Texture background(&start, "Resources/Images/start_screen.png", 0, 0, 960, 720, false);
 
 	button b_start(&start, width / 2, height / 2, 50, 40, "Resources/Images/start.png");
 	button b_exit(&start, width / 2, (height / 2) + 50, 50, 40, "Resources/Images/exit.png");
@@ -68,6 +71,9 @@ int main(){
 		}
 
 		start.update();
+		double x, y;
+		start.getMousePosition(x, y);
+		cout << x << ", " << y << endl;
 	}
 	//bullshit from George's anus
 	
@@ -163,4 +169,122 @@ int main(){
 		Sleep(0.5); //Controls how fast the game loop runs at max
 	}
 }
+#endif
+
+#if 1
+
+int selectNote(string scaleName);
+
+int main(){
+	int width = 50;
+	int height = 50;
+
+	glViewport(0, 0, width, height);
+
+	//Changing the in-game window's width and height to something more eye catching
+	width = 50;
+	height = 50;
+
+	//Game Window
+	static Window window("Literally Anything", width, height);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //Game background color
+
+	//OpenGL Coordinate Grid Setup
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 					
+	glMatrixMode(GL_MODELVIEW);											//the middle of the screen like a standard graph
+	glLoadIdentity();
+
+	while (!window.closed()){
+		cout << "What scale would you like to use?\n";
+		cout << "1> C Major\n";
+		cout << "2> F Major\n";
+
+		int selection;
+		cin >> selection;
+
+		cout << "How long would you like to play for?\n";
+		cout << "(Please enter a whole number)";
+
+		int duration;
+		cin >> duration;
+
+		int passed = 0;
+
+		if (selection == 1){
+			//Start Playing on the C Major Scale
+			while (passed < duration){
+				
+				passed += selectNote("C");
+			}
+			
+		}
+		else if (selection == 2){
+			//Start Playing on the F Major Scale
+		}
+	}
+}
+
+int selectNote(string scaleName){
+	sf::Music note;
+
+	int key = rand() % 8 + 1;
+	int passed = 0;
+	int length = rand() % 8 + 1;
+	length *= 500;
+
+	switch (key){
+	case 1:
+		//Play first note in scale
+		note.openFromFile("Resources/Audio/Piano_Tones/c1.ogg");
+		break;
+	
+	case 2:
+		//Play second note
+		note.openFromFile("Resources/Audio/Piano_Tones/d1.ogg");
+		break;
+	
+	case 3:
+		note.openFromFile("Resources/Audio/Piano_Tones/e1.ogg");
+		break;
+	
+	case 4:
+		note.openFromFile("Resources/Audio/Piano_Tones/f1.ogg");
+		break;
+
+	case 5:
+		note.openFromFile("Resources/Audio/Piano_Tones/g1.ogg");
+		break;
+
+	case 6:
+		note.openFromFile("Resources/Audio/Piano_Tones/a1.ogg");
+		break;
+	
+	case 7:
+		note.openFromFile("Resources/Audio/Piano_Tones/b1.ogg");
+		break;
+
+	case 8:
+		note.openFromFile("Resources/Audio/Piano_Tones/c2.ogg");
+		break;
+
+	default:
+		cout << "Key was outside of the scale!\n";
+		break;
+	}
+	note.setLoop(true);
+	note.play();
+
+	while (passed < length){
+		passed++;
+	}
+
+	note.stop();
+
+	cout << key << endl;
+
+	return 1;
+}
+
 #endif
