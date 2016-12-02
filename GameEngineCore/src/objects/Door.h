@@ -18,7 +18,7 @@ namespace spacey { namespace environment {
 		Door();
 		~Door();
 
-		Door(int x, int y, int width, 
+		Door(float x, float y, int width, 
 			int height, int closed_dir, int open_dir, string filename);
 
 	private: //Associated objects/variables

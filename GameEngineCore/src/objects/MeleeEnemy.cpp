@@ -7,7 +7,7 @@ namespace spacey{
 			y_coord = 0;
 		}
 
-		MeleeEnemy::MeleeEnemy(int x, int y, int tWidth, int tHeight, string filename){
+		MeleeEnemy::MeleeEnemy(float x, float y, int tWidth, int tHeight, string filename){
 			x_coord = x;
 			y_coord = y;
 			m_texWidth = tWidth;
@@ -82,36 +82,36 @@ namespace spacey{
 			else{
 				switch (direction){
 				case 1: //Up
-					y_coord += 0.4;
+					y_coord += 0.4f;
 					mObj.animFlag = "WALK_UP";
 					break;
 				case 2: //Up Right
-					x_coord += 0.4;
-					y_coord += 0.4;
+					x_coord += 0.4f;
+					y_coord += 0.4f;
 					break;
 				case 3:  //Right
-					x_coord += 0.4;
+					x_coord += 0.4f;
 					mObj.animFlag = "WALK_RIGHT";
 					break;
 				case 4: //Down Right
-					x_coord += 0.4;
-					y_coord -= 0.4;
+					x_coord += 0.4f;
+					y_coord -= 0.4f;
 					break;
 				case 5: //Down
-					y_coord -= 0.4;
+					y_coord -= 0.4f;
 					mObj.animFlag = "WALK_DOWN";
 					break;
 				case 6: //Left Down
-					x_coord -= 0.4;
-					y_coord -= 0.4;
+					x_coord -= 0.4f;
+					y_coord -= 0.4f;
 					break;
 				case 7: //Left
-					x_coord -= 0.4;
+					x_coord -= 0.4f;
 					mObj.animFlag = "WALK_LEFT";
 					break;
 				case 8: //Left Up
-					x_coord -= 0.4;
-					y_coord += 0.4;
+					x_coord -= 0.4f;
+					y_coord += 0.4f;
 					break;
 				default:
 					std::cout << "Not a valid enemy movement key.\n";

@@ -9,7 +9,7 @@ namespace spacey{
 			imageLoaded = false;
 		}
 
-		bg_Texture::bg_Texture(Window* window, string filename, int x, int y, int width, int height, bool parallax){
+		bg_Texture::bg_Texture(Window* window, string filename, float x, float y, int width, int height, bool parallax){
 			x_coord = x;
 			y_coord = y;
 			m_window = window;

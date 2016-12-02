@@ -6,8 +6,9 @@ namespace spacey{
 		void loadObject(vector<BaseObject> &systemVector, string fileName){
 			ifstream file;
 			string line, filename, type;
-			int width, height, x, y, amount;
+			int width, height, amount;
 			int aux1, aux2;
+			float x, y;
 
 			file.open(fileName);
 
@@ -65,7 +66,8 @@ namespace spacey{
 			}
 			else{
 				string line, filename, type;
-				int x, y, amount, texWidth, texHeight;
+				int  amount, texWidth, texHeight;
+				float x, y;
 
 				while (file.is_open()){
 					file >> line;

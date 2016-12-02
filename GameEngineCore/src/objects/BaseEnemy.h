@@ -17,7 +17,7 @@ namespace spacey{ namespace objects{
 		BaseEnemy(); //Constructor
 		~BaseEnemy(); //Destructor
 
-		BaseEnemy(int x, int y, int tWidth, int tHeight, string filename); //Overload Function
+		BaseEnemy(float x, float y, int tWidth, int tHeight, string filename); //Overload Function
 
 		std::vector<Bullet> delaware; 
 		

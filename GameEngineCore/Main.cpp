@@ -20,26 +20,21 @@ using namespace motion;
 using namespace GUI;
 
 /*
-NOTES:
+TO DO:
 
--Give the door class its own draw function
--Figure out which parts of code can be done in parallel
--Change the collision detection to read from black/white image outlines and check collisions
-  with the image locations
--Fix the start screen matrix
+
 */
 
 #if 1
-
 int main(){
 	//Width and height for the game window
 	int width = 960;
 	int height = 720;
 
-	//Start Screen
-	static Window start("Arorbis - Start", width, height);
+	//Start Screen Creation
+	static Window start("Untitled Game :( - Start", width, height);
 
-	//OpenGl Coordinate Grid Setup
+	//OpenGl Coordinate Grid Setup (Start Screen Coordinate Setup)
 	glViewport(0, 0, width, height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -47,21 +42,27 @@ int main(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	bg_Texture background(&start, "Resources/Images/BG.png", 0, 0, 960, 720, false);
+	//Setting the background image
 	bg_Texture background(&start, "Resources/Images/start_screen.png", 0, 0, 960, 720, false);
 
-	button b_start(&start, width / 2, height / 2, 50, 40, "Resources/Images/start.png");
-	button b_exit(&start, width / 2, (height / 2) + 50, 50, 40, "Resources/Images/exit.png");
-	bool exit = true;
+	//Creating buttons for the start screen
+	button b_start(&start, 900, 135, 220, 120, "Resources/Images/empty_button.png");
+	button b_exit(&start, (width / 2) + 20, (height / 2) + 60, 50, 40, "Resources/Images/empty_button.png");
+	bool exit = true; //This value keeps track of if the player wants the exit the program
 
+	//While loop for events happening in the start screen
 	while (!start.closed()){
-		start.clear();
+		//Clear all drawn images
+		start.clear(); 
 
-		background.Draw();
+		//Draw the background first
+		background.Draw(); 
 
+		//Draw the buttons over the background
 		b_start.draw();
 		b_exit.draw();
 
+		//Check if the start or exit button were clicked by checking the return value of their "clicked" function
 		if (b_start.clicked()){
 			start.~Window();
 			exit = false;
@@ -70,56 +71,61 @@ int main(){
 			start.~Window();
 		}
 
+		//Update the start screen to display all of the image changes
 		start.update();
-		double x, y;
-		start.getMousePosition(x, y);
-		cout << x << ", " << y << endl;
 	}
-	//bullshit from George's anus
+	//bullshit from George's anus <-----Curtosey of Evan 
 	
-	if (exit == false){
+	if (exit == false){ //If the player does NOT want to quit the game
 
-		glViewport(0, 0, width, height);
+		//Resetting the viewport for the main game
+		glViewport(0, 0, width, height); 
 
 		//Changing the in-game window's width and height to something more eye catching
 		width = 960;
 		height = 720;
 
-		//Game Window
-		static Window window("Arorbis - DEMO", width, height);
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //Game background color
+		//Game Window Creation
+		static Window window("Untitled Game :( - DEMO", width, height);
+		//Level background color
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f); 
 
-		//OpenGL Coordinate Grid Setup
+		//OpenGL Coordinate Grid Setup (Game Screen Coordinate Setup)
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 					
 		glMatrixMode(GL_MODELVIEW);											//the middle of the screen like a standard graph
 		glLoadIdentity();
 		
+		//Background (or floor) image setup
 		bg_Texture floor(&window, "Resources/Images/FloorTile1.png", -800, -600, 1600, 1200, true);
 
-		// Construction
-		Motion motion;
-		PlayerObject player(&window, &motion, "Resources/Images/Multi-Layer.png", 37, 37);
-		BG test(&window);
+		//Object (class) initialization (set-up) for objects we will need during runtime
+		
+		Motion motion; //Keeps track of all moving objects: speed, roations, etc
+		PlayerObject player(&window, &motion, "Resources/Images/Multi-Layer.png", 37, 37); //Player instance, handles input
+		BG test(&window); //BG (background) object, contains all in game objects: Walls, enemies, collision detection, etc
+		
+		//File loading for level setup
 		test.loadFile("Resources/Levels/Wall.txt", "ENVIRONMENT");
 		//test.loadFile("Resources/Levels/Doors.txt", "ENVIRONMENT");
 		/*test.loadFile("Resources/Levels/Medics.txt", "ENTITY");
 		test.loadFile("Resources/Levels/Enemy.txt", "ENTITY");
 		test.loadFile("Resources/Levels/MeleeEnemy.txt", "ENTITY");*/
 				
+		//Main game loop
 		while (!window.closed()){
-			window.clear();
+			window.clear(); //Clear the screen
 
-			checkForInput(&window, &motion, test); //Getting input values from the player in the current window
+			//Get input values from the player in the current window
+			checkForInput(&window, &motion, test); 
+			
+			floor.Draw(); //Draw the floor first
+			test.update(&motion, &player); //Update (and draw) all in game objects
+			player.Draw(); //Draw the player on the very top so it is always visible
 
-
-			floor.Draw();
-			test.update(&motion, &player);
-			player.Draw();
-
-			window.update();
-			Sleep(0.5); //Controls how fast the game loop runs at max
+			window.update(); //Update the window to display all new changes
+			Sleep(0.5); //Controls how fast the game loop runs at max, ignore this line
 		}
 
 	}
@@ -169,122 +175,4 @@ int main(){
 		Sleep(0.5); //Controls how fast the game loop runs at max
 	}
 }
-#endif
-
-#if 1
-
-int selectNote(string scaleName);
-
-int main(){
-	int width = 50;
-	int height = 50;
-
-	glViewport(0, 0, width, height);
-
-	//Changing the in-game window's width and height to something more eye catching
-	width = 50;
-	height = 50;
-
-	//Game Window
-	static Window window("Literally Anything", width, height);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //Game background color
-
-	//OpenGL Coordinate Grid Setup
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0); //Sets coordinate system to start in 					
-	glMatrixMode(GL_MODELVIEW);											//the middle of the screen like a standard graph
-	glLoadIdentity();
-
-	while (!window.closed()){
-		cout << "What scale would you like to use?\n";
-		cout << "1> C Major\n";
-		cout << "2> F Major\n";
-
-		int selection;
-		cin >> selection;
-
-		cout << "How long would you like to play for?\n";
-		cout << "(Please enter a whole number)";
-
-		int duration;
-		cin >> duration;
-
-		int passed = 0;
-
-		if (selection == 1){
-			//Start Playing on the C Major Scale
-			while (passed < duration){
-				
-				passed += selectNote("C");
-			}
-			
-		}
-		else if (selection == 2){
-			//Start Playing on the F Major Scale
-		}
-	}
-}
-
-int selectNote(string scaleName){
-	sf::Music note;
-
-	int key = rand() % 8 + 1;
-	int passed = 0;
-	int length = rand() % 8 + 1;
-	length *= 500;
-
-	switch (key){
-	case 1:
-		//Play first note in scale
-		note.openFromFile("Resources/Audio/Piano_Tones/c1.ogg");
-		break;
-	
-	case 2:
-		//Play second note
-		note.openFromFile("Resources/Audio/Piano_Tones/d1.ogg");
-		break;
-	
-	case 3:
-		note.openFromFile("Resources/Audio/Piano_Tones/e1.ogg");
-		break;
-	
-	case 4:
-		note.openFromFile("Resources/Audio/Piano_Tones/f1.ogg");
-		break;
-
-	case 5:
-		note.openFromFile("Resources/Audio/Piano_Tones/g1.ogg");
-		break;
-
-	case 6:
-		note.openFromFile("Resources/Audio/Piano_Tones/a1.ogg");
-		break;
-	
-	case 7:
-		note.openFromFile("Resources/Audio/Piano_Tones/b1.ogg");
-		break;
-
-	case 8:
-		note.openFromFile("Resources/Audio/Piano_Tones/c2.ogg");
-		break;
-
-	default:
-		cout << "Key was outside of the scale!\n";
-		break;
-	}
-	note.setLoop(true);
-	note.play();
-
-	while (passed < length){
-		passed++;
-	}
-
-	note.stop();
-
-	cout << key << endl;
-
-	return 1;
-}
-
 #endif

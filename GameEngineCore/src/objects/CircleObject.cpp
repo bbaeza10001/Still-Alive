@@ -52,7 +52,7 @@ namespace spacey{
 					yN = radius * (std::sin(i * full_angle / 180.0f));
 
 
-					glColor3f((xN * 0.01), (yN * 0.01), 0.5f); //Sets color of planets
+					glColor3f((xN * 0.01f), (yN * 0.01f), 0.5f); //Sets color of planets
 					glVertex2d(xN, yN);
 				}
 				glEnd();

@@ -7,7 +7,7 @@ namespace spacey{ namespace objects{
 		y_coord = 0;
 	}
 
-	BaseEnemy::BaseEnemy(int x, int y, int tWidth, int tHeight, string filename){
+	BaseEnemy::BaseEnemy(float x, float y, int tWidth, int tHeight, string filename){
 		x_coord = x;
 		y_coord = y;
 		m_texWidth = tWidth;
@@ -42,7 +42,7 @@ namespace spacey{ namespace objects{
 		}
 
 		if (!delaware.empty()){
-			for (int i = 0; i < delaware.size(); i++){
+			for (unsigned int i = 0; i < delaware.size(); i++){
 				delaware[i].Fire();
 				if (delaware[i].limit()){
 					delaware.erase(delaware.begin() + i);
@@ -74,36 +74,36 @@ namespace spacey{ namespace objects{
 		else{
 			switch (direction){
 			case 1: //Up
-				y_coord += 0.2;
+				y_coord += 0.2f;
 				mObj.animFlag = "WALK_UP";
 				break;
 			case 2: //Up Right
-				x_coord += 0.2;
-				y_coord += 0.2;
+				x_coord += 0.2f;
+				y_coord += 0.2f;
 				break;
 			case 3:  //Right
-				x_coord += 0.2;
+				x_coord += 0.2f;
 				mObj.animFlag = "WALK_RIGHT";
 				break;
 			case 4: //Down Right
-				x_coord += 0.2;
-				y_coord -= 0.2;
+				x_coord += 0.2f;
+				y_coord -= 0.2f;
 				break;
 			case 5: //Down
-				y_coord -= 0.2;
+				y_coord -= 0.2f;
 				mObj.animFlag = "WALK_DOWN";
 				break;
 			case 6: //Left Down
-				x_coord -= 0.2;
-				y_coord -= 0.2;
+				x_coord -= 0.2f;
+				y_coord -= 0.2f;
 				break;
 			case 7: //Left
-				x_coord -= 0.2;
+				x_coord -= 0.2f;
 				mObj.animFlag = "WALK_LEFT";
 				break;
 			case 8: //Left Up
-				x_coord -= 0.2;
-				y_coord += 0.2;
+				x_coord -= 0.2f;
+				y_coord += 0.2f;
 				break;
 			default:
 				std::cout << "Not a valid enemy movement key.\n";
@@ -118,18 +118,18 @@ namespace spacey{ namespace objects{
 
 		//Move in the correct x direction
 		if (p_x > x_coord){
-			x_coord -= 0.2;
+			x_coord -= 0.2f;
 		}
 		else if (p_x < x_coord){
-			x_coord += 0.2;
+			x_coord += 0.2f;
 		}
 
 		//Move in the correct y direction
 		if (p_y > y_coord){
-			y_coord -= 0.2;
+			y_coord -= 0.2f;
 		}
 		else if (p_y < y_coord){
-			y_coord += 0.2;
+			y_coord += 0.2f;
 		}
 
 		
@@ -141,18 +141,18 @@ namespace spacey{ namespace objects{
 
 			//Move in the correct x direction
 			if (p_x > x_coord){
-				x_coord += 0.2;
+				x_coord += 0.2f;
 			}
 			else if (p_x < x_coord){
-				x_coord -= 0.2;
+				x_coord -= 0.2f;
 			}
 
 			//Move in the correct y direction
 			if (p_y > y_coord){
-				y_coord += 0.2;
+				y_coord += 0.2f;
 			}
 			else if (p_y < y_coord){
-				y_coord -= 0.2;
+				y_coord -= 0.2f;
 			}
 
 			//Once the enemy is lined up with the player, shoot

@@ -13,7 +13,7 @@ namespace spacey{
 		class bg_Texture : BaseObject{
 		public:
 			bg_Texture();
-			bg_Texture(Window* window, string filename, int x, int y, int width, int height, bool parallax);
+			bg_Texture(Window* window, string filename, float x, float y, int width, int height, bool parallax);
 			void Draw();
 		private:
 			void parallax();

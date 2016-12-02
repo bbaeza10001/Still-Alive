@@ -18,7 +18,7 @@ namespace spacey{
 			BaseItem();
 			~BaseItem();
 
-			BaseItem(int x, int y, string filename);
+			BaseItem(float x, float y, string filename);
 
 			void draw(Motion* motion);
 			bool isPickedUp(BaseEntity* entity);

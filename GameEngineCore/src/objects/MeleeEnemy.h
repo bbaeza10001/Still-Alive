@@ -17,7 +17,7 @@ namespace spacey{
 			MeleeEnemy(); //Constructor
 			~MeleeEnemy(); //Destructor
 
-			MeleeEnemy(int x, int y, int tWidth, int tHeight, string filename); //Overload Function
+			MeleeEnemy(float x, float y, int tWidth, int tHeight, string filename); //Overload Function
 
 		private: //Direction and Movement Tracking
 			const int STEP_MAX = 300;

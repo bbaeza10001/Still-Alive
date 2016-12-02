@@ -19,7 +19,7 @@ namespace spacey{
 			BaseMedic(); //Constructor
 			~BaseMedic(); //Destructor
 
-			BaseMedic(int x, int y, int tWidth, int tHeight, string filename); //Overload Function
+			BaseMedic(float x, float y, int tWidth, int tHeight, string filename); //Overload Function
 			
 		private: //Orientation
 			int counter;

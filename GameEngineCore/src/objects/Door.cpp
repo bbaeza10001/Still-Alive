@@ -17,7 +17,7 @@ namespace spacey{ namespace environment{
 
 	}
 
-	Door::Door(int x, int y, int w,
+	Door::Door(float x, float y, int w,
 		int h, int closed_dir, int open_dir, string filename){
 
 		x_coord = x;

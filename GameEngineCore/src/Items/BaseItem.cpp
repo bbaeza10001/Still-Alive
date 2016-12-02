@@ -18,7 +18,7 @@ namespace spacey{
 
 		}
 
-		BaseItem::BaseItem(int x, int y, string filename){
+		BaseItem::BaseItem(float x, float y, string filename){
 			x_coord = x;
 			y_coord = y;
 

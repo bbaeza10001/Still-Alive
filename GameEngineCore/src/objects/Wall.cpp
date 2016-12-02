@@ -8,7 +8,7 @@ namespace spacey{
 			y_coord = 0;
 		}
 
-		Wall::Wall(int width, int height, int x, int y, string type){
+		Wall::Wall(int width, int height, float x, float y, string type){
 			iWidth = width;
 			iHeight = height;
 			x_coord = x;
